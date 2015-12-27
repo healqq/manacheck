@@ -7,7 +7,7 @@ var LandsFactory = require(cardsModule + '/factories/landsFactory.js');
 var combinationsHelper = require(cardsModule + '/helpers/combinationsHelper.js');
 var DeckRepository = require(cardsModule + '/repositories/deckRepository.js');
 var HandRepository = require(cardsModule + '/repositories/handRepository.js');
-var FieldService = require(cardsModule + '/services/FieldService.js');
+var FieldService = require(cardsModule + '/services/fieldService.js');
 
 
 function cardsService() {
