@@ -1,0 +1,112 @@
+.lands-wrapper {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; }
+  .lands-wrapper .lands-container {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin-bottom: 30px;
+    order: 2;
+    display: flex;
+    margin: 20px;
+    flex-direction: row;
+    align-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .lands-wrapper .lands-container .land-item {
+      margin: 20px;
+      min-height: 279.24528px;
+      min-width: 200px;
+      background-image: url(http://mythicspoiler.com/ogw/cards/wastes.jpg);
+      background-color: #aaa;
+      background-size: cover;
+      position: relative; }
+      .lands-wrapper .lands-container .land-item .land-count {
+        font-size: 72pt;
+        line-height: 168pt;
+        font-color: #fff;
+        text-align: center; }
+      .lands-wrapper .lands-container .land-item .hover-block {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        background-color: rgba(35, 35, 35, 0.5);
+        z-index: -1;
+        display: flex;
+        transition: opacity 0.3s;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+        .lands-wrapper .lands-container .land-item .hover-block .plus,
+        .lands-wrapper .lands-container .land-item .hover-block .minus {
+          height: 50%;
+          cursor: pointer;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          z-index: 6; }
+          .lands-wrapper .lands-container .land-item .hover-block .plus:hover svg,
+          .lands-wrapper .lands-container .land-item .hover-block .minus:hover svg {
+            fill: #fff; }
+          .lands-wrapper .lands-container .land-item .hover-block .plus .svg-holder,
+          .lands-wrapper .lands-container .land-item .hover-block .minus .svg-holder {
+            box-sizing: border-box;
+            height: 50%; }
+          .lands-wrapper .lands-container .land-item .hover-block .plus svg,
+          .lands-wrapper .lands-container .land-item .hover-block .minus svg {
+            fill: #000;
+            transition: fill 0.3s;
+            box-sizing: border-box;
+            width: 100%;
+            height: 80%;
+            padding: 1px; }
+      .lands-wrapper .lands-container .land-item:hover .hover-block {
+        opacity: 1;
+        z-index: 5; }
+  .lands-wrapper .filters {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-color: #fff;
+    margin: 0 20px 30px 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    order: 1; }
+    .lands-wrapper .filters .filters-header {
+      margin: 5px 0;
+      font-weight: normal;
+      color: #666; }
+    .lands-wrapper .filters .filter-colors,
+    .lands-wrapper .filters .filter-types {
+      /*height: 60px;*/
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap; }
+      .lands-wrapper .filters .filter-colors .filter-item,
+      .lands-wrapper .filters .filter-types .filter-item {
+        margin: 15px 10px;
+        padding: 8px;
+        border-radius: 4px;
+        background-color: #aaa;
+        color: #eee;
+        cursor: pointer;
+        transition: color 0.3s, background-color 0.3s; }
+        .lands-wrapper .filters .filter-colors .filter-item:hover,
+        .lands-wrapper .filters .filter-types .filter-item:hover {
+          background-color: #909090; }
+        .lands-wrapper .filters .filter-colors .filter-item.active,
+        .lands-wrapper .filters .filter-types .filter-item.active {
+          background-color: #26596A; }
+          .lands-wrapper .filters .filter-colors .filter-item.active:hover,
+          .lands-wrapper .filters .filter-types .filter-item.active:hover {
+            background-color: #193944; }
+    .lands-wrapper .filters .filter-color {
+      background-color: #fafafa; }
+    .lands-wrapper .filters .filter-type {
+      background-color: #fafafa; }

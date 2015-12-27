@@ -1,0 +1,109 @@
+colors-mixin.red, .colors-inputs-container .red.color-item, .colors-display-container .color-items .red.color-item {
+  background-color: #ff0000; }
+colors-mixin.blue, .colors-inputs-container .blue.color-item, .colors-display-container .color-items .blue.color-item {
+  background-color: #0000ff; }
+colors-mixin.green, .colors-inputs-container .green.color-item, .colors-display-container .color-items .green.color-item {
+  background-color: #00ff00; }
+colors-mixin.white, .colors-inputs-container .white.color-item, .colors-display-container .color-items .white.color-item {
+  background-color: #ffffff; }
+colors-mixin.black, .colors-inputs-container .black.color-item, .colors-display-container .color-items .black.color-item {
+  background-color: #000000; }
+colors-mixin.colorless, .colors-inputs-container .colorless.color-item, .colors-display-container .color-items .colorless.color-item {
+  background-color: #999999; }
+
+color-hover-animation .hover-block, .colors-inputs-container .color-item .hover-block, .colors-display-container .color-items .color-item .hover-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-color: rgba(35, 35, 35, 0.5);
+  z-index: -1;
+  display: flex;
+  transition: opacity 0.3s;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  color-hover-animation .hover-block .plus, .colors-inputs-container .color-item .hover-block .plus, .colors-display-container .color-items .color-item .hover-block .plus,
+  color-hover-animation .hover-block .minus,
+  .colors-inputs-container .color-item .hover-block .minus,
+  .colors-display-container .color-items .color-item .hover-block .minus {
+    height: 100%;
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 6; }
+    color-hover-animation .hover-block .plus:hover svg, .colors-inputs-container .color-item .hover-block .plus:hover svg, .colors-display-container .color-items .color-item .hover-block .plus:hover svg,
+    color-hover-animation .hover-block .minus:hover svg,
+    .colors-inputs-container .color-item .hover-block .minus:hover svg,
+    .colors-display-container .color-items .color-item .hover-block .minus:hover svg {
+      fill: #fff; }
+    color-hover-animation .hover-block .plus .svg-holder, .colors-inputs-container .color-item .hover-block .plus .svg-holder, .colors-display-container .color-items .color-item .hover-block .plus .svg-holder,
+    color-hover-animation .hover-block .minus .svg-holder,
+    .colors-inputs-container .color-item .hover-block .minus .svg-holder,
+    .colors-display-container .color-items .color-item .hover-block .minus .svg-holder {
+      box-sizing: border-box;
+      height: 80%; }
+    color-hover-animation .hover-block .plus svg, .colors-inputs-container .color-item .hover-block .plus svg, .colors-display-container .color-items .color-item .hover-block .plus svg,
+    color-hover-animation .hover-block .minus svg,
+    .colors-inputs-container .color-item .hover-block .minus svg,
+    .colors-display-container .color-items .color-item .hover-block .minus svg {
+      fill: #000;
+      transition: fill 0.3s;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      padding: 1px; }
+color-hover-animation:hover .hover-block, .colors-inputs-container .color-item:hover .hover-block, .colors-display-container .color-items .color-item:hover .hover-block {
+  opacity: 1;
+  z-index: 5; }
+
+.colors-inputs-container {
+  order: 1;
+  display: flex;
+  margin: 20px;
+  flex-direction: row;
+  align-content: flex-start;
+  justify-content: space-around;
+  min-height: 100px;
+  /*flex-wrap: wrap;*/ }
+  .colors-inputs-container .color-item {
+    flex: 1;
+    border: 1px solid #000;
+    margin: 20px;
+    position: relative;
+    border-radius: 4px; }
+
+.colors-display-container {
+  order: 2;
+  display: flex;
+  margin: 20px;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+  .colors-display-container .color-items {
+    /*	height: 250px;
+    	width: 200px;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .colors-display-container .color-items .color-item {
+      margin: 20px;
+      min-height: 40px;
+      min-width: 40px;
+      border: 1px solid #000;
+      border-radius: 4px;
+      flex: 1;
+      position: relative; }
+
+.colors-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-around; }

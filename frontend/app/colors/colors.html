@@ -1,0 +1,50 @@
+<div class='colors-wrapper' colors-helper>
+	<div class='colors-inputs-container'>
+		<div ng-repeat='item in chCtrl.colors.colors' class='color-item {{item.color}}'>
+			<div class='hover-block'>
+				<div class='plus' 
+					ng-click='chCtrl.addColor(item.color,1)'>
+					<div class='svg-holder'>
+						<svg>
+							<use xlink:href="images/actions.svg#plus">
+							</use>
+						</svg>
+					</div>
+				</div>
+			</div>
+			<!-- <svg viewBox="-160 50 50 50">
+				<use xlink:href='{{item.icon}}'/>
+			</svg> -->
+			<!-- {{item.color}} -->
+			<!-- <input type='button' value = '+' ng-click='colorsCtrl.addColor(item.color, 1)'/>
+			<input type='button' value = '-' ng-click='colorsCtrl.addColor(item.color, -1)' ng-show='item.value > 0'/> -->
+			
+		</div>
+	</div>
+
+	<div class='colors-display-container'>
+		<div ng-repeat='item in chCtrl.colors.colors' class='color-items'>
+			<div class='color-item {{item.color}}' 
+				ng-repeat='i in chCtrl.range(item.value) track by $index'>
+					<div class='hover-block'>
+						<div class='minus' 
+							ng-click='chCtrl.addColor(item.color,-1)'>
+							<div class='svg-holder'>
+								<svg>
+									<use xlink:href="images/actions.svg#minus">
+									</use>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<!-- <img ng-src="{{item.icon}}">
+					</img> -->
+					<!-- {{item.color}} -->
+				
+			</div>
+			<!-- <input type='button' value = '+' ng-click='colorsCtrl.addColor(item.color, 1)'/>
+			<input type='button' value = '-' ng-click='colorsCtrl.addColor(item.color, -1)' ng-show='item.value > 0'/> -->
+			
+		</div>
+	</div>
+</div>

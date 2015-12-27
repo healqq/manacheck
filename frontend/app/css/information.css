@@ -1,0 +1,131 @@
+colors-mixin.red, .info .lands-container .land-item land-item .sub-info .red.color-item, .info .colors-container .colors-items-wrapper .color-items .red.color-item {
+  background-color: #ff0000; }
+colors-mixin.blue, .info .lands-container .land-item land-item .sub-info .blue.color-item, .info .colors-container .colors-items-wrapper .color-items .blue.color-item {
+  background-color: #0000ff; }
+colors-mixin.green, .info .lands-container .land-item land-item .sub-info .green.color-item, .info .colors-container .colors-items-wrapper .color-items .green.color-item {
+  background-color: #00ff00; }
+colors-mixin.white, .info .lands-container .land-item land-item .sub-info .white.color-item, .info .colors-container .colors-items-wrapper .color-items .white.color-item {
+  background-color: #ffffff; }
+colors-mixin.black, .info .lands-container .land-item land-item .sub-info .black.color-item, .info .colors-container .colors-items-wrapper .color-items .black.color-item {
+  background-color: #000000; }
+colors-mixin.colorless, .info .lands-container .land-item land-item .sub-info .colorless.color-item, .info .colors-container .colors-items-wrapper .color-items .colorless.color-item {
+  background-color: #999999; }
+
+color-hover-animation .hover-block, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-color: rgba(35, 35, 35, 0.5);
+  z-index: -1;
+  display: flex;
+  transition: opacity 0.3s;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  color-hover-animation .hover-block .plus, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus,
+  color-hover-animation .hover-block .minus,
+  .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus {
+    height: 100%;
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 6; }
+    color-hover-animation .hover-block .plus:hover svg, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus:hover svg,
+    color-hover-animation .hover-block .minus:hover svg,
+    .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus:hover svg {
+      fill: #fff; }
+    color-hover-animation .hover-block .plus .svg-holder, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus .svg-holder,
+    color-hover-animation .hover-block .minus .svg-holder,
+    .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus .svg-holder {
+      box-sizing: border-box;
+      height: 80%; }
+    color-hover-animation .hover-block .plus svg, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus svg,
+    color-hover-animation .hover-block .minus svg,
+    .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus svg {
+      fill: #000;
+      transition: fill 0.3s;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      padding: 1px; }
+color-hover-animation:hover .hover-block, .info .colors-container .colors-items-wrapper .color-items .color-item:hover .hover-block {
+  opacity: 1;
+  z-index: 5; }
+
+.info .lands-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  max-height: 410px; }
+  .info .lands-container .land-item {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center; }
+    .info .lands-container .land-item land-item {
+      flex: 1; }
+      .info .lands-container .land-item land-item .sub-info {
+        font-size: 10pt;
+        font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        align-items: center; }
+        .info .lands-container .land-item land-item .sub-info .color-item {
+          height: 10px;
+          width: 10px;
+          border: 1px solid black;
+          margin: 5px;
+          float: left; }
+    .info .lands-container .land-item .plus {
+      order: 1; }
+    .info .lands-container .land-item .minus {
+      order: 2; }
+    .info .lands-container .land-item .plus,
+    .info .lands-container .land-item .minus {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex: 35px 0;
+      cursor: pointer; }
+      .info .lands-container .land-item .plus .svg-holder,
+      .info .lands-container .land-item .minus .svg-holder {
+        box-sizing: border-box;
+        height: 40px; }
+        .info .lands-container .land-item .plus .svg-holder svg,
+        .info .lands-container .land-item .minus .svg-holder svg {
+          fill: #999;
+          transition: fill 0.3s;
+          box-sizing: border-box;
+          width: 100%;
+          height: 100%;
+          padding: 1px; }
+      .info .lands-container .land-item .plus:hover svg,
+      .info .lands-container .land-item .minus:hover svg {
+        fill: #193944; }
+.info .colors-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column; }
+  .info .colors-container .colors-items-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .info .colors-container .colors-items-wrapper .color-items {
+      display: flex;
+      flex-direction: row; }
+      .info .colors-container .colors-items-wrapper .color-items .color-item {
+        position: relative;
+        height: 20px;
+        width: 20px;
+        border: 1px solid #000;
+        margin: 5px; }

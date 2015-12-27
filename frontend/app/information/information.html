@@ -1,0 +1,67 @@
+<div class='info'>
+	<div class='lands-container' lands-helper>
+		<h3>
+			<a ui-sref='Base.Lands'>
+		 		Lands ({{llCtrl._lands.count}}) 
+		 	</a>
+		</h3>
+		<div class='land-item' ng-repeat='land in llCtrl._lands.lands'>
+			<land-item land-id="land.id" land-count="land.value">
+			</land-item>
+			<div class='plus'
+				ng-click='llCtrl.removeLand(land)'
+				ng-show='llCtrl.canRemoveLand(land)'>
+				<div class='svg-holder'>
+					<svg>
+						<use xlink:href="images/actions.svg#minus">
+						</use>
+					</svg>
+				</div>
+			</div>
+			<div class='minus'
+				ng-click='llCtrl.addLand(land)'
+				ng-show='llCtrl.canAddLand(land)'>
+				<div class='svg-holder'>
+					<svg>
+						<use xlink:href="images/actions.svg#plus">
+						</use>
+					</svg>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<div class='colors-container' colors-helper>
+		<h3> 
+			<a ui-sref='Base.Colors'>
+				Colors ({{chCtrl.colors.count}}) 
+			</a>
+		</h3>
+		<div class='colors-items-wrapper'>
+			<div class='color-items' ng-repeat='item in chCtrl.colors.colors'>
+				<div class='color-item {{item.color}}' 
+					ng-repeat='i in chCtrl.range(item.value) track by $index'>
+		
+					<div class='hover-block'>
+						<div class='minus' 
+							ng-click='chCtrl.addColor(item.color,-1)'>
+							<div class='svg-holder'>
+								<svg>
+									<use xlink:href="images/actions.svg#minus">
+									</use>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='compute'>
+		<button class='submit' ng-click='infoCtrl.submitData()'>
+		Compute
+		</button>
+	</div>
+</div>

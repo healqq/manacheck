@@ -1,0 +1,59 @@
+<div class='lands-wrapper'>
+	<div class='filters'>
+		<h3> Filters </h3>
+		<div class='filter-colors'>
+
+			<div>By color:</div>
+			<div class='filter-color filter-item' 
+				ng-repeat='color in landsCtrl.colorsList'
+				ng-class='{active: landsCtrl.isActiveFilter(landsCtrl.colorsFilter, color)}'
+				ng-click = 'landsCtrl.toggleFilter(landsCtrl.colorsFilter, color)'>
+				{{color}}
+			</div>
+		</div>
+		<div class='filter-types'>
+			<div>By type:</div>
+			<div class='filter-type filter-item' ng-repeat='type in landsCtrl.typesList'
+				ng-class='{active: landsCtrl.isActiveFilter(landsCtrl.typesFilter, type)}'
+				ng-click = 'landsCtrl.toggleFilter(landsCtrl.typesFilter, type)'>
+				{{type}}
+			</div>
+		</div>
+	</div>
+	<div class='lands-container' lands-helper>
+
+		<div ng-repeat='land in landsCtrl.landsList | colorsFilter: landsCtrl.colorsFilter | typesFilter: landsCtrl.typesFilter' 
+			class='land-item'>
+			<!-- id: {{land.id}}  -->
+			<div class='land-count'>
+				{{llCtrl.getLandCount(land)}} 
+			</div>
+
+			<!-- <div ng-repeat="color in land.colors" class='lands-color'>
+				{{color}}
+			</div> -->
+			<div class='hover-block'>
+				<div class='plus' 
+					ng-click='llCtrl.addLand(land)'
+					ng-show='llCtrl.canAddLand(land)'>
+					<div class='svg-holder'>
+						<svg>
+							<use xlink:href="images/actions.svg#plus">
+							</use>
+						</svg>
+					</div>
+				</div>
+				<div class='minus' 
+					ng-click='llCtrl.removeLand(land)'
+					ng-show='llCtrl.canRemoveLand(land)'>
+					<div class='svg-holder'>
+						<svg>
+							<use xlink:href="images/actions.svg#minus">
+							</use>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
