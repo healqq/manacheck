@@ -4,11 +4,16 @@ var CardsService = require(appRoot + '/modules/cards/services/cardsService.js');
 
 var router = express.Router();
 
-/* GET home page. */
+/* POST play */
 router.post('/play', function(req, res, next) {
 	
+	function sendResponse(res, data, status) {
+		status = status || 200;
+		res.status(status);
+		res.send(data);
+	}
 	function transformLands(landsObject) {
-		console.log(landsObject);
+		// console.log(landsObject);
 		var lands = landsObject.lands;
 		var result = [];
 		lands.forEach(function(landItem) {
@@ -19,21 +24,30 @@ router.post('/play', function(req, res, next) {
 
 		return result;
 	}
+
+	function getGenericMana(colors) {
+		var value = 0;
+		for (var i=0;i< colors.length; i++) {
+			if (colors[i].color === 'generic') {
+				value = colors[i].value;
+				colors.splice(i, 1);
+				return value;
+			}
+		}
+	}
 	var requestData = req.body;
 
 	var lands = transformLands(requestData.lands);
+	var genericMana = getGenericMana(requestData.colors.colors);
 	var colors = requestData.colors.colors;
+
 	var cardsService = new CardsService();
 	cardsService.setColors(colors);
 	cardsService.setLands(lands);
-	res.send(cardsService.play());
-});
-// router.get('/shuffle', function(req, res, next) {
-//   res.send(new cardsService.shuffle());
-// });
-// router.get('/drow', function(req, res, next) {
-//   res.send(new cardsService.drow());
-// });
+	cardsService.setGenericMana(genericMana);
 
+	var result = cardsService.play();
+	sendResponse(res, result.data, result.status);
+});
 
 module.exports = router;

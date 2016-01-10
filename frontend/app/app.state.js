@@ -59,7 +59,21 @@
 			    		controller: 'resultsController'
 		    		}
 		    	}
+		    })
+		    .state('Base.Errors', {
+		    	url: "error",
+		    	params: {
+		    		data: []
+		    	},
+		    	views: {
+		    		container: {
+		    			templateUrl: "errors/errors.html",
+			    		controllerAs: 'errorsCtrl',
+			    		controller: 'errorsController'
+		    		}
+		    	}
 		    });
+
 	    
     	
     }

@@ -24,17 +24,20 @@ function landsFileParser() {
 			// 3 - type (not needed)
 			// 4 - colors
 			// 5 - actual group (tolover, trim after first space)
-			this.name = data[0];
+			this.title = data[0];
 			this.type = data[5];
 			this.tapped = (data[2] === 'T')? true: false;
 			this.colors = getColorsArray(data[4]);
-			this.id = id + 1;
+			this.id = id;
 		}
 		var parser = parse({delimiter: ','}, 
 			function(err, data){
 				var lands = [];
 
 				data.forEach( function (value, index) {
+					if (index === 0) {
+						return;
+					}
 					lands.push(new Land(value, index));
 				});
 

@@ -6,10 +6,6 @@
 	.directive('landItem', landItem);
 
 	function landItem() {
-
-
-
-
 		return {
 			restrict: 'E',
 			controller: landItemController,

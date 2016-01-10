@@ -23,11 +23,20 @@
 			};
 
 			var response = calculationFactory.calculate(params)
-			.then(function(data) {
-				$state.go('^.Results', {data: data.rounds});
-				return data;
-			});
+			.then(
+				function(data) {
+					$state.go('^.Results', {data: data.rounds});
+					return data;
+				},
+				function(error) {
+					$state.go('^.Errors', {data: error.data});
+				}
+			);
 
+		}
+
+		function navigate(state) {
+			$state.go(state);
 		}
 	}
 })();

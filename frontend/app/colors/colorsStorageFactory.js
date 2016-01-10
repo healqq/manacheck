@@ -16,13 +16,14 @@
 			{color:'white', value: 0, icon:'images/white.svg'},
 			{color:'black', value: 0, icon:'images/black.svg'},
 			{color:'colorless', value: 0, icon:'images/colorless.svg'},
+			{color:'generic', value: 0, icon:'images/colorless.svg'},
 		];
 		var colorsArray = {
 			count: 0,
 			colors: colors
 		};
 
-		var colorsList  = ['red', 'green', 'blue', 'white', 'black', 'colorless'];
+		var colorsList  = ['red', 'green', 'blue', 'white', 'black', 'colorless', 'generic'];
 
 		function addColor(color, value) {
 			function getColorIndex(color) {

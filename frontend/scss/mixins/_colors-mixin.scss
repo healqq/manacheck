@@ -10,11 +10,15 @@ colors-mixin {
 	}
 	&.white {
 		background-color: #ffffff;
+		border: 1px solid #000;
 	}
 	&.black {
 		background-color: #000000;
 	}
 	&.colorless {
+		background-color: #FFFDD0;
+	}
+	&.generic {
 		background-color: #999999;
 	}
 }
@@ -26,6 +30,7 @@ color-hover-animation {
 		left: 0;
 		height: 100%;
 		width: 100%;
+		border-radius: 50%;
 		opacity: 0;
 		background-color: rgba(35,35,35, 0.5);
 		z-index: -1;

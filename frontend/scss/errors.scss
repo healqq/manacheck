@@ -1,0 +1,29 @@
+@import 'mixins/material-mixin.scss';
+@import 'mixins/pallete-mixin.scss';
+@import 'mixins/fonts-mixin.scss';
+
+
+.errors-container {
+	@include material-shadow(1);
+	padding: 20px;
+	margin: 40px;
+	display: flex;
+	flex-direction: column;
+	font: $font-style-normal;
+	align-items: center;
+	background-color: $color-paper;
+	.title {
+		padding: 20px 0;
+		@include material-h3;
+	}
+	.error-description {
+		padding: 2px;
+		.count,
+		.color {
+			font-weight: 700;
+		}
+	}
+	.nav-button {
+		@include material-raised-button($color-accent);
+	}
+}

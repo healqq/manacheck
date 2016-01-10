@@ -69,25 +69,3 @@ footer {
 	}
 }
 
-.plot {
-  	font: 10px sans-serif;
-	.bar {
-		rect {
-			height: 0;
-			transform: scale(1,-1);
-			transition: height 1s;
-	  		fill: steelblue;
-	  		shape-rendering: crispEdges;
-	  	}
-	  	text {
-	  		opacity: 0;
-	  		transition: opacity 1s;
-		  	fill: #000;
-		}
-	}
-	.axis path, .axis line {
-	  fill: none;
-	  stroke: #000;
-	  shape-rendering: crispEdges;
-	}
-}

@@ -1,6 +1,6 @@
 function combinationsHelper() {
 	
-	var colors = ['red', 'green', 'black', 'blue', 'white', 'grey'];
+	var colors = ['red', 'green', 'black', 'blue', 'white', 'colorless'];
 	var symbols = ['r', 'g', 'b', 'u', 'w', 'c'];
 	function createCombination() {
 			return {
@@ -9,7 +9,7 @@ function combinationsHelper() {
 				'white': 0,
 				'green': 0,
 				'black': 0,
-				'grey': 0,
+				'colorless': 0,
 			}
 		}
 	function combinationFromArray(array) {
@@ -61,6 +61,17 @@ function combinationsHelper() {
 		return result;
 	}
 
+	function combinationsMembership(combination1, combination2) {
+		var result = {belongs: true};
+		for (var i=0;i< colors.length;i++) {
+			result[colors[i]] = combination1[colors[i]] - combination2[colors[i]];
+			if (result[colors[i]] < 0) {
+				result.belongs = false;
+			}
+		}
+
+		return result;
+	}
 	function getCombinationCode(combination) {
 		function repeatString(str, count) {
 			if (count === undefined) {
@@ -86,6 +97,7 @@ function combinationsHelper() {
 		createCombination: createCombination,
 		substractCombinations: substractCombinations,
 		crossCombinations: crossCombinations,
+		combinationsMembership: combinationsMembership,
 		getCombinationCode: getCombinationCode,
 	}
 }

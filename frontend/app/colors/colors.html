@@ -1,28 +1,40 @@
 <div class='colors-wrapper' colors-helper>
-	<div class='colors-inputs-container'>
-		<div ng-repeat='item in chCtrl.colors.colors' class='color-item {{item.color}}'>
-			<div class='hover-block'>
-				<div class='plus' 
-					ng-click='chCtrl.addColor(item.color,1)'>
-					<div class='svg-holder'>
-						<svg>
-							<use xlink:href="images/actions.svg#plus">
-							</use>
-						</svg>
+	
+	<div class='colors-inputs-container-wrapper'>
+		<h3 class='colors-inputs-title'>Colors</h3>
+		<div class='colors-inputs-container'>
+			
+			<div ng-repeat='item in chCtrl.colors.colors' class='color-item'>
+				<div class='tabs-holder'>
+					<div class='info-tab'>
+						<div class='icon {{item.color}}'>
+						</div>
+						<div class='text'>
+							{{item.color}}
+						</div>
+					</div>
+					<div class='actions-tab'>
+						<div class='count'>
+							{{item.value}} 
+						</div>
+						<div class='actions'>
+							<button class='plus' 
+							ng-click='chCtrl.addColor(item.color,1)'>
+								<i class="material-icons">&#xE145;</i>
+							</button>
+							<button class='minus' 
+								ng-click='chCtrl.addColor(item.color,-1)'
+								ng-disabled='item.value === 0'>
+								<i class="material-icons">&#xE15B;</i>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
-			<!-- <svg viewBox="-160 50 50 50">
-				<use xlink:href='{{item.icon}}'/>
-			</svg> -->
-			<!-- {{item.color}} -->
-			<!-- <input type='button' value = '+' ng-click='colorsCtrl.addColor(item.color, 1)'/>
-			<input type='button' value = '-' ng-click='colorsCtrl.addColor(item.color, -1)' ng-show='item.value > 0'/> -->
-			
 		</div>
 	</div>
 
-	<div class='colors-display-container'>
+	<!-- <div class='colors-display-container'>
 		<div ng-repeat='item in chCtrl.colors.colors' class='color-items'>
 			<div class='color-item {{item.color}}' 
 				ng-repeat='i in chCtrl.range(item.value) track by $index'>
@@ -39,12 +51,11 @@
 					</div>
 					<!-- <img ng-src="{{item.icon}}">
 					</img> -->
-					<!-- {{item.color}} -->
+					<!-- {{item.color}} 
 				
 			</div>
-			<!-- <input type='button' value = '+' ng-click='colorsCtrl.addColor(item.color, 1)'/>
-			<input type='button' value = '-' ng-click='colorsCtrl.addColor(item.color, -1)' ng-show='item.value > 0'/> -->
 			
-		</div>
-	</div>
+			
+		</div> 
+	</div>-->
 </div>

@@ -1,11 +1,16 @@
-<div>
+
+<div class='count'>{{count}}</div> 
+<div class='info'>
 	<div class='main-info'>
-		x{{count}} {{liCtrl.land.name || 'Temple of Malady'}} ({{liCtrl.land.id}})
+		
+		{{liCtrl.land.title || 'unknown land'}} 
 	</div>
 	<div class='sub-info'>
 		<div class='color-item {{color}}' 
 			ng-repeat='color in liCtrl.land.colors'>
 		</div>
-		type: {{liCtrl.land.type}} 
+		<div class='type'>
+			type: {{liCtrl.land.type}} 
+		</div>
 	</div>
 </div>

@@ -1,5 +1,6 @@
 @import 'mixins/pallete-mixin.scss';
 @import 'mixins/material-mixin.scss';
+@import 'mixins/fonts-mixin.scss';
 
 .lands-wrapper {
 
@@ -10,9 +11,11 @@
 	flex-direction: column;
 	align-items: stretch;
 
+
 	.lands-container {
 		background-color: $color-paper;
 		@include material-shadow(1);
+		z-index: 5;
 		margin-bottom: 30px;
 		order: 2;
 		display: flex;
@@ -21,83 +24,91 @@
 		align-content: space-around;
 		flex-wrap: wrap;
 		justify-content: center;
+		padding: 10px;
+		overflow: hidden;
 
 		.land-item {
-			$land-ratio: 370/265;
-			margin: 20px;
-			min-height: 200px * $land-ratio;
-			min-width: 200px;
-			background-image: url(http://mythicspoiler.com/ogw/cards/wastes.jpg);
-			background-color: #aaa;
-			background-size: cover;
+			@include material-card;
+			width: 180px;
+			height: 250px;
 			position: relative;
-			.land-count {
-				font-size: 72pt;
-				line-height: 3.5*48pt;
-				font-color: #fff;
-				text-align: center;
-			}
-			.hover-block {
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 100%;
-				width: 100%;
-				opacity: 0;
-				background-color: rgba(35,35,35, 0.5);
-				z-index: -1;
-				display: flex;
-				transition: opacity 0.3s;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-
-				.plus, 
-				.minus {
-					height: 50%;
-					cursor: pointer;
-					flex: 1;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					justify-content: center;
-					z-index: 6;
-
-					&:hover {
-						svg {
-							fill : #fff;
-						}
-						
-					}
-					.svg-holder {
-						box-sizing: border-box;
-						height: 50%;
-					}
-					svg {
-						fill: #000;
-						transition: fill 0.3s;
-						box-sizing: border-box;
-						width: 100%;
-					    height: 80%;
-					    padding: 1px;
-					}
-				}
+			flex-direction: column-reverse;
+			overflow: hidden;
+	
+			.land-image-holder {
+				height: 135px;
+				overflow: hidden;
+				z-index: 1;
+				box-sizing: border-box;
+				order: 1;
 				
-
 			}
-			&:hover {
-				.hover-block {
-					opacity: 1;
-					z-index: 5;
+			.land-image {
+				height: 135px;
+				position: relative;
+			    background: url(http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404499&type=card);
+			    background-position: -17px -36px;
+			    z-index: 1;
+			}
+			.tabs-holder {
+				z-index: 3;
+				max-width: 200px;
+				.info-tab {
+					order: 1;
+				    display: flex;
+				    flex-direction: row;
+				    padding: 10px;
+				    box-sizing: border-box;
+				    align-content: flex-start;
+				    align-items: center;
+				}
+				.actions-tab {
+					order: 2;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					align-content: center;
+					margin: 8px;
+				}
+				.count {
+					order: 1;
+					font-size: 24pt;
+					margin: auto 10px;
+					align-self: flex-start;
+				}
+				.actions {
+					order: 2;	
+					display: flex;
+					flex-direction: row;			
+					.plus,
+					.minus {
+						@include material-icon-button;
+						order: 2;
+					}
+				}
+				.info {
+					flex: 1;
+					order: 2;
+					.title {
+						font-size: 14pt;
+						margin-right: 10px;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+					.type {
+						font-size: 10pt;
+					}
 				}
 			}
+			
 		}
 	}
 
 	.filters {
 		@include material-shadow(1);
 		background-color: $color-paper;
-		margin: 0 20px 30px 20px;
+		margin: 0 20px 10px 20px;
 		padding: 30px;
 		display: flex;
 		flex-direction: column;
@@ -112,24 +123,27 @@
 			flex-direction: row;
 			align-items: center;
 			flex-wrap: wrap;
+			.filter-type-header {
+				@include material-h3;
+			}
 			.filter-item {
-				margin: 15px 10px;
-				padding: 8px;
-				border-radius: 4px;
-				background-color: $color-inactive-filter;
-				color: #eee;
-				cursor: pointer;
-				transition: color 0.3s, background-color 0.3s;
-				&:hover {
-					background-color: darken($color-inactive-filter, 10%);
-				}
+				color: $color-active-filter;
+				@include material-flat-button(lighten($color-active-filter, 10%));
+				margin-right: 8px;
+
 				&.active {
-					background-color: $color-active-filter;
-					&:hover {
-						background-color: darken($color-active-filter, 10%);
-					}
+					@include material-flat-button($color-active-filter);
+					background-color: lighten($color-active-filter, 10%);
+					color: #fff;
 				}
 			}
+		}
+		.filter-colors {
+			margin-top: 8px;
+			margin-bottom: 4px;
+		}
+		.filter-types {
+			margin-bottom: 8px;
 		}
 		.filter-color {
 			background-color: #fafafa;

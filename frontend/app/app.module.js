@@ -2,5 +2,5 @@
 	'use strict';
 	
 	angular
-	.module('app',['app.core', 'lands', 'colors','information', 'results'])
+	.module('app',['app.core', 'lands', 'colors','information', 'results', 'errors'])
 })();

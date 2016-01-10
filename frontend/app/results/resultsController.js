@@ -48,7 +48,8 @@
 
 			var xAxis = d3.svg.axis()
 			    .scale(x)
-			    .orient("bottom");
+			    .orient("bottom")
+			    .ticks(ticks);
 
 			var svg = plot
 				.append("svg")

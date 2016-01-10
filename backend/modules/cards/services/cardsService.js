@@ -5,9 +5,11 @@ var extend = require('util')._extend;
 
 var LandsFactory = require(cardsModule + '/factories/landsFactory.js');
 var combinationsHelper = require(cardsModule + '/helpers/combinationsHelper.js');
+var colorsCheckHelper = require(cardsModule + '/helpers/colorsCheckHelper.js');
 var DeckRepository = require(cardsModule + '/repositories/deckRepository.js');
 var HandRepository = require(cardsModule + '/repositories/handRepository.js');
 var FieldService = require(cardsModule + '/services/fieldService.js');
+
 
 
 function cardsService() {
@@ -18,59 +20,23 @@ function cardsService() {
 	var Field = new FieldService();
 	var factory = new LandsFactory(Deck, Field);
 	var _colors = undefined;
+	var _deck = undefined;
 	var _landIds = undefined;
+	var _genericMana = undefined;
 
-
-	
-	function mockCreate() {
-		var deck = [];
-		for (var i=0;i < 4;i++) {
-			deck.push(factory.build(1));
-			deck.push(factory.build(2));
-			deck.push(factory.build(3));
-			deck.push(factory.build(5));
-			deck.push(factory.build(6));
-			deck.push(factory.build(7));
-			deck.push(factory.build(8));
-		}
-		//fetched lands should be added last
-		deck.push(factory.build(4));
-		deck.push(factory.build(4));
-		deck.push(factory.build(4));
-		Deck.set(deck);
-		Deck.shuffle();
-		
-	}
-
-	function setDeck(landIds) {
-		var deck = [];
-		for (var i=0;i<landIds.length; i++) {
-			deck.push(factory.build(landIds[i]));
-		}
-
-		Deck.set(deck);
-		Deck.shuffle();
-
-	}
-	function mockNeededColors() {
-		return [
-			{color:'red', value: 2}, 
-			{color:'blue', value:1}, 
-			{color: 'green', value: 1}, 
-			{color: 'black', value: 0},
-			{color:'grey', value: 0},
-		];
-	}
 	function play() {
-		
-		// var _colors = _colors.slice();
 		var rounds = [];
-
+		// check if there are enough symbols of needed colors
+		var combinationCheck = colorsCheckHelper(_landIds, _colors);
+		if (!combinationCheck.valid) {
+			return {status: 422, data: combinationCheck.combination};
+		}
+		
 		for (var bigLoop=0; bigLoop<1000; bigLoop++) {
 			var round = 1;
 			var neededColors = _colors.slice();
 			var neededColorsCombination = combinationsHelper.combinationFromArray(neededColors);
-			var neededGenericMana = 0;
+			var neededGenericMana = _genericMana;
 			var landsToPlayLeft = neededColorsCombination.count;
 			var colorIndex, land, isLastLandTapped;
 			setDeck(_landIds);
@@ -114,14 +80,17 @@ function cardsService() {
 		}
 		// Deck.draw();
 		return {
-				rounds: rounds,
-				// neededColors: neededColorsCombination, 
-				// deck: Deck.getAll(), 
-				// hand: Hand.getAll(), 
-				// field: field, 
-				// combinations: combinations, 
-				// remaining: combinationsRemainingColors,
-				// round: (land.isTapped()?round:round-1)
+			data: 
+				{
+					rounds: rounds,
+					// neededColors: neededColorsCombination, 
+					// deck: Deck.getAll(), 
+					// hand: Hand.getAll(), 
+					// field: field, 
+					// combinations: combinations, 
+					// remaining: combinationsRemainingColors,
+					// round: (land.isTapped()?round:round-1)
+				}
 			};
 
 		function playForGenericMana() {
@@ -190,8 +159,8 @@ function cardsService() {
 						combinations[foundCombination.index],
 						neededColorsCombination
 					);
-					console.log('intersect mana: ' + foundCombinationIntersect);
-					console.log('needed mana: ' + neededGenericMana);
+					// console.log('intersect mana: ' + foundCombinationIntersect);
+					// console.log('needed mana: ' + neededGenericMana);
 					if (landsToPlayLeft >= foundCombination.count) {
 						neededColors = tempCombination;
 						landsToPlayLeft = foundCombination.count;
@@ -223,7 +192,7 @@ function cardsService() {
 			while (!Hand.isKeepable()) {
 
 				cardsNumber = cardsNumber - 1;
-				console.log('mulligan happened! cardsNumber: ' + cardsNumber);
+				// console.log('mulligan happened! cardsNumber: ' + cardsNumber);
 				Deck.reset();
 				cards = Deck.draw(cardsNumber);
 				Hand.set(cards);
@@ -232,10 +201,35 @@ function cardsService() {
 			Field.setDeck(Deck); 
 			Field.setHand(Hand);
 		}
+	}
 
+	function setDeck(landIds) {
+		
+		var deck = [];
+		var fetches = [];
+		var land = undefined;
+		// add all nonfetches to deck and store all fetches 
+		// in different array
+		landIds.forEach(
+			function(landId) {
+				land = factory.build(landId);
+				if (land.isFetchLand()) {
+					fetches.push(land);
+				}
+				else {
+					deck.push(land);
+				}
+			}
+		);
+		// add fetches last
+		fetches.forEach(
+			function(land) {
+				deck.push(land);
+			}
+		);
+		Deck.set(deck);
+		Deck.shuffle();
 
-		
-		
 	}
 
 	function setLands(lands) {
@@ -244,22 +238,15 @@ function cardsService() {
 	function setColors(colors) {
 		_colors = colors;
 	}
-	function shuffle() {
-		mockCreate();
-		Deck.shuffle();
-		return Deck.get(); 
-	}
-	function drow() {
-		mockCreate();
-		Deck.drow();
-		return Deck.drow();
-	}
+	function setGenericMana(amount) {
+		_genericMana = amount;
+	} 
+
 	return {
 		setColors: setColors,
 		setLands: setLands,
+		setGenericMana: setGenericMana,
 		play: play,
-		shuffle: shuffle,
-		drow: drow
 	}
 }
 

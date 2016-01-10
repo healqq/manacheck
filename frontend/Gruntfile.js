@@ -25,6 +25,10 @@ module.exports = function (grunt) {
 					'app/css/lands.css': 'scss/lands.scss',
 					'app/css/colors.css': 'scss/colors.scss',
 					'app/css/information.css': 'scss/information.scss',
+					'app/css/results.css': 'scss/results.scss',
+					'app/css/errors.css': 'scss/errors.scss',
+
+
 				}
 			}
 		},

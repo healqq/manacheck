@@ -1,14 +1,29 @@
 <div class='info'>
 	<div class='lands-container' lands-helper>
-		<h3>
+		<div class='segment-header'>
+			<h3 class='segment-title' > 
+				Lands ({{llCtrl._lands.count}}) 
+			</h3>
 			<a ui-sref='Base.Lands'>
-		 		Lands ({{llCtrl._lands.count}}) 
-		 	</a>
-		</h3>
+				edit
+			</a>
+		</div>
 		<div class='land-item' ng-repeat='land in llCtrl._lands.lands'>
 			<land-item land-id="land.id" land-count="land.value">
 			</land-item>
-			<div class='plus'
+			<div class='actions'>
+				<button class='plus' 
+				ng-click='llCtrl.addLand(land)'
+				ng-disabled= '!llCtrl.canAddLand(land)'>
+					<i class="material-icons">&#xE145;</i>
+				</button>
+				<button class='minus' 
+					ng-click='llCtrl.removeLand(land)'
+					ng-disabled='!llCtrl.canRemoveLand(land)'>
+					<i class="material-icons">&#xE15B;</i>
+				</button>
+			</div>
+			<!-- <div class='plus'
 				ng-click='llCtrl.removeLand(land)'
 				ng-show='llCtrl.canRemoveLand(land)'>
 				<div class='svg-holder'>
@@ -27,17 +42,20 @@
 						</use>
 					</svg>
 				</div>
-			</div>
+			</div> -->
 			
 		</div>
 	</div>
 
 	<div class='colors-container' colors-helper>
-		<h3> 
-			<a ui-sref='Base.Colors'>
+		<div class='segment-header'>
+			<h3 class='segment-title' > 
 				Colors ({{chCtrl.colors.count}}) 
+			</h3>
+			<a ui-sref='Base.Colors'>
+				edit
 			</a>
-		</h3>
+		</div>
 		<div class='colors-items-wrapper'>
 			<div class='color-items' ng-repeat='item in chCtrl.colors.colors'>
 				<div class='color-item {{item.color}}' 
@@ -59,8 +77,8 @@
 		</div>
 	</div>
 
-	<div class='compute'>
-		<button class='submit' ng-click='infoCtrl.submitData()'>
+	<div class='action-container'>
+		<button class='action-btn' ng-click='infoCtrl.submitData()'>
 		Compute
 		</button>
 	</div>

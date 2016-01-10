@@ -1,31 +1,66 @@
 @import 'mixins/colors-mixin.scss';
+@import 'mixins/pallete-mixin.scss';
+@import 'mixins/material-mixin.scss';
+@import 'mixins/fonts-mixin.scss';
+
 
 .colors-inputs-container {
 	
 	order: 1;
 	display: flex;
-	margin: 20px;
 	flex-direction: row;
 	align-content: flex-start;
 	justify-content: space-around;
-	min-height: 100px;
-	/*flex-wrap: wrap;*/
+	flex-wrap: wrap;
+	padding: 20px;
 
 	.color-item {
-		@extend colors-mixin;
-		@extend color-hover-animation;
-		flex: 1; 
-		border: 1px solid #000;
-		margin: 20px;
+		@include material-card;
+		width: 180px;
+		/*height: 150px;*/
+		/*flex: 250px 1 0;*/
 		position: relative;
-		border-radius: 4px;
+		.icon {
+			@extend colors-mixin;
+			height: 40px;
+			width: 40px;
+			margin-right: 20px;
+			border-radius: 50%;
+		}
+		.text {
+			@include material-normal-text;
+		}
+		.count {
+			order: 1;
+			font-size: 24pt;
+			margin: auto 10px;
+			align-self: flex-start;
+		}
+		.actions {
+			order: 2;
+			.plus,
+			.minus {
+				@include material-icon-button;
+			}
+		}
+
 		
+	}
+}
+.colors-inputs-container-wrapper {
+	@include material-shadow(1);
+	display: flex;
+	background-color: $color-paper;
+	flex-direction: column;
+	padding: 30px;
+	.colors-inputs-title {
+		@include material-h3;
 	}
 }
 .colors-display-container {
 	order: 2;
 	display: flex;
-	margin: 20px;
+	padding: 20px;
 	flex: 1;
 	flex-direction: row;
 	align-items: center;
@@ -56,5 +91,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
-	justify-content: space-around;
+	margin: 40px;
+	/*justify-content: space-around;*/
 }

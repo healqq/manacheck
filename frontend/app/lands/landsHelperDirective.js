@@ -7,8 +7,8 @@
 
 	function landsHelper() {
 
-		helper.$inject =['landsStorageFactory'];
-		function helper(landsStorageFactory) {
+		helper.$inject =['landsStorageFactory', 'landsFactory'];
+		function helper(landsStorageFactory, landsFactory) {
 			
 
 			var vm = this;
@@ -27,7 +27,8 @@
 			}
 
 			function canAddLand(land) {
-				return (land.type === 'basic') || (getLandCount(land) < 4);
+				var landObj = landsFactory.getLandById(land.id);
+				return (landObj.type === 'basic') || (getLandCount(land) < 4);
 			}
 
 			function canRemoveLand(land) {

@@ -7,11 +7,14 @@
 
 	function colorsHelper() {
 
-		colorsHelperController.$inject = ['colorsStorageFactory'];
-		function colorsHelperController(colorsStorageFactory) {
+		colorsHelperController.$inject = ['$timeout', 'colorsStorageFactory'];
+		function colorsHelperController($timeout, colorsStorageFactory) {
 			var vm = this;
-
-			vm.colors = colorsStorageFactory.getColors();
+			//we need to wrap our setter in timeout to have cure animations 
+			$timeout(function() {
+				vm.colors = colorsStorageFactory.getColors();
+			}, 0);
+			
 			vm.addColor = addColor;
 			vm.range = range;
 

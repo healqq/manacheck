@@ -1,0 +1,39 @@
+@import 'mixins/colors-mixin.scss';
+@import 'mixins/pallete-mixin.scss';
+@import 'mixins/material-mixin.scss';
+@import 'mixins/fonts-mixin.scss';
+
+.plot {
+  	font: $font-style-normal;
+	.bar {
+		rect {
+			height: 0;
+			transform: scale(1,-1);
+			transition: height 1s;
+	  		fill: steelblue;
+	  		shape-rendering: crispEdges;
+	  	}
+	  	text {
+	  		opacity: 0;
+	  		transition: opacity 1s;
+		  	fill: #000;
+		}
+	}
+	.axis path, .axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+}
+.results-container {
+	@include material-shadow(1);
+	margin: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: $color-paper;
+	.title {
+		padding: 20px 0;
+		@include material-h3;
+	}
+}
