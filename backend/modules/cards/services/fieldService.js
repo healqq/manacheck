@@ -8,9 +8,17 @@ function fieldService() {
 	var tempCombination = {};
 	var Deck;
 	var Hand;
+	var basicLandsCount = 0;
+
+	function getBasicLandsCount() {
+		return basicLandsCount;
+	}
 
 	function addLand(land) {
 		field.push(land);
+		if (land.type === 'basic') {
+			basicLandsCount++;
+		}
 	}
 	function getField() {
 		return field;
@@ -96,6 +104,19 @@ function fieldService() {
 		field = [];
 		combinations = [];
 		combinationsRemainingColors = [];
+		basicLandsCount = 0;
+	}
+
+	function getHash() {
+		function sortFunc(land1, land2) {
+			return land1.id < land2.id;
+		}
+		var result = '';
+		field.sort(sortFunc).forEach(function(land) {
+			result += land.id + '|';
+		});
+
+		return result;
 	}
 	return {
 		updateCombinations: updateCombinations,
@@ -106,7 +127,9 @@ function fieldService() {
 		addCombinations: addCombinations,
 		reset: reset,
 		setDeck: setDeck,
-		setHand: setHand
+		setHand: setHand,
+		getHash: getHash,
+		getBasicLandsCount: getBasicLandsCount
 	}
 }
 

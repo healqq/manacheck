@@ -63,7 +63,8 @@
 		    .state('Base.Errors', {
 		    	url: "error",
 		    	params: {
-		    		data: []
+		    		rounds: [],
+		    		lands: {},
 		    	},
 		    	views: {
 		    		container: {

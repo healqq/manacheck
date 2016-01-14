@@ -25,11 +25,11 @@
 			var response = calculationFactory.calculate(params)
 			.then(
 				function(data) {
-					$state.go('^.Results', {data: data.rounds});
+					$state.go('^.Results', {rounds: data.rounds, lands: data.hashes});
 					return data;
 				},
 				function(error) {
-					$state.go('^.Errors', {data: error.data});
+					$state.go('^.Errors', {data: error.data, lands:{} });
 				}
 			);
 

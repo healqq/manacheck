@@ -37,8 +37,15 @@
 						<div class='title' title='{{land.title}}'>
 							{{land.title}}
 						</div>
+					</div>
+					<div class='sub-info'>	
 						<div class='type'>
 							{{land.type}}
+						</div>
+						<div class='color-items'>
+							<div class='color-item {{color}}' 
+								ng-repeat='color in land.colors'>
+							</div>
 						</div>
 					</div>
 					

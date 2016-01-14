@@ -1,20 +1,22 @@
-colors-mixin.red, .info .lands-container .land-item land-item .sub-info .red.color-item, .info .colors-container .colors-items-wrapper .color-items .red.color-item {
+colors-mixin.red, .info-container .lands-container .land-item land-item .sub-info .red.color-item, .info-container .colors-container .colors-items-wrapper .color-items .red.color-item {
   background-color: #ff0000; }
-colors-mixin.blue, .info .lands-container .land-item land-item .sub-info .blue.color-item, .info .colors-container .colors-items-wrapper .color-items .blue.color-item {
+colors-mixin.blue, .info-container .lands-container .land-item land-item .sub-info .blue.color-item, .info-container .colors-container .colors-items-wrapper .color-items .blue.color-item {
   background-color: #0000ff; }
-colors-mixin.green, .info .lands-container .land-item land-item .sub-info .green.color-item, .info .colors-container .colors-items-wrapper .color-items .green.color-item {
+colors-mixin.green, .info-container .lands-container .land-item land-item .sub-info .green.color-item, .info-container .colors-container .colors-items-wrapper .color-items .green.color-item {
   background-color: #00ff00; }
-colors-mixin.white, .info .lands-container .land-item land-item .sub-info .white.color-item, .info .colors-container .colors-items-wrapper .color-items .white.color-item {
+colors-mixin.white, .info-container .lands-container .land-item land-item .sub-info .white.color-item, .info-container .colors-container .colors-items-wrapper .color-items .white.color-item {
   background-color: #ffffff;
-  border: 1px solid #000; }
-colors-mixin.black, .info .lands-container .land-item land-item .sub-info .black.color-item, .info .colors-container .colors-items-wrapper .color-items .black.color-item {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  padding: 2px; }
+colors-mixin.black, .info-container .lands-container .land-item land-item .sub-info .black.color-item, .info-container .colors-container .colors-items-wrapper .color-items .black.color-item {
   background-color: #000000; }
-colors-mixin.colorless, .info .lands-container .land-item land-item .sub-info .colorless.color-item, .info .colors-container .colors-items-wrapper .color-items .colorless.color-item {
+colors-mixin.colorless, .info-container .lands-container .land-item land-item .sub-info .colorless.color-item, .info-container .colors-container .colors-items-wrapper .color-items .colorless.color-item {
   background-color: #FFFDD0; }
-colors-mixin.generic, .info .lands-container .land-item land-item .sub-info .generic.color-item, .info .colors-container .colors-items-wrapper .color-items .generic.color-item {
+colors-mixin.generic, .info-container .lands-container .land-item land-item .sub-info .generic.color-item, .info-container .colors-container .colors-items-wrapper .color-items .generic.color-item {
   background-color: #999999; }
 
-color-hover-animation .hover-block, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block {
+color-hover-animation .hover-block, .info-container .colors-container .colors-items-wrapper .color-items .color-item .hover-block {
   position: absolute;
   top: 0;
   left: 0;
@@ -29,9 +31,9 @@ color-hover-animation .hover-block, .info .colors-container .colors-items-wrappe
   flex-direction: column;
   justify-content: center;
   align-items: center; }
-  color-hover-animation .hover-block .plus, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus,
+  color-hover-animation .hover-block .plus, .info-container .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus,
   color-hover-animation .hover-block .minus,
-  .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus {
+  .info-container .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus {
     height: 100%;
     cursor: pointer;
     flex: 1;
@@ -40,82 +42,82 @@ color-hover-animation .hover-block, .info .colors-container .colors-items-wrappe
     align-items: center;
     justify-content: center;
     z-index: 6; }
-    color-hover-animation .hover-block .plus:hover svg, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus:hover svg,
+    color-hover-animation .hover-block .plus:hover svg, .info-container .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus:hover svg,
     color-hover-animation .hover-block .minus:hover svg,
-    .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus:hover svg {
+    .info-container .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus:hover svg {
       fill: #fff; }
-    color-hover-animation .hover-block .plus .svg-holder, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus .svg-holder,
+    color-hover-animation .hover-block .plus .svg-holder, .info-container .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus .svg-holder,
     color-hover-animation .hover-block .minus .svg-holder,
-    .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus .svg-holder {
+    .info-container .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus .svg-holder {
       box-sizing: border-box;
       height: 80%; }
-    color-hover-animation .hover-block .plus svg, .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus svg,
+    color-hover-animation .hover-block .plus svg, .info-container .colors-container .colors-items-wrapper .color-items .color-item .hover-block .plus svg,
     color-hover-animation .hover-block .minus svg,
-    .info .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus svg {
+    .info-container .colors-container .colors-items-wrapper .color-items .color-item .hover-block .minus svg {
       fill: #000;
       transition: fill 0.3s;
       box-sizing: border-box;
       width: 100%;
       height: 100%;
       padding: 1px; }
-color-hover-animation:hover .hover-block, .info .colors-container .colors-items-wrapper .color-items .color-item:hover .hover-block {
+color-hover-animation:hover .hover-block, .info-container .colors-container .colors-items-wrapper .color-items .color-item:hover .hover-block {
   opacity: 1;
   z-index: 5; }
 
-.info {
+.info-container {
   padding: 16px; }
-  .info .segment-header {
+  .info-container .segment-header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between; }
-    .info .segment-header .segment-title {
+    .info-container .segment-header .segment-title {
       margin: 0;
       font: 400 12pt "Roboto";
       font-size: 14pt;
       color: #666;
       margin-left: 10px;
       font-size: 12pt; }
-  .info .lands-container {
+  .info-container .lands-container {
     display: flex;
     flex-direction: column;
-    max-height: 410px;
     padding: 30px 0;
     border-bottom: 1px solid #ddd; }
-    .info .lands-container .land-item {
+    .info-container .lands-container .land-item {
       /*border-bottom: 1px solid #ddd;*/
       display: flex;
       flex-direction: row;
       position: relative;
-      align-items: center; }
-      .info .lands-container .land-item land-item {
+      align-items: center;
+      padding: 10px 0; }
+      .info-container .lands-container .land-item land-item {
         flex: 1;
         display: flex;
         flex-direction: row;
         align-items: center;
         font: 400 12pt "Roboto"; }
-        .info .lands-container .land-item land-item .count {
+        .info-container .lands-container .land-item land-item .count {
           font-size: 24pt;
           margin-right: 10px; }
-        .info .lands-container .land-item land-item .sub-info {
+        .info-container .lands-container .land-item land-item .sub-info {
           font-size: 10pt;
           display: flex;
           flex-direction: row;
           align-items: center; }
-          .info .lands-container .land-item land-item .sub-info .color-item {
+          .info-container .lands-container .land-item land-item .sub-info .color-item {
             height: 10px;
             width: 10px;
             border-radius: 50%;
             margin: 2px;
             float: left; }
-          .info .lands-container .land-item land-item .sub-info .type {
+          .info-container .lands-container .land-item land-item .sub-info .type {
             margin-left: 4px;
             color: #666; }
-      .info .lands-container .land-item .actions {
+      .info-container .lands-container .land-item .actions {
         display: flex;
         flex-direction: row; }
-        .info .lands-container .land-item .actions .plus,
-        .info .lands-container .land-item .actions .minus {
+        .info-container .lands-container .land-item .actions .plus,
+        .info-container .lands-container .land-item .actions .minus {
           padding: 0;
           outline: none;
           border: none;
@@ -124,44 +126,44 @@ color-hover-animation:hover .hover-block, .info .colors-container .colors-items-
           cursor: pointer;
           opacity: 0.9;
           transition: color 0.3s, opacity 0.3s; }
-          .info .lands-container .land-item .actions .plus i,
-          .info .lands-container .land-item .actions .minus i {
+          .info-container .lands-container .land-item .actions .plus i,
+          .info-container .lands-container .land-item .actions .minus i {
             font-size: 26pt; }
-          .info .lands-container .land-item .actions .plus:disabled,
-          .info .lands-container .land-item .actions .minus:disabled {
+          .info-container .lands-container .land-item .actions .plus:disabled,
+          .info-container .lands-container .land-item .actions .minus:disabled {
             cursor: default;
             opacity: 0.3; }
-          .info .lands-container .land-item .actions .plus:hover:not(:disabled),
-          .info .lands-container .land-item .actions .minus:hover:not(:disabled) {
+          .info-container .lands-container .land-item .actions .plus:hover:not(:disabled),
+          .info-container .lands-container .land-item .actions .minus:hover:not(:disabled) {
             color: #000;
             opacity: 1; }
-  .info .colors-container {
+  .info-container .colors-container {
     display: flex;
     flex-direction: column;
     padding: 30px 0;
     border-bottom: 1px solid #ddd; }
-    .info .colors-container .colors-items-wrapper {
+    .info-container .colors-container .colors-items-wrapper {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap; }
-      .info .colors-container .colors-items-wrapper .color-items {
+      .info-container .colors-container .colors-items-wrapper .color-items {
         display: flex;
         flex-direction: row; }
-        .info .colors-container .colors-items-wrapper .color-items .color-item {
+        .info-container .colors-container .colors-items-wrapper .color-items .color-item {
           position: relative;
           height: 20px;
           border-radius: 50%;
           width: 20px;
           /*border: 1px solid #000;*/
           margin: 5px; }
-  .info .action-container {
+  .info-container .action-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     padding: 10px; }
-    .info .action-container .action-btn {
+    .info-container .action-container .action-btn {
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       outline: none;
       border: none;
@@ -173,12 +175,12 @@ color-hover-animation:hover .hover-block, .info .colors-container .colors-items-
       font: 400 12pt "Roboto";
       text-transform: uppercase;
       transition: background-color 0.2s, box-shadow 0.2s; }
-      .info .action-container .action-btn:hover:not(:disabled) {
+      .info-container .action-container .action-btn:hover:not(:disabled) {
         background-color: #3849a2; }
-      .info .action-container .action-btn:active {
+      .info-container .action-container .action-btn:active {
         box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.15), -1px 3px 20px 4px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.2);
         color: rgba(255, 255, 255, 0.88); }
-      .info .action-container .action-btn:disabled {
+      .info-container .action-container .action-btn:disabled {
         box-shadow: none;
         background-color: #cccccc;
         color: rgba(255, 255, 255, 0.7);

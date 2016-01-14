@@ -1,4 +1,4 @@
-var lands = require(appRoot +'/modules/cards/data/lands.json');
+var lands = require(cardsModule +'/data/lands.json');
 function landsRepository() {
 	var self = this;
 	

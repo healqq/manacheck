@@ -23,7 +23,12 @@
 			font-weight: 700;
 		}
 	}
-	.nav-button {
-		@include material-raised-button($color-accent);
+	.navigation {
+		margin-top: 30px;
+		.nav-button {
+			@include material-raised-button($color-accent);
+			margin-right: 8px;
+		}
 	}
+	
 }

@@ -9,6 +9,7 @@ var colorsCheckHelper = require(cardsModule + '/helpers/colorsCheckHelper.js');
 var DeckRepository = require(cardsModule + '/repositories/deckRepository.js');
 var HandRepository = require(cardsModule + '/repositories/handRepository.js');
 var FieldService = require(cardsModule + '/services/fieldService.js');
+var GameStateService = require(cardsModule + '/services/gameStateService.js');
 
 
 
@@ -18,7 +19,8 @@ function cardsService() {
 	var Deck = new DeckRepository();
 	var Hand = new HandRepository();
 	var Field = new FieldService();
-	var factory = new LandsFactory(Deck, Field);
+	var GameState = new GameStateService(Deck, Hand, Field);
+	var factory = new LandsFactory(GameState);
 	var _colors = undefined;
 	var _deck = undefined;
 	var _landIds = undefined;
@@ -26,19 +28,20 @@ function cardsService() {
 
 	function play() {
 		var rounds = [];
+		var landHashes = [];
 		// check if there are enough symbols of needed colors
-		var combinationCheck = colorsCheckHelper(_landIds, _colors);
+		var combinationCheck = colorsCheckHelper(factory, _landIds, _colors);
 		if (!combinationCheck.valid) {
 			return {status: 422, data: combinationCheck.combination};
 		}
-		
+
 		for (var bigLoop=0; bigLoop<1000; bigLoop++) {
 			var round = 1;
-			var neededColors = _colors.slice();
+			var neededColors = copyColors(_colors);
 			var neededColorsCombination = combinationsHelper.combinationFromArray(neededColors);
-			var neededGenericMana = _genericMana;
-			var landsToPlayLeft = neededColorsCombination.count;
-			var colorIndex, land, isLastLandTapped;
+			GameState.setGenericManaCount(_genericMana);
+			GameState.setRemainingLandsCount(neededColorsCombination.count);
+			var colorIndex, land;
 			setDeck(_landIds);
 			//game start
 			startGame();
@@ -58,7 +61,7 @@ function cardsService() {
 					if (land === undefined) {
 						Field.updateCombinations();
 						if(!switchToAnotherCombination()) {
-							if (neededGenericMana > 0) {
+							if (GameState.needGenericMana()) {
 								playForGenericMana();
 							}
 						}
@@ -68,33 +71,36 @@ function cardsService() {
 				Hand.add(Deck.draw());
 				round = round + 1;
 			}
-			if (neededGenericMana > 0) {
+			if (GameState.needGenericMana()) {
 				// get remaining generic mana
-				while ( neededGenericMana > 0) {
+				while (GameState.needGenericMana()) {
 					playForGenericMana();
 					Hand.add(Deck.draw());
 					round = round + 1;
 				}
 			}
-			rounds.push((isLastLandTapped?round:round-1));
+			rounds.push((GameState.isLastLandTapped()?round:round-1));
+			landHashes.push(Field.getHash());
 		}
-		// Deck.draw();
+
 		return {
 			data: 
 				{
 					rounds: rounds,
-					// neededColors: neededColorsCombination, 
-					// deck: Deck.getAll(), 
-					// hand: Hand.getAll(), 
-					// field: field, 
-					// combinations: combinations, 
-					// remaining: combinationsRemainingColors,
-					// round: (land.isTapped()?round:round-1)
+					hashes: landHashes.reduce(function(result, current) {
+						if (result[current] === undefined) {
+							result[current] = 1;
+						}
+						else {
+							result[current]++;
+						}
+						return result;
+					}, {}),
 				}
 			};
 
 		function playForGenericMana() {
-			// console.log('playing generic');
+
 			land = Hand.playLand('generic', (landsToPlayLeft + neededGenericMana === 1) );
 			// it can happen if we have some fetches w/o lands to fetch.
 			if (land === undefined) {
@@ -107,15 +113,15 @@ function cardsService() {
 				land = Deck.fetchBasicLand(land.getColors()[0]);
 			}
 			Field.addLand(land);
-			isLastLandTapped = land.isTapped();
-			neededGenericMana--;
+			GameState.setLastLandTapState(land.isTapped());
+			GameState.decGenericManaCount();
 			Field.addCombinations(land);
 		}
 
 		function innerPlayLoop(neededColors) {
 			while  ((colorIndex < neededColors.length) && (land === undefined) ) {
 					
-				land = Hand.playLand(neededColors[colorIndex].color, (landsToPlayLeft === 1) );
+				land = Hand.playLand(neededColors[colorIndex].color, GameState.isOneLandLeft() );
 				if (land !== undefined) {
 					if (land.type === 'fetch') {
 						land = Deck.fetchLand(neededColors[colorIndex].color);
@@ -130,8 +136,9 @@ function cardsService() {
 						neededColors[colorIndex].value--;
 					}
 					Field.addLand(land);
-					isLastLandTapped = land.isTapped();
-					landsToPlayLeft--;
+
+					GameState.setLastLandTapState(land.isTapped());
+					GameState.decRemainingLandsCount();
 					Field.addCombinations(land);
 				}
 				else {
@@ -163,7 +170,7 @@ function cardsService() {
 					// console.log('needed mana: ' + neededGenericMana);
 					if (landsToPlayLeft >= foundCombination.count) {
 						neededColors = tempCombination;
-						landsToPlayLeft = foundCombination.count;
+						GameState.setRemainingLandsCount(foundCombination.count);
 					}
 					innerPlayLoop(tempCombination);
 				}
@@ -235,12 +242,23 @@ function cardsService() {
 	function setLands(lands) {
 		_landIds = lands;
 	}
+	function setType(type) {
+		GameState.setSpellsType(type);
+	}
 	function setColors(colors) {
 		_colors = colors;
 	}
 	function setGenericMana(amount) {
 		_genericMana = amount;
 	} 
+	function copyColors(colorsArray) {
+		result = [];
+		colorsArray.forEach(function(color) {
+			result.push( {color: color.color, value: color.value});
+		});
+
+		return result;
+	}
 
 	return {
 		setColors: setColors,

@@ -93,8 +93,8 @@ function deckRepository() {
 		var avalibleLands = _lands.getBasicLands();
 		var currentId = undefined;
 		var land, landIndex;
-		currentId = avalibleLands[color];
-
+		currentId = avalibleLands[color].id;
+		// console.log(currentId);
 		landIndex = _lands.findLandWithId(currentId);
 		land = extend({}, _lands.at(landIndex));
 		_lands.splice(land);
@@ -111,6 +111,7 @@ function deckRepository() {
 		get: get,
 		getSymbolsOrder: getSymbolsOrder,
 		fetchLand: fetchLand,
+		fetchBasicLand: fetchBasicLand,
 		shuffle: shuffle,
 		draw: draw,
 		find: find,

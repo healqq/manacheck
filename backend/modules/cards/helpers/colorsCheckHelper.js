@@ -1,10 +1,9 @@
-var LandsFactory = require(cardsModule + '/factories/landsFactory.js');
 var combinationsHelper = require(cardsModule + '/helpers/combinationsHelper.js');
 
-function checkDeck(landIds, colorsArray) {
+
+function checkDeck(landsFactory, landIds, colorsArray) {
 	var colors = combinationsHelper.combinationFromArray(colorsArray);
 	var symbols = combinationsHelper.createCombination();
-	var landsFactory = new LandsFactory();
 	// fill symbols
 	landIds.forEach( 
 		function(landId) {

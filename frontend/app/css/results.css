@@ -6,7 +6,9 @@ colors-mixin.green {
   background-color: #00ff00; }
 colors-mixin.white {
   background-color: #ffffff;
-  border: 1px solid #000; }
+  border: 1px solid #000;
+  box-sizing: border-box;
+  padding: 2px; }
 colors-mixin.black {
   background-color: #000000; }
 colors-mixin.colorless {

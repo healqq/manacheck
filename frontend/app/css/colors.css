@@ -6,7 +6,9 @@ colors-mixin.green, .colors-inputs-container .color-item .green.icon, .colors-di
   background-color: #00ff00; }
 colors-mixin.white, .colors-inputs-container .color-item .white.icon, .colors-display-container .color-items .white.color-item {
   background-color: #ffffff;
-  border: 1px solid #000; }
+  border: 1px solid #000;
+  box-sizing: border-box;
+  padding: 2px; }
 colors-mixin.black, .colors-inputs-container .color-item .black.icon, .colors-display-container .color-items .black.color-item {
   background-color: #000000; }
 colors-mixin.colorless, .colors-inputs-container .color-item .colorless.icon, .colors-display-container .color-items .colorless.color-item {
@@ -110,22 +112,22 @@ color-hover-animation:hover .hover-block, .colors-display-container .color-items
         z-index: 5; }
     .colors-inputs-container .color-item .tabs-holder {
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      padding: 10px; }
     .colors-inputs-container .color-item .info-tab {
       order: 1;
       display: flex;
       flex-direction: row;
-      padding: 10px;
       box-sizing: border-box;
       align-content: flex-start;
-      align-items: center; }
+      padding: 0 8px; }
     .colors-inputs-container .color-item .actions-tab {
       order: 2;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-content: center;
-      margin: 8px; }
+      margin-top: 8px; }
     .colors-inputs-container .color-item .icon {
       height: 40px;
       width: 40px;

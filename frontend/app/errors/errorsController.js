@@ -11,7 +11,7 @@
 
 	function errorsController($state) {
 		var vm = this;
-		var errorData = Mock();
+		var errorData = $state.params.data;
 		vm.formattedErrors = [];
 
 		errorData.forEach(

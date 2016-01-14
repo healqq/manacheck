@@ -9,8 +9,8 @@ describe("combinationsHelper", function(){
 				'blue': 0,
 				'white': 0,
 				'green': 0,
-		  		'black': 0,
-                'grey': 0
+		  	'black': 0,
+        'colorless': 0
 			};
            	var result = combinationsHelper.createCombination();
            	expect(expected).eql(result);
@@ -26,7 +26,7 @@ describe("combinationsHelper", function(){
 				'white': 1,
 				'green': 0,
 				'black': 3,
-                'grey': 2,
+        'colorless': 2,
 				'count': 8
 			};
            	var result = combinationsHelper
@@ -34,7 +34,7 @@ describe("combinationsHelper", function(){
            			{color:'red', value:2},
            			{color:'white', value:1},
            			{color:'black', value:3},
-                    {color:'grey', value:2}
+                    {color:'colorless', value:2}
            		]);
            	expect(expected).eql(result);
         });
@@ -49,7 +49,7 @@ describe("combinationsHelper", function(){
        	   		{color:'black', value:3},
        	   		{color:'blue', value:0},
            		{color:'white', value:1},
-                {color:'grey', value:2}
+              {color:'colorless', value:2}
            	];
 
            	var result = combinationsHelper
@@ -60,7 +60,7 @@ describe("combinationsHelper", function(){
 					'white': 1,
 					'green': 0,
 					'black': 3,
-                    'grey': 2
+          'colorless': 2
 				}
 			);
            	expect(expected).eql(result);
@@ -76,7 +76,7 @@ describe("combinationsHelper", function(){
 				'white': 0,
 				'green': 1,
 				'black': 0,
-                'grey': 1,
+        'colorless': 1,
 				'count': 4
 			};
            
@@ -85,7 +85,7 @@ describe("combinationsHelper", function(){
            		'blue': 1,
            		'white': 0,
            		'green': 3,
-                'grey': 3,
+              'colorless': 3,
            		'black': 5
            	};
 
@@ -94,7 +94,7 @@ describe("combinationsHelper", function(){
            		'blue': 0,
            		'white': 2,
            		'green': 1,
-                'grey': 1,
+              'colorless': 1,
            		'black': 0
            	};
 
@@ -116,7 +116,7 @@ describe("combinationsHelper", function(){
 				'white': 2,
 				'green': 1,
 				'black': 0,
-                'grey': 0,
+        'colorless': 0,
 				'count': 6
 			};
            
@@ -126,7 +126,7 @@ describe("combinationsHelper", function(){
            		'white': 2,
            		'green': 3,
            		'black': 2,
-                'grey': 0,
+              'colorless': 0,
            	};
 
            	var combination2 = {
@@ -135,7 +135,7 @@ describe("combinationsHelper", function(){
            		'white': 0,
            		'green': 2,
            		'black': 2,
-                'grey': 2,
+              'colorless': 2,
            	};
 
            	var result = combinationsHelper.
@@ -159,7 +159,7 @@ describe("combinationsHelper", function(){
              		'white': 1,
              		'green': 1,
              		'black': 1,
-                    'grey': 1,
+                'colorless': 1,
                	};
 
          	result = combinationsHelper
@@ -174,7 +174,7 @@ describe("combinationsHelper", function(){
          		'white': 3,
          		'green': 1,
          		'black': 1,
-                'grey': 0,
+            'colorless': 0,
          	};
 
          	result = combinationsHelper
@@ -188,7 +188,7 @@ describe("combinationsHelper", function(){
          		'white': 0,
          		'green': 0,
          		'black': 0,
-            'grey': 1,
+            'colorless': 1,
          	};
 
          	result = combinationsHelper
@@ -202,7 +202,7 @@ describe("combinationsHelper", function(){
          		'white': 0,
          		'green': 0,
          		'black': 0,
-                'grey': 0
+            'colorless': 0
             };
 
          	result = combinationsHelper

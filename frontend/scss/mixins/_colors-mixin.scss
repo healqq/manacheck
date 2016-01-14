@@ -11,6 +11,8 @@ colors-mixin {
 	&.white {
 		background-color: #ffffff;
 		border: 1px solid #000;
+		box-sizing: border-box;
+    	padding: 2px;
 	}
 	&.black {
 		background-color: #000000;
@@ -75,5 +77,21 @@ color-hover-animation {
 			opacity: 1;
 			z-index: 5;
 		}
+	}
+}
+
+@mixin color-items {
+	display: flex;
+	flex-direction: row;
+	.color-item {
+		@extend colors-mixin;
+		@extend color-hover-animation;
+		position: relative;
+		height: 20px;
+		border-radius: 50%;
+		width: 20px;
+		/*border: 1px solid #000;*/
+		margin: 5px;
+
 	}
 }

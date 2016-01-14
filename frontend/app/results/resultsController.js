@@ -6,15 +6,18 @@
 	.controller('resultsController', resultsController);
 
 	resultsController.$inject = [
-		'$state', 
+		'$state',
+		'landsFactory', 
 	];
 
-	function resultsController($state) {
+	function resultsController($state, landsFactory) {
 		var vm = this;
 		
-		var data = mock();
+		var rounds = mockRounds();//$state.params.rounds;
+		var lands = mockLands();//$state.params.lands;
 
-		buildPlot(data);
+		vm.lands = prepareLands(lands);
+		buildPlot(rounds);
 		function buildPlot(values) {
 
 			// getting plot container
@@ -27,7 +30,7 @@
 			var max = d3.max(values);
 			var ticks = max - min + 1;
 			// A formatter for counts.
-			var formatCount = d3.format(",.0f");
+			var formatCount = d3.format(",.1f");
 
 			var margin = {top: 10, right: 30, bottom: 30, left: 30},
 			    width = 960 - margin.left - margin.right,
@@ -85,7 +88,7 @@
 			    	}
 			    )
 			    .attr("text-anchor", "middle")
-			    .text(function(d) { return formatCount(d.y); })
+			    .text(function(d) { return formatCount(d.y/10); })
 			    .transition()
 			    .style("opacity", 1);
 			    
@@ -97,7 +100,32 @@
 			
 		}
 
-		function mock() {
+		function prepareLands(values) {
+
+			var landsArray = [];
+			Object.keys(values).forEach(
+				function(key) {
+					landsArray.push({combination: getLands(key), value: values[key]});
+				});
+			return landsArray.sort(sortFunc).slice(0,5);
+
+			function getLands(combination) {
+				var landIds = combination.split('|');
+				var lands = [];
+				landIds.forEach(function(id) {
+					if (id !== '') {
+						lands.push(landsFactory.getLandById(parseInt(id)));
+					}
+				});
+
+				return lands;
+			}
+			function sortFunc(combination1, combination2) {
+				return combination2.value - combination1.value;
+			}
+		}
+
+		function mockRounds() {
 			return [
 					9,
 					3,
@@ -1100,6 +1128,24 @@
 					4,
 					6
 					];
+		}
+
+		function mockLands() {
+			return  {
+				'3|2|1|': 56,
+				'3|2|2|': 13,
+				'54|2|1|': 100,
+				'54|2|2|': 38,
+				'55|3|1|': 61,
+				'55|3|2|': 50,
+				'55|54|1|': 90,
+				'55|54|2|': 72,
+				'58|3|2|': 97,
+				'58|54|': 1,
+				'58|54|2|': 148,
+				'58|55|3|': 117,
+				'58|55|54|': 157,
+			}
 		}
 
 	}

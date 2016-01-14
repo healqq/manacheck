@@ -1,6 +1,7 @@
 @import 'mixins/pallete-mixin.scss';
 @import 'mixins/material-mixin.scss';
 @import 'mixins/fonts-mixin.scss';
+@import 'mixins/colors-mixin.scss';
 
 .lands-wrapper {
 
@@ -19,7 +20,6 @@
 		margin-bottom: 30px;
 		order: 2;
 		display: flex;
-		margin: 20px;
 		flex-direction: row;
 		align-content: space-around;
 		flex-wrap: wrap;
@@ -30,7 +30,7 @@
 		.land-item {
 			@include material-card;
 			width: 180px;
-			height: 250px;
+			height: 240px;
 			position: relative;
 			flex-direction: column-reverse;
 			overflow: hidden;
@@ -54,21 +54,7 @@
 				z-index: 3;
 				max-width: 200px;
 				.info-tab {
-					order: 1;
-				    display: flex;
-				    flex-direction: row;
-				    padding: 10px;
-				    box-sizing: border-box;
-				    align-content: flex-start;
-				    align-items: center;
-				}
-				.actions-tab {
-					order: 2;
-					display: flex;
-					flex-direction: row;
-					justify-content: space-between;
-					align-content: center;
-					margin: 8px;
+				    flex-direction: column;
 				}
 				.count {
 					order: 1;
@@ -88,7 +74,7 @@
 				}
 				.info {
 					flex: 1;
-					order: 2;
+					order: 1;
 					.title {
 						font-size: 14pt;
 						margin-right: 10px;
@@ -96,8 +82,24 @@
 						text-overflow: ellipsis;
 						white-space: nowrap;
 					}
+				}
+				.sub-info {
+					order: 2;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					color: $color-subtext;
 					.type {
 						font-size: 10pt;
+					}
+					.color-items {
+						@include color-items;
+
+						.color-item {
+							margin-right: 2px;
+							height: 15px;
+							width: 15px;
+						}
 					}
 				}
 			}
@@ -108,7 +110,7 @@
 	.filters {
 		@include material-shadow(1);
 		background-color: $color-paper;
-		margin: 0 20px 10px 20px;
+		margin-bottom: 10px;
 		padding: 30px;
 		display: flex;
 		flex-direction: column;
@@ -127,13 +129,13 @@
 				@include material-h3;
 			}
 			.filter-item {
-				color: $color-active-filter;
-				@include material-flat-button(lighten($color-active-filter, 10%));
+				color: $color-accent;
+				@include material-flat-button(lighten($color-accent, 10%));
 				margin-right: 8px;
 
 				&.active {
-					@include material-flat-button($color-active-filter);
-					background-color: lighten($color-active-filter, 10%);
+					@include material-flat-button($color-accent);
+					background-color: lighten($color-accent, 10%);
 					color: #fff;
 				}
 			}

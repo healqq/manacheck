@@ -2,4 +2,12 @@
 	<h3 class='title'>Результаты</h3>
 	<div class='plot'>
 	</div>
+	<div class='lands-combinations'>
+		<div ng-repeat='comb in resultsCtrl.lands'>
+			<div ng-repeat='land in comb.combination' style='float:left;'> 
+				{{land.title}} |
+			</div>
+			{{comb.value/10}} %
+		</div>
+	</div>
 </div>

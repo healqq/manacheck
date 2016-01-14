@@ -3,7 +3,7 @@
 @import 'mixins/material-mixin.scss';
 @import 'mixins/fonts-mixin.scss';
 
-.info {
+.info-container {
 	padding: 16px;
 	.segment-header {
 		display: flex;
@@ -21,7 +21,6 @@
 		
 		display: flex;
 		flex-direction: column;
-		max-height: 410px;
 		padding: 30px 0;
 		border-bottom: 1px solid #ddd;
 		.land-item {
@@ -30,6 +29,7 @@
 			flex-direction: row;
 			position: relative;
 			align-items: center;
+			padding: 10px 0;
 			land-item {
 				flex: 1;
 				display: flex;
@@ -84,19 +84,7 @@
     		flex-wrap: wrap;
 		
 			.color-items {
-				display: flex;
-				flex-direction: row;
-				.color-item {
-					@extend colors-mixin;
-					@extend color-hover-animation;
-					position: relative;
-					height: 20px;
-					border-radius: 50%;
-					width: 20px;
-					/*border: 1px solid #000;*/
-					margin: 5px;
-
-				}
+				@include color-items;
 			}
 		}
 	}

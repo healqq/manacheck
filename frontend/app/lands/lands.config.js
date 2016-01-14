@@ -7,6 +7,6 @@
 
 	landsFactoryInit.$inject = ['landsFactory'];
     function landsFactoryInit(landsFactory) {
-    	// console.log(landsFactory.getLands());
+    	landsFactory.getLands();
     }
 })();
