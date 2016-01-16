@@ -78,18 +78,34 @@ color-hover-animation:hover .hover-block, .info-container .colors-container .col
       color: #666;
       margin-left: 10px;
       font-size: 12pt; }
-  .info-container .lands-container {
-    display: flex;
-    flex-direction: column;
+  .info-container .lands-container,
+  .info-container .colors-container,
+  .info-container .types-container {
     padding: 30px 0;
     border-bottom: 1px solid #ddd; }
+  .info-container .lands-container {
+    display: flex;
+    flex-direction: column; }
     .info-container .lands-container .land-item {
       /*border-bottom: 1px solid #ddd;*/
       display: flex;
       flex-direction: row;
       position: relative;
       align-items: center;
-      padding: 10px 0; }
+      padding: 10px 0;
+      transition: opacity 0.4s, transform 0.3s; }
+      .info-container .lands-container .land-item.ng-enter {
+        opacity: 0;
+        transform: scale(1, 0); }
+        .info-container .lands-container .land-item.ng-enter.ng-enter-active {
+          opacity: 1;
+          transform: scale(1, 1); }
+      .info-container .lands-container .land-item.ng-leave {
+        opacity: 1;
+        transform: scale(1, 1); }
+        .info-container .lands-container .land-item.ng-leave.ng-leave-active {
+          opacity: 0;
+          transform: scale(1, 0); }
       .info-container .lands-container .land-item land-item {
         flex: 1;
         display: flex;
@@ -139,9 +155,7 @@ color-hover-animation:hover .hover-block, .info-container .colors-container .col
             opacity: 1; }
   .info-container .colors-container {
     display: flex;
-    flex-direction: column;
-    padding: 30px 0;
-    border-bottom: 1px solid #ddd; }
+    flex-direction: column; }
     .info-container .colors-container .colors-items-wrapper {
       display: flex;
       flex-direction: row;
@@ -158,6 +172,75 @@ color-hover-animation:hover .hover-block, .info-container .colors-container .col
           width: 20px;
           /*border: 1px solid #000;*/
           margin: 5px; }
+  .info-container .types-container {
+    font: 400 12pt "Roboto";
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    /*select {
+    	outline: none;
+    	padding: 10px;
+    	option {
+    		padding: 10px;
+    	}
+    	option[selected] {
+    		outline: none;
+    		&[selected] {
+    			background-color: $color-accent;
+    			color: $color-paper;
+    		}
+    		&:hover {
+    			background-color: #fafafa;
+    		}
+    	}
+    }*/ }
+    .info-container .types-container .select-block {
+      margin-top: 10px;
+      position: relative;
+      align-self: flex-start; }
+      .info-container .types-container .select-block input {
+        padding: 10px 2px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        display: block;
+        border: 1px solid #999;
+        transition: background-color 0.3s, color 0.3s; }
+        .info-container .types-container .select-block input:hover {
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          background-color: #e4e7f6; }
+      .info-container .types-container .select-block .select-options {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        /*display: none;*/
+        /*transform: scale(1,0);*/
+        overflow: hidden;
+        max-height: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        /*max-width: 0;*/
+        z-index: 10;
+        opacity: 1;
+        background-color: #fff;
+        transition: max-height 0.3s; }
+        .info-container .types-container .select-block .select-options.active {
+          /*border: 1px inset rgb(238, 238, 238);*/
+          max-height: 200px; }
+        .info-container .types-container .select-block .select-options.ng-hide {
+          /*transform: scale(0,0);*/ }
+        .info-container .types-container .select-block .select-options .option {
+          text-align: center;
+          padding: 12px 4px;
+          z-index: 10;
+          border-bottom: 1px solid #ddd;
+          cursor: pointer; }
+          .info-container .types-container .select-block .select-options .option:last-child {
+            border-bottom: none; }
+          .info-container .types-container .select-block .select-options .option:hover {
+            background-color: #f0f0f0; }
+          .info-container .types-container .select-block .select-options .option.selected {
+            color: #fff;
+            background-color: #abb4e2; }
   .info-container .action-container {
     display: flex;
     flex-direction: row;

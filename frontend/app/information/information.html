@@ -77,8 +77,22 @@
 		</div>
 	</div>
 
+	<div class='types-container'>
+		<div class='segment-header'>
+			<h3 class='segment-title' > 
+				Spells type 
+			</h3>
+		</div>
+		<mc-select class='select-block' 
+			values='infoCtrl.spellTypes' 
+			ng-model='infoCtrl.spellsType' 
+			label='"title"'>
+		</mc-select>
+	</div>
 	<div class='action-container'>
-		<button class='action-btn' ng-click='infoCtrl.submitData()'>
+		<button class='action-btn' 
+			ng-click='infoCtrl.submitData()'
+			ng-disabled='infoCtrl.canCompute()'>
 		Compute
 		</button>
 	</div>

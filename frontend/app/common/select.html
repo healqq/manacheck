@@ -1,0 +1,13 @@
+<div>
+	<input type='text' ng-model='selectCtrl.ngModel[selectCtrl.label]' 
+		ng-click='selectCtrl.showDropdown($event)'/>
+	<div class='select-options'
+		ng-class='{active: selectCtrl.dropdownIsActive}'>
+		<div class='option' 
+		ng-repeat='value in selectCtrl.values'
+		ng-class='{selected: selectCtrl.isSelectedValue(value)}'
+		ng-click='selectCtrl.setValue(value)'>
+			{{value[selectCtrl.label]}}
+		</div>
+	</div>
+</div>
