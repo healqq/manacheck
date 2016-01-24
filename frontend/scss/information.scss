@@ -18,7 +18,8 @@
 	}
 	.lands-container,
 	.colors-container,
-	.types-container {
+	.types-container,
+	.cards-number-container {
 		padding: 30px 0;
 		border-bottom: 1px solid #ddd;
 	}
@@ -105,88 +106,10 @@
 			}
 		}
 	}
-	.types-container {
-		font: $font-style-normal;
-		color: $color-subtext;
-		display: flex;
-		flex-direction: column;
-		.select-block {
-			margin-top: 10px;
-			position: relative;
-			align-self: flex-start;
-
-			input {
-				padding: 10px 2px;
-				text-align: center;
-				cursor: pointer;
-				outline: none;
-				display: block;
-				border: 1px solid #999;
-				transition: background-color 0.3s, color 0.3s;
-				&:hover {
-					@include material-shadow(1);
-					background-color: lighten($color-accent, 45%);
-				}
-			}
-			.select-options {
-
-				@include material-shadow(1);
-				/*display: none;*/
-				/*transform: scale(1,0);*/
-				overflow: hidden;
-				max-height: 0;
-				position: absolute;
-				top: 0;
-				width: 100%;
-				/*max-width: 0;*/
-				z-index: 10;
-				opacity: 1;
-				background-color: $color-paper;
-				transition: max-height 0.3s;
-				&.active {
-					/*border: 1px inset rgb(238, 238, 238);*/
-					max-height: 200px;
-				}
-				&.ng-hide {
-					/*transform: scale(0,0);*/
-				}
-				.option {
-					text-align: center;
-					padding: 12px 4px;
-					z-index: 10;
-					border-bottom: 1px solid #ddd;
-					cursor: pointer;
-					&:last-child {
-						border-bottom: none;
-					}
-					&:hover {
-						background-color: #f0f0f0;
-					}
-					&.selected {
-						color: #fff;
-						background-color: lighten($color-accent, 30%);
-					}
-
-				}
-			}
-		}
-		/*select {
-			outline: none;
-			padding: 10px;
-			option {
-				padding: 10px;
-			}
-			option[selected] {
-				outline: none;
-				&[selected] {
-					background-color: $color-accent;
-					color: $color-paper;
-				}
-				&:hover {
-					background-color: #fafafa;
-				}
-			}
-		}*/
+	.types-container,
+	.cards-number-container {
+		@include material-select;
+		
 	}
 	.action-container {
 		display: flex;

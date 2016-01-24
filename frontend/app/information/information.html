@@ -89,6 +89,19 @@
 			label='"title"'>
 		</mc-select>
 	</div>
+
+	<div class='cards-number-container'>
+		<div class='segment-header'>
+			<h3 class='segment-title' > 
+				Cards number 
+			</h3>
+		</div>
+		<mc-select class='select-block' 
+			values='infoCtrl.cardsCountTypes' 
+			ng-model='infoCtrl.cardsCount' 
+			label='"title"'>
+		</mc-select>
+	</div>
 	<div class='action-container'>
 		<button class='action-btn' 
 			ng-click='infoCtrl.submitData()'

@@ -25,7 +25,7 @@
 		<div ng-repeat='land in landsCtrl.landsList | colorsFilter: landsCtrl.colorsFilter | typesFilter: landsCtrl.typesFilter' 
 			class='land-item'>
 			<div class='land-image-holder'>
-				<div class='land-image'>
+				<div class='land-image' mc-image='land.url'>
 				</div>
 
 			</div>

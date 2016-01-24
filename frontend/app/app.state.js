@@ -50,7 +50,8 @@
 		    .state('Base.Results', {
 		    	url: "result",
 		    	params: {
-		    		data: []
+		    		rounds: [],
+		    		lands: {}
 		    	},
 		    	views: {
 		    		container: {

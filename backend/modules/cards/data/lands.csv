@@ -1,60 +1,75 @@
-Name,Group,ETB,Type,P,Actual group
-Canopy Vista,Battle land,,Land — Forest Plains,WG,battle
-Cinder Glade,Battle land,,Land — Mountain Forest,RG,battle
-Prairie Stream,Battle land,,Land — Plains Island,WU,battle
-Smoldering Marsh,Battle land,,Land — Swamp Mountain,BR,battle
-Sunken Hollow,Battle land,,Land — Island Swamp,UB,battle
-Bloodstained Mire,Fetch land,,Land,BR,fetch
-Evolving Wilds,BasicFetch land,,Land,WURBG,basicfetch
-Flooded Strand,Fetch land,,Land,WU,fetch
-Polluted Delta,Fetch land,,Land,UB,fetch
-Windswept Heath,Fetch land,,Land,WG,fetch
-Wooded Foothills,Fetch land,,Land,RG,fetch
-Bloodfell Caves,Gain land,T,Land,BR,gain
-Blossoming Sands,Gain land,T,Land,WG,gain
-Dismal Backwater,Gain land,T,Land,UB,gain
-Jungle Hollow,Gain land,T,Land,BG,gain
-Rugged Highlands,Gain land,T,Land,RG,gain
-Scoured Barrens,Gain land,T,Land,WB,gain
-Swiftwater Cliffs,Gain land,T,Land,UR,gain
-Thornwood Falls,Gain land,T,Land,UG,gain
-Tranquil Cove,Gain land,T,Land,WU,gain
-Wind-Scarred Crag,Gain land,T,Land,WR,gain
-Lumbering Falls,Man land,T,Land,UG,man
-Shambling Vent,Man land,T,Land,WB,man
-Ally Encampment,Other,,Land,C,other
-Blighted Cataract,Other,,Land,C,other
-Blighted Fen,Other,,Land,C,other
-Blighted Gorge,Other,,Land,C,other
-Blighted Steppe,Other,,Land,C,other
-Blighted Woodland,Other,,Land,C,other
-Crucible of the Spirit Dragon,Other,,Land,C,other
-Fertile Thicket,Other,T,Land,G,other
-Foundry of the Consuls,Other,,Land,C,other
-Haven of the Spirit Dragon,Other,,Land,C,other
-Looming Spires,Other,T,Land,R,other
-Mage-Ring Network,Other,,Land,C,other
-Mortuary Mire,Other,T,Land,B,other
-Rogue's Passage,Other,,Land,C,other
-Sanctum of Ugin,Other,,Land,C,other
-Sandstone Bridge,Other,T,Land,W,other
-Shrine of the Forsaken Gods,Other,,Land,C,other
-Skyline Cascade,Other,T,Land,U,other
-Spawning Bed,Other,,Land,C,other
-Tomb of the Spirit Dragon,Other,,Land,C,other
-Battlefield Forge,Pain land,,Land,UR,pain
-Caves of Koilos,Pain land,,Land,WB,pain
-Llanowar Wastes,Pain land,,Land,BG,pain
-Shivan Reef,Pain land,,Land,UR,pain
-Yavimaya Coast,Pain land,,Land,UG,pain
-Frontier Bivouac,Tri land,T,Land,URG,tri
-Mystic Monastery,Tri land,T,Land,WUR,tri
-Nomad Outpost,Tri land,T,Land,WBR,tri
-Opulent Palace,Tri land,T,Land,UBG,tri
-Sandsteppe Citadel,Tri land,T,Land,WBG,tri
-Island,Basic land,,Land - Island,U,basic
-Mountain,Basic land,,Land - Mountain,R,basic
-Swamp,Basic land,,Land - Swamp,B,basic
-Plains,Basic land,,Land - Plains,W,basic
-Foreset,Basic land,,Land - Forest,G,basic
-Wastes,Basic land,,Land,C,basic
+﻿Name,Group,ETB,Type,P,Actual group,RU,ENG,Link,Type,TypeColor
+Canopy Vista,Battle land,,Land — Forest Plains,WG,battle,Дорога Среди Крон,Canopy Vista,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404528&type=card,,
+Cinder Glade,Battle land,,Land — Mountain Forest,RG,battle,Тлеющая Поляна,Cinder Glade,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404532&type=card,,
+Prairie Stream,Battle land,,Land — Plains Island,WU,battle,Ручей в Прерии,Prairie Stream,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404689&type=card,,
+Smoldering Marsh,Battle land,,Land — Swamp Mountain,BR,battle,Тлеющее Болото,Smoldering Marsh,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404734&type=card,,
+Sunken Hollow,Battle land,,Land — Island Swamp,UB,battle,Затопленная Лощина,Sunken Hollow,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404742&type=card,,
+Bloodstained Mire,Fetch land,,Land,BR,fetch,Кровавая Топь,Bloodstained Mire,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=388916&type=card,,
+Evolving Wilds,BasicFetch land,,Land,WURBGС,basicfetch,Перерождающиеся Дебри,Evolving Wilds,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404563&type=card,,
+Flooded Strand,Fetch land,,Land,WU,fetch,Затопленная Пойма,Flooded Strand,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=388958&type=card,,
+Polluted Delta,Fetch land,,Land,UB,fetch,Загрязненная Дельта,Polluted Delta,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389048&type=card,,
+Windswept Heath,Fetch land,,Land,WG,fetch,Ветреная Пустошь,Windswept Heath,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389146&type=card,,
+Wooded Foothills,Fetch land,,Land,RG,fetch,Лесистое Предгорье,Wooded Foothills,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389150&type=card,,
+Bloodfell Caves,Gain land,T,Land,BR,gain,Пещеры Пролитой Крови,Bloodfell Caves,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393467&type=card,,
+Blossoming Sands,Gain land,T,Land,WG,gain,Цветущие Пески,Blossoming Sands,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393469&type=card,,
+Dismal Backwater,Gain land,T,Land,UB,gain,Мрачная Заводь,Dismal Backwater,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393485&type=card,,
+Jungle Hollow,Gain land,T,Land,BG,gain,Лощина в Джунглях,Jungle Hollow,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393530&type=card,,
+Rugged Highlands,Gain land,T,Land,RG,gain,Непроходимые Горы,Rugged Highlands,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393573&type=card,,
+Scoured Barrens,Gain land,T,Land,WB,gain,Выжженные Пустоши,Scoured Barrens,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393580&type=card,,
+Swiftwater Cliffs,Gain land,T,Land,UR,gain,Скальные Стремнины,Swiftwater Cliffs,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393601&type=card,,
+Thornwood Falls,Gain land,T,Land,UG,gain,Водопад Шиполесья,Thornwood Falls,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393609&type=card,,
+Tranquil Cove,Gain land,T,Land,WU,gain,Тихая Бухта,Tranquil Cove,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393611&type=card,,
+Wind-Scarred Crag,Gain land,T,Land,WR,gain,Обветренный Утес,Wind-Scarred Crag,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393628&type=card,,
+Lumbering Falls,Man land,T,Land,UG,man,Рокочущие Водопады,Lumbering Falls,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404634&type=card,,
+Shambling Vent,Man land,T,Land,WB,man,Бродячее Жерло,Shambling Vent,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404722&type=card,,
+Ally Encampment,Type land,,Land,C,type,Лагерь Союзников,Ally Encampment,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404499&type=card,allies,WURBGC
+Blighted Cataract,Other,,Land,C,other,Порченый Водопад,Blighted Cataract,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404511&type=card,,
+Blighted Fen,Other,,Land,C,other,Порченая Топь,Blighted Fen,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404512&type=card,,
+Blighted Gorge,Other,,Land,C,other,Порченая Теснина,Blighted Gorge,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404513&type=card,,
+Blighted Steppe,Other,,Land,C,other,Порченая Степь,Blighted Steppe,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404514&type=card,,
+Blighted Woodland,Other,,Land,C,other,Порченый Лес,Blighted Woodland,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404515&type=card,,
+Crucible of the Spirit Dragon,Other,,Land,C,other,Горнило Духа Дракона,Crucible of the Spirit Dragon,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393477&type=card,,
+Fertile Thicket,Other,T,Land,G,other,Плодородные Заросли,Fertile Thicket,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404570&type=card,,
+Foundry of the Consuls,Other,,Land,C,other,Литейная Консулов,Foundry of the Consuls,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=401106&type=card,,
+Haven of the Spirit Dragon,Other,,Land,C,other,Убежище Духа Дракона,Haven of the Spirit Dragon,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=396969&type=card,dragons,WURBGC
+Looming Spires,Other,T,Land,R,other,Нависающие Глыбы,Looming Spires,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404633&type=card,,
+Mage-Ring Network,Other,,Land,C,other,Сеть Магических Колец,Mage-Ring Network,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=401026&type=card,,
+Mortuary Mire,Other,T,Land,B,other,Трупная Трясина,Mortuary Mire,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404643&type=card,,
+Rogue's Passage,Other,,Land,C,other,Разбойничий Проход,Rogue's Passage,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=401016&type=card,,
+Sanctum of Ugin,Other,,Land,C,other,Святилище Уджина,Sanctum of Ugin,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404713&type=card,,
+Sandstone Bridge,Other,T,Land,W,other,Мост из Песчаника,Sandstone Bridge,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404714&type=card,,
+Shrine of the Forsaken Gods,Other,,Land,C,other,Храм Забытых Богов,Shrine of the Forsaken Gods,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404725&type=card,,
+Skyline Cascade,Other,T,Land,U,other,Небесный Каскад,Skyline Cascade,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404729&type=card,,
+Spawning Bed,Other,,Land,C,other,Ложе Порождения,Spawning Bed,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404737&type=card,,
+Tomb of the Spirit Dragon,Other,,Land,C,other,Могила Духа Дракона,Tomb of the Spirit Dragon,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389121&type=card,,
+Battlefield Forge,Pain land,,Land,WRC,pain,Кузница на Поле Боя,Battlefield Forge,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=400910&type=card,,
+Caves of Koilos,Pain land,,Land,WBC,pain,Пещеры Койлоса,Caves of Koilos,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=400997&type=card,,
+Llanowar Wastes,Pain land,,Land,BGC,pain,Лановарские Пустоши,Llanowar Wastes,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=401082&type=card,,
+Shivan Reef,Pain land,,Land,URC,pain,Шиванский Риф,Shivan Reef,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=400937&type=card,,
+Yavimaya Coast,Pain land,,Land,UGC,pain,Явимайское Побережье,Yavimaya Coast,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=401059&type=card,,
+Frontier Bivouac,Tri land,T,Land,URG,tri,Пограничный Бивак,Frontier Bivouac,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=388965&type=card,,
+Mystic Monastery,Tri land,T,Land,WUR,tri,Монастырь Мистиков,Mystic Monastery,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389035&type=card,,
+Nomad Outpost,Tri land,T,Land,WBR,tri,Аванпост Кочевников,Nomad Outpost,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389040&type=card,,
+Opulent Palace,Tri land,T,Land,UBG,tri,Роскошный Дворец,Opulent Palace,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389041&type=card,,
+Sandsteppe Citadel,Tri land,T,Land,WBG,tri,Цитадель в Песчаной Степи,Sandsteppe Citadel,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389070&type=card,,
+Island,Basic land,,Land - Island,U,basic,Остров,Island,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404618&type=card,,
+Mountain,Basic land,,Land - Mountain,R,basic,Гора,Mountain,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404652&type=card,,
+Swamp,Basic land,,Land - Swamp,B,basic,Болото,Swamp,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404750&type=card,,
+Plains,Basic land,,Land - Plains,W,basic,Равнина,Plains,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404685&type=card,,
+Forest,Basic land,,Land - Forest,G,basic,Лес,Forest,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404577&type=card,,
+Wastes,Basic land,,Land,C,basic,Пустоши,Wastes,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409367&type=card,,
+Cinder Barrens,Dual Tapland,T,Land,BR,dual,Пепельные Пустоши,Cinder Barrens,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409352&type=card,,
+Corrupted Crossroads,Type land,T,Land,WURBGС,type,Порченый Перекресток,Corrupted Crossroads,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409353&type=card,devoid,WURBGC
+Crumbling Vestige,Other,T?,Land,WURBGС,other,Осыпающиеся Развалины,Crumbling Vestige,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409354&type=card,,
+Hissing Quagmire,Man land,T,Land,BG,man,Шипящая Трясина,Hissing Quagmire,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409355&type=card,,
+Holdout Settlement,Other,,Land,WURBGC,other,Уклоняющееся Поселение,Holdout Settlement,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409356&type=card,,
+Meandering River,Dual Tapland,T,Land,UW,dual,Извилистая Река,Meandering River,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409357&type=card,,
+Mirrorpool,Other,,Land,C,other,Зеркальный Водоем,Mirrorpool,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409358&type=card,,
+Needle Spires,Man land,T,Land,WR,man,Острые Шпили,Needle Spires,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409359&type=card,,
+Ruins of Oran-Rief,Other,,Land,C,other,Руины Оран-Рифа,Ruins of Oran-Rief,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409360&type=card,,
+Sea Gate Wreckage,Other,,Land,C,other,Развалины Мореграда,Sea Gate Wreckage,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409361&type=card,,
+Submerged Boneyard,Dual Tapland,T,Land,UB,dual,Затопленное Кладбище,Submerged Boneyard,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409362&type=card,,
+Timber Gorge,Dual Tapland,T,Land,RG,dual,Лесная Теснина,Timber Gorge,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409363&type=card,,
+Tranquil Expanse,Dual Tapland,T,Land,WG,dual,Безмятежная Долина,Tranquil Expanse,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409364&type=card,,
+Unknown Shores,Other,,Land,C,other,Неведомые Берега,Unknown Shores,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409365&type=card,,
+Wandering Fumarole,Man land,T,Land,UR,man,Бродячая Фумарола,Wandering Fumarole,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409366&type=card,,

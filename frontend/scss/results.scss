@@ -3,7 +3,9 @@
 @import 'mixins/material-mixin.scss';
 @import 'mixins/fonts-mixin.scss';
 
-.plot {
+
+.rounds-plot,
+.symbols-plot {
   	font: $font-style-normal;
 	.bar {
 		rect {
@@ -21,19 +23,125 @@
 	}
 	.axis path, .axis line {
 	  fill: none;
-	  stroke: #000;
-	  shape-rendering: crispEdges;
+/*	  stroke: #000;
+	  shape-rendering: crispEdges;*/
+	}
+}
+.plot-container {
+	padding: 20px;
+	&.rounds {
+		margin-right: 20px;
+	}
+	&.symbols {
+		flex: 1;
 	}
 }
 .results-container {
-	@include material-shadow(1);
-	margin: 40px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	background-color: $color-paper;
-	.title {
-		padding: 20px 0;
-		@include material-h3;
+	align-items: stretch;
+	.plot-container {
+		@include material-shadow(1);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: $color-paper;
+		.title {
+			padding: 20px 0;
+			@include material-h3;
+		}
 	}
+	.additional-info-container {
+		margin: 20px 40px 40px 40px;
+		display: flex;
+		align-items: stretch;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.lands-combinations-container,
+	.round-numbers-container {
+		background-color: $color-paper;
+		@include material-shadow(1);
+		display: flex;
+		flex-direction: column;
+		padding: 20px;
+		
+		.title {
+			padding: 20px 0;
+			@include material-h3;
+		}
+	}
+}
+.plots-wrap {
+	display: flex;
+	flex-direction: row;
+	margin: 40px 40px 0 40px;
+}
+.lands-combinations-container {
+	margin-left: 20px;
+	flex: 1;
+	align-items: center;
+	.combinations-container {
+		display: flex;
+		flex-direction: row;
+		.combination {	
+			padding: 20px;
+			@include material-card;
+			position: relative;
+			flex-direction: column;
+			overflow: hidden;
+		}
+		land-item {
+			flex: 1;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			font: $font-style-normal;
+			.count {
+					font-size: 24pt;
+					margin-right: 10px;
+				}
+			.sub-info {
+				font-size: 10pt;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				.color-item {
+					@extend colors-mixin;
+					height: 10px;
+					width: 10px;
+					border-radius: 50%;
+					margin: 2px;
+					float: left;
+					
+				}
+				.type {
+					margin-left: 4px;
+					color: $color-subtext;
+				}
+			}
+		}
+		.persentage {
+			margin-top: 10px;
+			font: $font-style-normal;
+			font-size: 24pt;
+			text-align: center;
+		}
+	}
+
+}
+.round-numbers-container {
+	flex: 300px 0 0;
+	.number-block {
+		.header {
+			@include material-h3;
+			margin-left: 10px;
+			font-size: 12pt;
+		}
+		.text {
+			font: $font-style-normal;
+			color: $color-text;
+		}
+	}
+	
 }

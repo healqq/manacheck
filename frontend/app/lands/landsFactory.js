@@ -15,6 +15,7 @@
 			this.id = options.id;
 			this.colors = options.colors;
 			this.title = options.title;
+			this.url = options.url;
 		}
 		var landsResource = $resource('api/lands');
 		function getLands() {

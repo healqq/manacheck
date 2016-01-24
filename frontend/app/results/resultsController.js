@@ -13,18 +13,88 @@
 	function resultsController($state, landsFactory) {
 		var vm = this;
 		
-		var rounds = mockRounds();//$state.params.rounds;
-		var lands = mockLands();//$state.params.lands;
-
+		var rounds =  mockRounds();//$state.params.rounds; //
+		var lands =  mockLands();//$state.params.lands; //
+		var symbols = mockSymbols();
 		vm.lands = prepareLands(lands);
-		buildPlot(rounds);
-		function buildPlot(values) {
+		var plotValues = buildRoundsPlot(rounds);
+		vm.numbers = prepareNumbers(plotValues);
+		buildSymbolsPlot(symbols);
+		function buildSymbolsPlot(values) {
+			var margin = {top: 10, right: 30, bottom: 30, left: 30},
+			    width = 330 - margin.left - margin.right,
+			    height = 300 - margin.top - margin.bottom;
+			var valuesArray = [];
+			var ticksRange = [];
+			var colorsArray = Object.keys(values);
+			colorsArray.forEach(function(color, index) {
+				valuesArray.push(values[color]);
+				ticksRange.push(width/colorsArray.length*index);
+			});
+			var plot = d3.select(".symbols-plot");
+			var ticks = colorsArray.length;
+
+			var formatCount = d3.format(",.f");
+
+			
+
+			var x = d3.scale.ordinal()
+			    .domain(colorsArray)
+			    .range(ticksRange);
+
+			var xAxis = d3.svg.axis()
+			    .scale(x)
+			    .orient("bottom");
+
+			var y = d3.scale.linear()
+			    .domain([0, d3.max(valuesArray, function(d) { return d; })])
+			    .range([height, 0]);
+			var svg = plot
+				.append("svg")
+			    .attr("width", width + margin.left + margin.right)
+			    .attr("height", height + margin.top + margin.bottom)
+			  .append("g")
+			    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			var bar = svg.selectAll(".bar")
+			    .data(valuesArray)
+			  .enter().append("g")
+			    .attr("class", "bar")
+			    .attr("transform", function(d, i) { return "translate(" + (ticksRange[i] - 0.5* ticksRange[1]) + "," + (height) + ")"; })
+					    
+			bar.append("rect")
+			    .attr("x", 1)
+			    .attr("width", ticksRange[1] - 1)
+			    .transition()
+			    .delay(function(d, i) { return i * 50; })
+			    .style("height", function(d, i) { return (height - y(valuesArray[i])) + 'px'; });
+
+			bar.append("text")
+			    .attr("dy", ".75em")
+			    .attr("x", ticksRange[0] + ticksRange[1]/ 2)
+			    .attr("y", 
+			    	function(d, i) {
+			    		var currHeight = y(valuesArray[i]);
+			    		var diff = height - currHeight;
+			    		return -diff + ((diff < 20)?(-20): 6) 
+			    	}
+			    )
+			    .attr("text-anchor", "middle")
+			    .text(function(d, i) { return formatCount(valuesArray[i]); })
+			    .transition()
+			    .style("opacity", 1);
+
+			svg.append("g")
+			    .attr("class", "x axis")
+			    .attr("transform", "translate(0," + height + ")")
+			    .call(xAxis);
+
+			// console.log(colorsArray);
+			// console.log(valuesArray);
+		};
+		function buildRoundsPlot(values) {
 
 			// getting plot container
-			var plot = d3.select(".plot");
-
-			//removing all stuff
-			// plot.selectAll('*').data([]).exit().remove();
+			var plot = d3.select(".rounds-plot");
 
 			var min = d3.min(values);
 			var max = d3.max(values);
@@ -34,25 +104,59 @@
 
 			var margin = {top: 10, right: 30, bottom: 30, left: 30},
 			    width = 960 - margin.left - margin.right,
-			    height = 500 - margin.top - margin.bottom;
+			    height = 300 - margin.top - margin.bottom;
 
 			var x = d3.scale.linear()
 			    .domain([min, max])
 			    .range([0, width]);
+			
 
 			// Generate a histogram 
 			var data = d3.layout.histogram()
 			    .bins(x.ticks(ticks))
 			    (values);
+			// we need copy of initial data to compute comulative stuff
+			var dataCopy = d3.layout.histogram()
+			    .bins(x.ticks(ticks))
+			    (values);
+			// making our gist cummulative
+
+			data.forEach(function(item, index) {
+				for (var i=0; i<index;i++) {
+					item.y += dataCopy[i].y;
+				}
+				item.y = item.y / 10;
+			});
+			// split last 5% to one bin
+			var lastIndex = data.length - 1;
+			var sum = 0;
+			for (var i=0; (i<data.length); i++ ){
+				if (data[i].y > 95) {
+					lastIndex = i;
+					break;
+				}
+			}
+			data.splice(lastIndex+1, data.length - lastIndex);
+			data[lastIndex].y = 100;
+			max = data[lastIndex].x;
+			ticks = max - min + 1;
+
+			// recount x
+			var x = d3.scale.linear()
+			    .domain([min, max])
+			    .range([0, width]);
 
 			var y = d3.scale.linear()
-			    .domain([0, d3.max(data, function(d) { return d.y; })])
+			    .domain([0, 100])
 			    .range([height, 0]);
 
 			var xAxis = d3.svg.axis()
 			    .scale(x)
 			    .orient("bottom")
-			    .ticks(ticks);
+			    .ticks(ticks)
+			    .tickFormat(function(d, i) {
+			    	return (i !== data.length-1)?d:d-1+'+';
+			    });
 
 			var svg = plot
 				.append("svg")
@@ -65,7 +169,7 @@
 			    .data(data)
 			  .enter().append("g")
 			    .attr("class", "bar")
-			    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + (height) + ")"; })
+			    .attr("transform", function(d) { return "translate(" + (x(d.x) - x(min+1) * 0.5) + "," + (height) + ")"; })
 			    
 			    
 			bar.append("rect")
@@ -73,7 +177,8 @@
 			    .attr("width", x(min + 1) - 1)
 			    .transition()
 			    .delay(function(d, i) { return i * 50; })
-			    .style("height", function(d) { return (height - y(d.y)) + 'px'; });
+			    .style("height", 
+			    	function(d, index) {return (height - y(d.y)) + 'px'; });
 			
 			
 
@@ -88,7 +193,7 @@
 			    	}
 			    )
 			    .attr("text-anchor", "middle")
-			    .text(function(d) { return formatCount(d.y/10); })
+			    .text(function(d) { return formatCount(d.y); })
 			    .transition()
 			    .style("opacity", 1);
 			    
@@ -97,9 +202,23 @@
 			    .attr("class", "x axis")
 			    .attr("transform", "translate(0," + height + ")")
 			    .call(xAxis);
+
+			return  data;
 			
 		}
 
+		function prepareNumbers(plotData) {
+			var numbers = {};
+			var percentSum = 0;
+			var i=0;
+			while (percentSum < 900) {
+				percentSum+= plotData[i].y;
+				i++;
+			}
+
+			numbers.round = plotData[i].x;
+			return numbers;
+		}
 		function prepareLands(values) {
 
 			var landsArray = [];
@@ -112,19 +231,33 @@
 			function getLands(combination) {
 				var landIds = combination.split('|');
 				var lands = [];
-				landIds.forEach(function(id) {
-					if (id !== '') {
-						lands.push(landsFactory.getLandById(parseInt(id)));
-					}
-				});
+				return landIds.reduce(
+					function(result, currentId) {
 
-				return lands;
+						if (currentId === '') {
+							return result;
+						}
+						var id = parseInt(currentId);
+						if ((result.length === 0) || (result[result.length-1].landId !== id)) {
+							result.push({landId: id, value: 1});
+						}
+						else {
+							result[result.length-1].value++;
+						}
+					
+						return result;
+					}, 
+					[]
+				);
 			}
 			function sortFunc(combination1, combination2) {
 				return combination2.value - combination1.value;
 			}
 		}
 
+		function mockSymbols() {
+			return {"red":8,"black":0,"green":11,"blue":0,"white":7,"grey":0};
+		}
 		function mockRounds() {
 			return [
 					9,
@@ -1144,7 +1277,7 @@
 				'58|54|': 1,
 				'58|54|2|': 148,
 				'58|55|3|': 117,
-				'58|55|54|': 157,
+				'58|55|54|54|': 157,
 			}
 		}
 

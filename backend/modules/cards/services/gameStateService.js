@@ -66,6 +66,13 @@ function gameStateService(deck, hand, field) {
 	function isSpellType(value) {
 		return _stats.spellsType === value;
 	}
+
+	function setCardsCount(count) {
+		_stats.cardsCount = count;
+	}
+	function getCardsCount() {
+		return _stats.cardsCount;
+	}
 	return {
 		getDeck: getDeck,
 		getField: getField,
@@ -87,7 +94,10 @@ function gameStateService(deck, hand, field) {
 
 		setSpellsType: setSpellsType,
 		getSpellsType: getSpellsType,
-		isSpellType: isSpellType
+		isSpellType: isSpellType,
+
+		setCardsCount: setCardsCount,
+		getCardsCount: getCardsCount
 
 	}
 };

@@ -1,13 +1,45 @@
 <div class='results-container'>
-	<h3 class='title'>Результаты</h3>
-	<div class='plot'>
-	</div>
-	<div class='lands-combinations'>
-		<div ng-repeat='comb in resultsCtrl.lands'>
-			<div ng-repeat='land in comb.combination' style='float:left;'> 
-				{{land.title}} |
+	<div class='plots-wrap'>
+		<div class='plot-container rounds'>
+			<h3 class='title'>Rounds</h3>
+			<div class='rounds-plot'>
 			</div>
-			{{comb.value/10}} %
+		</div>
+		<div class='plot-container symbols'>
+			<h3 class='title'>Symbols</h3>
+			<div class='symbols-plot'>
+			</div>
 		</div>
 	</div>
+	
+	<div class='additional-info-container'>
+		<div class='round-numbers-container'>
+			<h3 class='title'>Numbers</h3>
+			<div class='numbers-container'>
+				<div class='number-block'>
+					<h3 class='header'>
+						top 90% 
+					</h3>
+					<div class='text'>
+						less than {{resultsCtrl.numbers.round}} rounds
+					</div>
+				</div>
+				<!-- {{}} -->
+			</div>
+
+		</div>
+		<div class='lands-combinations-container'>
+			<h3 class='title'>Most common land combinations</h3>
+			<div class='combinations-container'>
+				<div ng-repeat='comb in resultsCtrl.lands' class='combination'>
+					<div ng-repeat='pair in comb.combination'>
+						<land-item land-id="pair.landId" land-count="pair.value">
+						</land-item> 
+					</div>
+					<div class='persentage'>
+						{{comb.value/10}} %
+					</div>
+				</div>
+			</div>
+		</div>
 </div>

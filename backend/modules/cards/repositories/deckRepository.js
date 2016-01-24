@@ -6,18 +6,17 @@ var Nonland = require(cardsModule + '/entities/Nonland.js');
 var shuffleHelper = require(cardsModule + '/helpers/shuffleHelper.js');
 var landsCollection = require(cardsModule + '/repositories/landsCollection.js');
 
-function deckRepository() {
+function deckRepository(gameState) {
 	var _deck = [];
 	var _deckCopy;
 	var _lands;
-	var deckLength = 60;
 
-	function set(deck) {
+	function set(deck, cardsCount) {
 		
 		_lands = new landsCollection();
 		_lands.set(deck);
 		_deck = deck.slice();
-		for (var i=_deck.length; i < deckLength; i++) {
+		for (var i=_deck.length; i < cardsCount; i++) {
 			_deck.push(new Nonland());
 		}
 		_deckCopy = _deck.slice();
@@ -41,6 +40,9 @@ function deckRepository() {
 		return _lands.getSymbolsOrder();
 	}
 
+	function getSymbols() {
+		return _lands.getSymbols();
+	}
 	function getBasicLands() {
 		if (_lands === undefined) {
 			throw new Exception('lands are not set');
@@ -109,6 +111,7 @@ function deckRepository() {
 		set: set,
 		reset: reset,
 		get: get,
+		getSymbols: getSymbols,
 		getSymbolsOrder: getSymbolsOrder,
 		fetchLand: fetchLand,
 		fetchBasicLand: fetchBasicLand,

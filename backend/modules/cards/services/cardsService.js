@@ -25,6 +25,7 @@ function cardsService() {
 	var _deck = undefined;
 	var _landIds = undefined;
 	var _genericMana = undefined;
+	var _deckSymbols = undefined;
 
 	function play() {
 		var rounds = [];
@@ -86,6 +87,7 @@ function cardsService() {
 		return {
 			data: 
 				{
+					deckSymbols: _deckSymbols,
 					rounds: rounds,
 					hashes: landHashes.reduce(function(result, current) {
 						if (result[current] === undefined) {
@@ -234,7 +236,10 @@ function cardsService() {
 				deck.push(land);
 			}
 		);
-		Deck.set(deck);
+		Deck.set(deck, GameState.getCardsCount());
+		if (_deckSymbols === undefined) {
+			_deckSymbols = Deck.getSymbols();
+		}
 		Deck.shuffle();
 
 	}
@@ -242,7 +247,8 @@ function cardsService() {
 	function setLands(lands) {
 		_landIds = lands;
 	}
-	function setType(type) {
+
+	function setSpellsType(type) {
 		GameState.setSpellsType(type);
 	}
 	function setColors(colors) {
@@ -251,6 +257,9 @@ function cardsService() {
 	function setGenericMana(amount) {
 		_genericMana = amount;
 	} 
+	function setCardsCount(count) {
+		GameState.setCardsCount(count);
+	}
 	function copyColors(colorsArray) {
 		result = [];
 		colorsArray.forEach(function(color) {
@@ -264,6 +273,8 @@ function cardsService() {
 		setColors: setColors,
 		setLands: setLands,
 		setGenericMana: setGenericMana,
+		setSpellsType: setSpellsType,
+		setCardsCount: setCardsCount,
 		play: play,
 	}
 }

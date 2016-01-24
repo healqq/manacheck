@@ -42,6 +42,17 @@
 				value: 'dragons'
 			}
 		];
+		vm.cardsCountTypes = [
+			{
+				title: '60',
+				value: 60
+			},
+			{
+				title: '40',
+				value: 40
+			},
+		];
+		vm.cardsCount = vm.cardsCountTypes[0];
 		vm.spellsType = vm.spellTypes[0];
 
 		vm.submitData = submitData;
@@ -54,6 +65,7 @@
 				lands: landsStorageFactory.getLands(),
 				colors: colorsStorageFactory.getColors(),
 				spellsType: vm.spellsType.value,
+				cardsCount: vm.cardsCount.value,
 			};
 
 			var response = calculationFactory.calculate(params)

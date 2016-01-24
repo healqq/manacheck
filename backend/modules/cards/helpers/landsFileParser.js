@@ -24,10 +24,19 @@ function landsFileParser() {
 			// 3 - type (not needed)
 			// 4 - colors
 			// 5 - actual group (tolover, trim after first space)
+			// 6 - rus name
+			// 7 - eng name copy
+			// 8 - url
+			// 9 - spells type
+			// 10 - typeColors
 			this.title = data[0];
 			this.type = data[5];
 			this.tapped = (data[2] === 'T')? true: false;
 			this.colors = getColorsArray(data[4]);
+			this.title_rus = data[6];
+			this.url = data[8];
+			this.spellType = data[9];
+			this.typeColors = data[10];
 			this.id = id;
 		}
 		var parser = parse({delimiter: ','}, 
