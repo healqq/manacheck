@@ -20,7 +20,7 @@ function gameStateService(deck, hand, field) {
 	function setRemainingLandsCount(value) {
 		_stats.remaningLands = value;
 	}
-	function getRemainingLandsCount(value) {
+	function getRemainingLandsCount() {
 		return _stats.remaningLands;
 	}
 	function decRemainingLandsCount() {
@@ -59,7 +59,7 @@ function gameStateService(deck, hand, field) {
 		return _stats.spellsType = value;
 	}
 
-	function getSpellsType(value) {
+	function getSpellsType() {
 		return _stats.spellsType;
 	}
 

@@ -3,7 +3,7 @@ var Land = require('./Land.js');
 function BasicFetchLand(id, deck) {
 	
 	var self = this;
-	var colors = ['red', 'green', 'blue', 'white', 'black', 'grey'];
+	var colors = ['red', 'green', 'blue', 'white', 'black', 'colorless'];
 	//calling base class constructor
 	Land.call(self, id, colors, false, 'basicfetch');
 	self.getColors = getColors;
@@ -16,7 +16,7 @@ function BasicFetchLand(id, deck) {
 		var result = [];
 		var allColors = deck.getBasicLands();
 		for (var i=0; i< self.colors.length;i++) {
-			if (allColors[self.colors[i]].count > 0) {
+			if (allColors[self.colors[i]] && (allColors[self.colors[i]].count > 0)) {
 				result.push(colors[i]);
 			} 
 		}

@@ -30,6 +30,10 @@ function cardsService() {
 	function play() {
 		var rounds = [];
 		var landHashes = [];
+		var mulligans = {
+			from7: 0,
+			from6: 0
+		};
 		// check if there are enough symbols of needed colors
 		var combinationCheck = colorsCheckHelper(factory, _landIds, _colors);
 		if (!combinationCheck.valid) {
@@ -89,15 +93,19 @@ function cardsService() {
 				{
 					deckSymbols: _deckSymbols,
 					rounds: rounds,
-					hashes: landHashes.reduce(function(result, current) {
-						if (result[current] === undefined) {
-							result[current] = 1;
-						}
-						else {
-							result[current]++;
-						}
-						return result;
-					}, {}),
+					hashes: landHashes.reduce(
+						function(result, current) {
+							if (result[current] === undefined) {
+								result[current] = 1;
+							}
+							else {
+								result[current]++;
+							}
+							return result;
+						}, 
+						{}
+					),
+					mulligans: mulligans,
 				}
 			};
 
@@ -200,8 +208,9 @@ function cardsService() {
 			Hand.set(cards);
 			while (!Hand.isKeepable()) {
 
+				updateMulligansCount(mulligans, cardsNumber);
 				cardsNumber = cardsNumber - 1;
-				// console.log('mulligan happened! cardsNumber: ' + cardsNumber);
+				
 				Deck.reset();
 				cards = Deck.draw(cardsNumber);
 				Hand.set(cards);
@@ -239,11 +248,21 @@ function cardsService() {
 		Deck.set(deck, GameState.getCardsCount());
 		if (_deckSymbols === undefined) {
 			_deckSymbols = Deck.getSymbols();
+			// console.log(_deckSymbols);
 		}
 		Deck.shuffle();
 
 	}
 
+	function updateMulligansCount(mulligans, cardsNumber) {
+		if (cardsNumber === 7) {
+			mulligans.from7++;
+		}
+		if (cardsNumber === 6) {
+			mulligans.from7--;
+			mulligans.from6++;
+		}
+	}
 	function setLands(lands) {
 		_landIds = lands;
 	}

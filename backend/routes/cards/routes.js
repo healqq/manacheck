@@ -40,13 +40,14 @@ router.post('/play', function(req, res, next) {
 	var lands = transformLands(requestData.lands);
 	var genericMana = getGenericMana(requestData.colors.colors);
 	var colors = requestData.colors.colors;
+	var cardsCount = requestData.cardsCount || 60;
 
 	var cardsService = new CardsService();
 	cardsService.setColors(colors);
 	cardsService.setLands(lands);
 	cardsService.setGenericMana(genericMana);
 	cardsService.setSpellsType(requestData.type);
-	cardsService.setCardsCount(requestData.cardsCount);
+	cardsService.setCardsCount(cardsCount);
 
 	var result = cardsService.play();
 	sendResponse(res, result.data, result.status);

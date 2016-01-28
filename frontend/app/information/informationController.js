@@ -71,11 +71,11 @@
 			var response = calculationFactory.calculate(params)
 			.then(
 				function(data) {
-					$state.go('^.Results', {rounds: data.rounds, lands: data.hashes});
+					$state.go('^.Results', {rounds: data.rounds, lands: data.hashes, symbols: data.deckSymbols});
 					return data;
 				},
 				function(error) {
-					$state.go('^.Errors', {data: error.data, lands:{} });
+					$state.go('^.Errors', {data: error.data, lands:{}, symbols: {} });
 				}
 			);
 

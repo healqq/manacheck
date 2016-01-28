@@ -45,14 +45,14 @@ function deckRepository(gameState) {
 	}
 	function getBasicLands() {
 		if (_lands === undefined) {
-			throw new Exception('lands are not set');
+			throw new Error('lands are not set');
 		}
 		return _lands.getBasicLands();
 	}
 
 	function getFetchedLands() {
 		if (_lands === undefined) {
-			throw new Exception('lands are not set');
+			throw new Error('lands are not set');
 		}
 		return _lands.getFetchedLands();
 	}
@@ -63,7 +63,7 @@ function deckRepository(gameState) {
 	function draw(number) {
 		number = number || 1;
 		if ( (!Array.isArray(_deck)) || (_deck.length < number) ) {
-			throw new Exception('not enough cards');
+			throw new Error('not enough cards');
 		}
 		var cards = _deck.splice(0,number);
 		_lands.splice(cards);

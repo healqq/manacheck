@@ -23,7 +23,7 @@ describe("landsCollection", function(){
                 new Nonland(),
                 new Land(1,['green','red'], true, 'gain'),
                 new Land(2,['black', 'red'], false, 'battle'),
-                new Land(3,['grey'], false, 'basic'),
+                new Land(3,['colorless'], false, 'basic'),
             ];
              	
             landsCollection.set(lands);
@@ -37,7 +37,7 @@ describe("landsCollection", function(){
                         green: 1,
                         blue:0,
                         white:0,
-                        grey: 1
+                        colorless: 1
                     }
               );
               
@@ -69,7 +69,7 @@ describe("landsCollection", function(){
             var landsCollection = new LandsCollection();
             var lands = [
                 new Land(2,['black', 'red'], true, 'battle'),
-                new Land(3,['grey'], false, 'basic'),
+                new Land(3,['colorless'], false, 'basic'),
             ];
             // add a fetchLand to the mix
             lands.push( new FetchLand(4, ['black', 'red'], landsCollection));
@@ -113,7 +113,7 @@ describe("landsCollection", function(){
                 new Nonland(),
                 new Nonland(),
                 new Land(1,['green'], true, 'basic'),
-                new Land(2,['grey'], true, 'basic'),
+                new Land(2,['colorless'], true, 'basic'),
                 new Land(3,['red'], true, 'basic'),
             ];
             landsCollection.set(lands);
@@ -128,7 +128,7 @@ describe("landsCollection", function(){
                         id: 1,
                         count: 1,
                     },
-                    grey: {
+                    colorless: {
                         id: 2,
                         count: 1
                     },
@@ -165,7 +165,7 @@ describe("landsCollection", function(){
                         green: 2,
                         blue:0,
                         white:0,
-                        grey: 0,
+                        colorless: 0,
                     }
               );
               
@@ -178,7 +178,7 @@ describe("landsCollection", function(){
                 new Nonland(),
                 new Nonland(),
                 new Land(1,['green'], true, 'basic'),
-                new Land(2,['grey'], true, 'basic'),
+                new Land(2,['colorless'], true, 'basic'),
                 new Land(3,['red'], true, 'basic'),
             ];
 
@@ -195,7 +195,7 @@ describe("landsCollection", function(){
                     green: 3,
                     blue:0,
                     white:0,
-                    grey: 3,
+                    colorless: 3,
                 }
             );
               
@@ -212,7 +212,7 @@ describe("landsCollection", function(){
                     new Land(1,['green','red'], true, 'gain'),
                     new Land(2,['black', 'red'], false, 'gain'),
                     new Land(3,['black', 'red'], false, 'gain'),
-                    new Land(4, ['grey'], false, 'basic'),
+                    new Land(4, ['colorless'], false, 'basic'),
                     new Land(3,['black', 'red'], false, 'pain'),
                     new Land(1,['green','red'], true, 'gain'),
                 ];
@@ -221,7 +221,7 @@ describe("landsCollection", function(){
 
                 expect(landsCollection.getSymbolsOrder())
                   .eql([
-                        {color:'grey', value:1},
+                        {color:'colorless', value:1},
                         {color:'green', value:2},
                         {color:'black', value:3},
                         {color:'red', value:5},
@@ -230,6 +230,34 @@ describe("landsCollection", function(){
                 );
               
         });
+        // it("should return symbols in DESC order", function(){
+              
+        //         var landsCollection = new LandsCollection();
+        //         var lands = [
+        //             new Nonland(),
+        //             new Nonland(),
+        //             new Land(1,['red'], true, 'gain'),
+        //             new Land(2,['black'], false, 'gain'),
+        //             new Land(3,['blue'], false, 'gain'),
+        //             new Land(4, ['colorless'], false, 'basic'),
+        //             new Land(3,['white'], false, 'pain'),
+        //             new Land(1,['green'], true, 'gain'),
+        //         ];
+                  
+        //         landsCollection.set(lands);
+
+        //         expect(landsCollection.getSymbolsOrder())
+        //             .eql([
+        //                 {color:'red', value:1},
+        //                 {color:'black', value:1},
+        //                 {color:'blue', value:1},
+        //                 {color:'colorless', value:1},
+        //                 {color:'white', value:1},
+        //                 {color:'green', value:1},
+        //             ]
+        //         );
+              
+        // });
     });
 
     describe(".getFetchedLands()", function() {
@@ -241,7 +269,7 @@ describe("landsCollection", function(){
                 new Nonland(),
                 new Land(1,['green','red'], true, 'battle'),
                 new Land(2,['black'], false, 'basic'),
-                new Land(5,['grey'], false, 'basic'),
+                new Land(5,['colorless'], false, 'basic'),
                 new Land(3,['black', 'red'], true, 'battle'),
                 new Land(4,['black', 'blue'], true, 'gain'),
             ];
@@ -277,10 +305,10 @@ describe("landsCollection", function(){
                             colors: ['black', 'red']
                         },
                     },
-                    grey: {
+                    colorless: {
                         5: {
                             count: 1,
-                            colors: ['grey']
+                            colors: ['colorless']
                         }
                     },
                     blue: {},
@@ -337,7 +365,7 @@ describe("landsCollection", function(){
                     },
                     blue: {},
                     white: {},
-                    grey: {}
+                    colorless: {}
                 }
             );
             expect(landsCollection.getSymbols())
@@ -348,7 +376,7 @@ describe("landsCollection", function(){
                     white: 0,
                     blue: 1,
                     black: 3,
-                    grey: 0,
+                    colorless: 0,
                 }
             );
               
@@ -400,7 +428,7 @@ describe("landsCollection", function(){
                     },
                     blue: {},
                     white: {},
-                    grey: {}
+                    colorless: {}
                 }
             );
             expect(landsCollection.getSymbols())
@@ -411,7 +439,7 @@ describe("landsCollection", function(){
                     white: 0,
                     blue: 1,
                     black: 4,
-                    grey: 0,
+                    colorless: 0,
                 }
             );
               

@@ -2,6 +2,8 @@ var Land = require(cardsModule + '/entities/Land.js');
 var BattleLand = require(cardsModule + '/entities/BattleLand.js');
 var FetchLand = require(cardsModule + '/entities/FetchLand.js');
 var BasicFetchLand = require(cardsModule + '/entities/BasicFetchLand.js');
+var TypeLand = require(cardsModule + '/entities/TypeLand.js');
+var LastRoundLand = require(cardsModule + '/entities/LastRoundLand.js');
 var LandsStorage = require(cardsModule + '/repositories/landsRepository.js');
 
 function landsFactory(gameState) {
@@ -20,6 +22,22 @@ function landsFactory(gameState) {
 			break;
 			case 'basicfetch':
 				land = new BasicFetchLand(id, _gameState.getDeck());
+			break;
+			case 'type':
+				land = new TypeLand(
+					id, 
+					landContext.colors, 
+					landContext.tapped, 
+					landContext.spellsType, 
+					landContext.specialColors,
+					_gameState);
+			break;
+			case 'lastround':
+				land = new LastRoundLand(
+					id, 
+					landContext.colors, 
+					landContext.specialColors, 
+					_gameState);
 			break;
 			default:
 				land = new Land(id, landContext.colors, landContext.tapped, landContext.type);

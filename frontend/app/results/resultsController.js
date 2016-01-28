@@ -13,12 +13,12 @@
 	function resultsController($state, landsFactory) {
 		var vm = this;
 		
-		var rounds =  mockRounds();//$state.params.rounds; //
-		var lands =  mockLands();//$state.params.lands; //
-		var symbols = mockSymbols();
+		var rounds =  $state.params.rounds; //mockRounds();//
+		var lands =  $state.params.lands; //mockLands();//
+		var symbols = $state.params.symbols;//mockSymbols();
 		vm.lands = prepareLands(lands);
 		var plotValues = buildRoundsPlot(rounds);
-		vm.numbers = prepareNumbers(plotValues);
+		// vm.numbers = prepareNumbers(plotValues);
 		buildSymbolsPlot(symbols);
 		function buildSymbolsPlot(values) {
 			var margin = {top: 10, right: 30, bottom: 30, left: 30},

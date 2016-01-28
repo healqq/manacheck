@@ -5,7 +5,7 @@ Prairie Stream,Battle land,,Land — Plains Island,WU,battle,Ручей в Пр�
 Smoldering Marsh,Battle land,,Land — Swamp Mountain,BR,battle,Тлеющее Болото,Smoldering Marsh,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404734&type=card,,
 Sunken Hollow,Battle land,,Land — Island Swamp,UB,battle,Затопленная Лощина,Sunken Hollow,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404742&type=card,,
 Bloodstained Mire,Fetch land,,Land,BR,fetch,Кровавая Топь,Bloodstained Mire,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=388916&type=card,,
-Evolving Wilds,BasicFetch land,,Land,WURBGС,basicfetch,Перерождающиеся Дебри,Evolving Wilds,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404563&type=card,,
+Evolving Wilds,BasicFetch land,,Land,WURBGC,basicfetch,Перерождающиеся Дебри,Evolving Wilds,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404563&type=card,,
 Flooded Strand,Fetch land,,Land,WU,fetch,Затопленная Пойма,Flooded Strand,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=388958&type=card,,
 Polluted Delta,Fetch land,,Land,UB,fetch,Загрязненная Дельта,Polluted Delta,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389048&type=card,,
 Windswept Heath,Fetch land,,Land,WG,fetch,Ветреная Пустошь,Windswept Heath,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=389146&type=card,,
@@ -60,7 +60,7 @@ Forest,Basic land,,Land - Forest,G,basic,Лес,Forest,http://gatherer.wizards.c
 Wastes,Basic land,,Land,C,basic,Пустоши,Wastes,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409367&type=card,,
 Cinder Barrens,Dual Tapland,T,Land,BR,dual,Пепельные Пустоши,Cinder Barrens,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409352&type=card,,
 Corrupted Crossroads,Type land,T,Land,WURBGС,type,Порченый Перекресток,Corrupted Crossroads,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409353&type=card,devoid,WURBGC
-Crumbling Vestige,Other,T?,Land,WURBGС,other,Осыпающиеся Развалины,Crumbling Vestige,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409354&type=card,,
+Crumbling Vestige,lastround,T,Land,С,other,Осыпающиеся Развалины,Crumbling Vestige,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409354&type=card,,WURBG
 Hissing Quagmire,Man land,T,Land,BG,man,Шипящая Трясина,Hissing Quagmire,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409355&type=card,,
 Holdout Settlement,Other,,Land,WURBGC,other,Уклоняющееся Поселение,Holdout Settlement,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409356&type=card,,
 Meandering River,Dual Tapland,T,Land,UW,dual,Извилистая Река,Meandering River,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409357&type=card,,

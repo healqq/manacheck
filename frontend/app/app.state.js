@@ -51,7 +51,8 @@
 		    	url: "result",
 		    	params: {
 		    		rounds: [],
-		    		lands: {}
+		    		lands: {},
+		    		symbols: {},
 		    	},
 		    	views: {
 		    		container: {

@@ -35,8 +35,8 @@ function landsFileParser() {
 			this.colors = getColorsArray(data[4]);
 			this.title_rus = data[6];
 			this.url = data[8];
-			this.spellType = data[9];
-			this.typeColors = data[10];
+			this.spellsType = data[9];
+			this.specialColors = getColorsArray(data[10]);
 			this.id = id;
 		}
 		var parser = parse({delimiter: ','}, 

@@ -1,4 +1,5 @@
 var Nonland = require(cardsModule + '/entities/Nonland.js');
+var combinationsHelper = require(cardsModule + '/helpers/combinationsHelper.js');
 /*
  *	DECK STORAGE LOGIC
  */
@@ -114,21 +115,14 @@ function landsCollection() {
 				green: {},
 				blue:{},
 				white:{},
-				grey:{}
+				colorless:{}
 			};
 		};
 
 		_lands = [];
 		_canFetch = getEmptyColorsCollection();
 		_basicLands = getEmptyColorsCollection();
-		_symbols = {
-			red: 0,
-			black: 0,
-			green: 0,
-			blue:0,
-			white:0,
-			grey:0
-		};
+		_symbols = combinationsHelper.createCombination();
 		for (var i=0; i< deck.length; i++) {
 			add(deck[i]);		
 		}
@@ -144,14 +138,7 @@ function landsCollection() {
 		}
 	}
 	function updateSymbols() {
-		_symbols = {
-			red: 0,
-			black: 0,
-			green: 0,
-			blue:0,
-			white:0,
-			grey:0
-		}; 
+		_symbols = combinationsHelper.createCombination();
 		for (var i=0; i< _lands.length; i++) {
 			addLandColors(_lands[i]);
 		}
