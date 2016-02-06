@@ -23,7 +23,7 @@ describe("CardsService", function(){
         	expect(cs.play().status).equal(422);
         })
 
-        it("should return rounds, hashes and mulligans", function(){
+        it("should return rounds, hashes, starting hand lands count and mulligans", function(){
         	var colors = [{color: 'green', value: 2}];
         	var lands  = [1,1,1,1,3,3,3,3,5,5,6,6];
 
@@ -34,8 +34,35 @@ describe("CardsService", function(){
             cs.setCardsCount(60);
             var playResult = cs.play();
         	expect(playResult.status).equal(undefined);
+            // rounds
         	expect(playResult.data.rounds.length).equal(1000);
+            // hashes
         	expect(playResult.data.hashes).instanceof(Object);
+            // starting lands in hand
+            expect(playResult.data.startingHandLands).instanceof(Object);
+            for (var i=0; i<=7; i++) {
+                expect(playResult.data.startingHandLands[i]).to.exist;
+            }
+            // mulligans
+            expect(playResult.data.mulligans).instanceof(Object);
+            expect(playResult.data.mulligans.from7).to.exist;
+            expect(playResult.data.mulligans.from6).to.exist;
+
+        })
+
+        it("should return work correctly with generic mana", function(){
+            var colors = [{color: 'green', value: 2}];
+            var lands  = [1,1,1,1,3,3,3,3,5,5,6,6];
+
+            var cs = new CardsService();
+            cs.setLands(lands);
+            cs.setColors(colors);
+            cs.setGenericMana(2);
+            cs.setCardsCount(60);
+            var playResult = cs.play();
+            expect(playResult.status).equal(undefined);
+            expect(playResult.data.rounds.length).equal(1000);
+            expect(playResult.data.hashes).instanceof(Object);
             expect(playResult.data.mulligans).instanceof(Object);
             expect(playResult.data.mulligans.from7).to.exist;
             expect(playResult.data.mulligans.from6).to.exist;

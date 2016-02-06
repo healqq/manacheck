@@ -140,7 +140,8 @@ color-hover-animation:hover .hover-block, .lands-wrapper .lands-container .land-
         align-content: center;
         margin-top: 8px; }
       .lands-wrapper .lands-container .land-item .land-image-holder {
-        height: 135px;
+        flex: 125px 0 0;
+        /*flex: 135px 0 0;*/
         overflow: hidden;
         z-index: 1;
         box-sizing: border-box;
@@ -152,6 +153,7 @@ color-hover-animation:hover .hover-block, .lands-wrapper .lands-container .land-
         background-position: -18px -36px;
         z-index: 1; }
       .lands-wrapper .lands-container .land-item .tabs-holder {
+        flex: 1;
         z-index: 3;
         max-width: 200px; }
         .lands-wrapper .lands-container .land-item .tabs-holder .info-tab {
@@ -162,6 +164,7 @@ color-hover-animation:hover .hover-block, .lands-wrapper .lands-container .land-
           margin: auto 10px;
           align-self: flex-start; }
         .lands-wrapper .lands-container .land-item .tabs-holder .actions {
+          box-sizing: border-box;
           order: 2;
           display: flex;
           flex-direction: row; }
@@ -188,7 +191,7 @@ color-hover-animation:hover .hover-block, .lands-wrapper .lands-container .land-
               color: #000;
               opacity: 1; }
         .lands-wrapper .lands-container .land-item .tabs-holder .info {
-          flex: 1;
+          /*flex: 1;*/
           order: 1; }
           .lands-wrapper .lands-container .land-item .tabs-holder .info .title {
             font-size: 14pt;

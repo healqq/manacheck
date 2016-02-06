@@ -17,12 +17,16 @@
 			
 			vm.addColor = addColor;
 			vm.range = range;
+			vm.clearColors = clearColors;
 
 			function range(value) {
 				return new Array(value);
 			}
 			function addColor(color, value) {
 				colorsStorageFactory.addColor(color, value);
+			}
+			function clearColors() {
+				colorsStorageFactory.removeAll();
 			}
 		}
 		return {

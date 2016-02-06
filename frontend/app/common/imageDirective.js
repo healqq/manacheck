@@ -24,7 +24,10 @@
 			var img = angular.element('<img/>')[0];
 			img.src = link;
 			angular.element(img).on('load', function() {
-				angular.element(element).css('background-image', 'url(' + link + ')');
+				var $element = angular.element(element);
+				$element
+					.css('background-image', 'url(' + link + ')')
+					.css('opacity', 1);
 			})
 		}
 		

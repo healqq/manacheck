@@ -10,6 +10,11 @@
 			<div class='symbols-plot'>
 			</div>
 		</div>
+		<div class='plot-container lands'>
+			<h3 class='title'>Lands in starting hand</h3>
+			<div class='lands-in-hand-plot'>
+			</div>
+		</div>
 	</div>
 	
 	<div class='additional-info-container'>
@@ -18,23 +23,37 @@
 			<div class='numbers-container'>
 				<div class='number-block'>
 					<h3 class='header'>
+						Mulligans 
+					</h3>
+					<div class='text'>
+						to 6 cards in {{resultsCtrl.mulligans.to6}} %
+					</div>
+					<div class='text'>
+						to 5 cards in {{resultsCtrl.mulligans.to5}} %
+					</div>
+				</div>
+			</div>
+			<!-- <div class='numbers-container'>
+				<div class='number-block'>
+					<h3 class='header'>
 						top 90% 
 					</h3>
 					<div class='text'>
 						less than {{resultsCtrl.numbers.round}} rounds
 					</div>
 				</div>
-				<!-- {{}} -->
-			</div>
+			</div> -->
 
 		</div>
 		<div class='lands-combinations-container'>
 			<h3 class='title'>Most common land combinations</h3>
 			<div class='combinations-container'>
 				<div ng-repeat='comb in resultsCtrl.lands' class='combination'>
-					<div ng-repeat='pair in comb.combination'>
-						<land-item land-id="pair.landId" land-count="pair.value">
-						</land-item> 
+					<div class='pairs-holder'>
+						<div ng-repeat='pair in comb.combination' class='land-in-combination'>
+							<land-item land-id="pair.landId" land-count="pair.value">
+							</land-item> 
+						</div>
 					</div>
 					<div class='persentage'>
 						{{comb.value/10}} %

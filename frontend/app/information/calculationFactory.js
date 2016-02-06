@@ -5,7 +5,7 @@
 	.module('information')
 	.factory('calculationFactory', calculationFactory);
 
-	calculationFactory.$inject = ['$resource', '$state'];
+	calculationFactory.$inject = ['$resource'];
 
 	function calculationFactory($resource) {
 

@@ -25,7 +25,6 @@
 			    		templateUrl: "core/core.html",
 			    	}
 			    }
-			    
 		    })
 		    .state('Base.Lands', {
 		    	url: "land",
@@ -48,11 +47,14 @@
 		    	}
 		    })
 		    .state('Base.Results', {
-		    	url: "result",
+		    	url: "result/:id",
 		    	params: {
 		    		rounds: [],
-		    		lands: {},
+		    		landCombinations: {},
 		    		symbols: {},
+		    		mulligans: {},
+		    		id: undefined,
+		    		isDataReady: false,
 		    	},
 		    	views: {
 		    		container: {
@@ -60,13 +62,42 @@
 			    		controllerAs: 'resultsCtrl',
 			    		controller: 'resultsController'
 		    		}
+		    	},
+		    	resolve: {
+		    		resultData: [
+		    			'$state', 
+		    			'$stateParams',
+		    			'$q', 
+		    			'resultsFactory', 
+		    			'landsStorageFactory', 
+		    			'colorsStorageFactory',
+		    			function($state, $stateParams, $q, resultsFactory, landsStorageFactory, colorsStorageFactory) {
+		    				if ($stateParams.isDataReady) {
+		    					return $q.when($stateParams);
+		    				}
+		    				else {
+		    					return resultsFactory.view({id:$stateParams.id})
+		    					.then(
+		    						function(data) {
+		    							landsStorageFactory.set(data.lands);
+		    							colorsStorageFactory.set(data.colors);
+		    							return data;
+		    						},
+
+		    						function (error) {
+		    							$state.go('Base.Errors', {data: error, type: "notFound" });
+		    						}
+		    					);
+		    				}
+						}
+		    		],
 		    	}
 		    })
 		    .state('Base.Errors', {
 		    	url: "error",
 		    	params: {
-		    		rounds: [],
-		    		lands: {},
+		    		type: '',
+		    		data: {}
 		    	},
 		    	views: {
 		    		container: {
@@ -76,8 +107,5 @@
 		    		}
 		    	}
 		    });
-
-	    
-    	
     }
 })();

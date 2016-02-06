@@ -39,7 +39,7 @@ footer {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     background-color: #fff;
     order: 1;
-    flex: 300px 0;
+    flex: 300px 0 0;
     z-index: 2; }
   .container .content {
     background-color: #E0E0E0;
@@ -52,3 +52,10 @@ footer {
       display: flex;
       flex-direction: column;
       flex: 1; }
+
+.mc-image {
+  opacity: 0;
+  transition: opacity 0.3s; }
+
+button {
+  -webkit-appearance: none; }

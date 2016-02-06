@@ -27,19 +27,44 @@
 	  shape-rendering: crispEdges;*/
 	}
 }
+.lands-in-hand-plot {
+	.lands-text,
+	.lands-count {
+		font: $font-style-bold;
+	}
+	.lands-text {
+		font-size: 12pt;
+	}
+	.lands-count {
+		font-size: 26pt;
+	}
+	.segment {
+		transition: opacity 0.3s;
+		opacity: 0.6;
+		&.active {
+			opacity: 1;
+		}
+	}
+}
 .plot-container {
 	padding: 20px;
+	margin-top: 20px;
+	margin-right: 20px;
+	flex: 1;
 	&.rounds {
-		margin-right: 20px;
+		flex: 2;
 	}
-	&.symbols {
-		flex: 1;
+
+		
+
+	&.symbols,
+	&.lands {
+		/**/
 	}
 }
 .results-container {
 	display: flex;
 	flex-direction: column;
-	align-items: stretch;
 	.plot-container {
 		@include material-shadow(1);
 		display: flex;
@@ -52,7 +77,7 @@
 		}
 	}
 	.additional-info-container {
-		margin: 20px 40px 40px 40px;
+		margin: 20px 20px 40px 40px;
 		display: flex;
 		align-items: stretch;
 		flex-direction: row;
@@ -60,11 +85,13 @@
 	}
 	.lands-combinations-container,
 	.round-numbers-container {
+		margin-right: 20px;
 		background-color: $color-paper;
 		@include material-shadow(1);
 		display: flex;
 		flex-direction: column;
 		padding: 20px;
+		flex: 1;
 		
 		.title {
 			padding: 20px 0;
@@ -75,28 +102,41 @@
 .plots-wrap {
 	display: flex;
 	flex-direction: row;
-	margin: 40px 40px 0 40px;
+	margin: 20px 20px 0 40px;
+	flex-wrap: wrap;
 }
 .lands-combinations-container {
-	margin-left: 20px;
 	flex: 1;
 	align-items: center;
 	.combinations-container {
+		flex-wrap: wrap;
 		display: flex;
 		flex-direction: row;
 		.combination {	
-			padding: 20px;
 			@include material-card;
+			flex-shrink: 0;
+			padding: 20px;
 			position: relative;
 			flex-direction: column;
-			overflow: hidden;
+			flex: 1;
+		}
+		.pairs-holder {
+			display: flex;
+			flex-wrap: wrap;
+			.land-in-combination{
+				flex: 1;
+			}
 		}
 		land-item {
+			min-width: 120px;
 			flex: 1;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
 			font: $font-style-normal;
+			.info {
+				flex-shrink: 0;
+			}
 			.count {
 					font-size: 24pt;
 					margin-right: 10px;
@@ -131,14 +171,17 @@
 
 }
 .round-numbers-container {
-	flex: 300px 0 0;
 	.number-block {
+		margin-left: 10px;
 		.header {
 			@include material-h3;
-			margin-left: 10px;
+			
 			font-size: 12pt;
+			padding: 10px 0;
 		}
 		.text {
+			margin-left: 10px;
+			padding-bottom: 2px;
 			font: $font-style-normal;
 			color: $color-text;
 		}

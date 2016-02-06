@@ -78,6 +78,10 @@ color-hover-animation:hover .hover-block, .info-container .colors-container .col
       color: #666;
       margin-left: 10px;
       font-size: 12pt; }
+    .info-container .segment-header .actions {
+      display: flex; }
+      .info-container .segment-header .actions a {
+        margin-right: 5px; }
   .info-container .lands-container,
   .info-container .colors-container,
   .info-container .types-container,
@@ -94,7 +98,7 @@ color-hover-animation:hover .hover-block, .info-container .colors-container .col
       position: relative;
       align-items: center;
       padding: 10px 0;
-      transition: opacity 0.4s, transform 0.3s; }
+      transition: opacity 0.3s, transform 0.2s; }
       .info-container .lands-container .land-item.ng-enter {
         opacity: 0;
         transform: scale(1, 0); }

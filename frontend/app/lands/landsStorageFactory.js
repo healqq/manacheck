@@ -56,11 +56,25 @@
 			return (index === -1)?0:_landsArray.lands[index].value;
 		}
 
+		function removeAll() {
+			_landsArray.lands.splice(0, _landsArray.lands.length);
+			_landsArray.count = 0;
+		}
+
+		function set(lands) {
+			removeAll();
+			lands.forEach(function(landId) {
+				addLand({id:landId});
+			});
+		}
+
 		return {
 			getLands: getLands,
 			addLand: addLand,
 			removeLand: removeLand,
-			getLandCount: getLandCount
+			getLandCount: getLandCount,
+			removeAll: removeAll,
+			set: set,
 		}
 	}
 })();

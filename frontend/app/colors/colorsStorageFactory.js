@@ -36,9 +36,24 @@
 			return colorsArray;
 		}
 
+		function removeAll() {
+			colorsArray.colors.forEach(function(color) {
+				color.value = 0;
+			});
+			colorsArray.count = 0;
+		}
+
+		function set(colors) {
+			removeAll();
+			colors.forEach(function(colorItem) {
+				addColor(colorItem.color, colorItem.value);
+			})
+		}
 		return {
 			getColors: getColors,
-			addColor: addColor
+			addColor: addColor,
+			removeAll: removeAll,
+			set: set,
 		}
 
 	}

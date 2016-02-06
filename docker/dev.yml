@@ -1,0 +1,29 @@
+#data container
+data:
+  image: debian:jessie
+  volumes:
+    - /share/manacheck:/var/www/manacheck
+
+#mongodb container
+mongodb:
+  image: mongo:3.2
+
+#webserver container
+expressjs:
+  build: expressjs
+  volumes_from:
+    - data:rw
+  links:
+    - mongodb
+  ports:
+    - "3000"
+
+# Nginx Web Proxy.
+nginx:
+  build: nginx
+  volumes_from:
+    - data:ro
+  ports:
+    - "80:80"
+  links:
+    - expressjs

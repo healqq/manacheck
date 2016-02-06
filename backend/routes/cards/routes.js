@@ -1,17 +1,20 @@
 var express = require('express');
 
+var extend = require('util')._extend;
 var CardsService = require(appRoot + '/modules/cards/services/cardsService.js');
+var Result = require(appRoot + '/modules/cards/models/result.js');
+var connection = require(appRoot +'/modules/cards/helpers/db.js');
 
 var router = express.Router();
 
+function sendResponse(res, data, status) {
+	status = status || 200;
+	res.status(status);
+	res.send(data);
+}
 /* POST play */
 router.post('/play', function(req, res, next) {
 	
-	function sendResponse(res, data, status) {
-		status = status || 200;
-		res.status(status);
-		res.send(data);
-	}
 	function transformLands(landsObject) {
 		// console.log(landsObject);
 		var lands = landsObject.lands;
@@ -50,7 +53,30 @@ router.post('/play', function(req, res, next) {
 	cardsService.setCardsCount(cardsCount);
 
 	var result = cardsService.play();
-	sendResponse(res, result.data, result.status);
+	if (result.status === undefined) {
+		var dataToSave = extend({
+			lands: lands,
+			colors: colors,
+		}, result.data);
+ 		Result.create(dataToSave, function(err, dbResult) {
+ 			result.data.id = dbResult._id;
+ 			sendResponse(res, result.data, result.status);
+		});
+	}
+	else {
+		sendResponse(res, result.data, result.status);
+	}
+	
 });
 
+router.get('/result/:id', function(req, response, next) {
+	Result.find({"_id": req.params.id}, function(err, result) {
+		if (err) {
+			sendResponse(response, {}, 404);
+		}
+		else {
+			sendResponse(response, result[0]);
+		}
+	});
+})
 module.exports = router;

@@ -18,6 +18,7 @@
 			vm.removeLand = removeLand;
 			vm.canRemoveLand = canRemoveLand;
 			vm.getLandCount = getLandCount;
+			vm.clearLands = clearLands;
 
 			function addLand(land) {
 				landsStorageFactory.addLand(land);
@@ -36,6 +37,10 @@
 			}
 			function getLandCount(land) {
 				return landsStorageFactory.getLandCount(land);
+			}
+
+			function clearLands() {
+				landsStorageFactory.removeAll();
 			}
 			
 		}

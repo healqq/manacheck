@@ -63,7 +63,12 @@
 		function submitData() {
 			var params = {
 				lands: landsStorageFactory.getLands(),
-				colors: colorsStorageFactory.getColors(),
+				colors: colorsStorageFactory.getColors().map(function(colorItem) {
+					return {
+						color: colorItem.color,
+						value: colorItem.value,
+					}
+				}),
 				spellsType: vm.spellsType.value,
 				cardsCount: vm.cardsCount.value,
 			};
@@ -71,11 +76,19 @@
 			var response = calculationFactory.calculate(params)
 			.then(
 				function(data) {
-					$state.go('^.Results', {rounds: data.rounds, lands: data.hashes, symbols: data.deckSymbols});
+					$state.go('^.Results', 
+						{
+							isDataReady: true,
+							rounds: data.rounds, 
+							lands: data.hashes, 
+							symbols: data.deckSymbols, 
+							id: data.id
+						}
+					);
 					return data;
 				},
 				function(error) {
-					$state.go('^.Errors', {data: error.data, lands:{}, symbols: {} });
+					$state.go('^.Errors', {data: error.data, type: "invalid" });
 				}
 			);
 

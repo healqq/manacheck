@@ -15,6 +15,12 @@
 			margin-left: 10px;
 			font-size: 12pt;
 		}
+		.actions {
+			display: flex;
+			a {
+				margin-right: 5px;
+			}
+		}
 	}
 	.lands-container,
 	.colors-container,
@@ -33,7 +39,7 @@
 			position: relative;
 			align-items: center;
 			padding: 10px 0;
-			transition: opacity 0.4s, transform 0.3s;
+			transition: opacity 0.3s, transform 0.2s;
 
 			&.ng-enter {
 				opacity: 0;

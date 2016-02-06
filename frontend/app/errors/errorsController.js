@@ -10,52 +10,28 @@
 	];
 
 	function errorsController($state) {
+
 		var vm = this;
-		var errorData = $state.params.data;
-		vm.formattedErrors = [];
+		vm.errorType = $state.params.type;
 
-		errorData.forEach(
-			function(item) {
-				if (item.value < 0) {
-					createErrorOfColor(item);
-				}
+		prepareErrorData($state.params.data);
+		function prepareErrorData(data) {
+			if (vm.errorType === "invalid") {
+				vm.formattedErrors = [];
+				data.forEach(
+					function(item) {
+						if (item.value < 0) {
+							createErrorOfColor(item);
+						}
+					}
+				);
 			}
-		);
-
-		function createErrorOfColor(item) {
-			vm.formattedErrors.push({
-				color: item.color,
-				value: -item.value
-			});
-		}
-
-		function Mock() {
-			return [
-			  {
-			    "color": "red",
-			    "value": -1
-			  },
-			  {
-			    "color": "green",
-			    "value": -1
-			  },
-			  {
-			    "color": "black",
-			    "value": 0
-			  },
-			  {
-			    "color": "blue",
-			    "value": 20
-			  },
-			  {
-			    "color": "white",
-			    "value": 0
-			  },
-			  {
-			    "color": "colorless",
-			    "value": 0
-			  }
-			];
+			function createErrorOfColor(item) {
+				vm.formattedErrors.push({
+					color: item.color,
+					value: -item.value
+				});
+			}
 		}
 	}
 })();

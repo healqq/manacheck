@@ -4,9 +4,14 @@
 			<h3 class='segment-title' > 
 				Lands ({{llCtrl._lands.count}}) 
 			</h3>
-			<a ui-sref='Base.Lands'>
-				edit
-			</a>
+			<div class='actions'>
+				<a href='' ng-click='llCtrl.clearLands()'>
+					clear
+				</a>
+				<a ui-sref='Base.Lands'>
+					edit
+				</a>
+			</div>
 		</div>
 		<div class='land-item' ng-repeat='land in llCtrl._lands.lands'>
 			<land-item land-id="land.id" land-count="land.value">
@@ -52,9 +57,14 @@
 			<h3 class='segment-title' > 
 				Colors ({{chCtrl.colors.count}}) 
 			</h3>
-			<a ui-sref='Base.Colors'>
-				edit
-			</a>
+			<div class='actions'>
+				<a href='' ng-click='chCtrl.clearColors()'>
+					clear
+				</a>
+				<a ui-sref='Base.Colors'>
+					edit
+				</a>
+			</div>
 		</div>
 		<div class='colors-items-wrapper'>
 			<div class='color-items' ng-repeat='item in chCtrl.colors.colors'>

@@ -1,27 +1,39 @@
-<div class='errors-container'>
-	<h3 class='title'>Error in inputs</h3>
-	<div class='error-description' ng-repeat='error in errorsCtrl.formattedErrors'>
-		<span class='count'>
-			{{error.value}}
-		</span> 
-		more
-		<span class='color'>
-			{{error.color}}
-		</span>
-		symbols required.
+<div class='error-container-wrapper' ng-switch='errorsCtrl.errorType'>
+	<div class='errors-container input-error' ng-switch-when="invalid">
+		<h3 class='title'>Error in inputs</h3>
+		<div class='error-description' ng-repeat='error in errorsCtrl.formattedErrors'>
+			<span class='count'>
+				{{error.value}}
+			</span> 
+			more
+			<span class='color'>
+				{{error.color}}
+			</span>
+			symbols required.
+		</div>
+		<div class='navigation'>
+			<button class='nav-button' ui-sref='Base.Lands' ng-click='errorsCtrl.navigate("Base.Lands")'>
+				<a >
+					Fix lands
+				</a>
+			</button>
+			<button class='nav-button' 
+				ui-sref='Base.Colors' 
+				ng-click='errorsCtrl.navigate("Base.Colors")'>
+					Fix colors
+			</button>
+			
+			
+		</div>
 	</div>
-	<div class='navigation'>
-		<button class='nav-button' ui-sref='Base.Lands' ng-click='errorsCtrl.navigate("Base.Lands")'>
-			<a >
-				Fix lands
-			</a>
-		</button>
-		<button class='nav-button' 
-			ui-sref='Base.Colors' 
-			ng-click='errorsCtrl.navigate("Base.Colors")'>
-				Fix colors
-		</button>
-		
-		
+	<div class='errors-container not-found-error' ng-switch-when="notFound">
+		<h3 class='title'>Result not found</h3>
+		<div class='navigation'>
+			<button class='nav-button' ui-sref='Base.Lands' ng-click='errorsCtrl.navigate("Base.Lands")'>
+				<a >
+					Run new test
+				</a>
+			</button>
+		</div>
 	</div>
 </div>

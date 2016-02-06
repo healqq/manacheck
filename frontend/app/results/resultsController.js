@@ -7,18 +7,24 @@
 
 	resultsController.$inject = [
 		'$state',
-		'landsFactory', 
+		'landsFactory',
+		'resultData' 
 	];
 
-	function resultsController($state, landsFactory) {
+	function resultsController($state, landsFactory, resultData) {
 		var vm = this;
-		
-		var rounds =  $state.params.rounds; //mockRounds();//
-		var lands =  $state.params.lands; //mockLands();//
-		var symbols = $state.params.symbols;//mockSymbols();
+		var graphWidth = 300;
+		var graphHeight = 300;
+		var rounds =  mockRounds();//$state.params.rounds; //
+		var lands =  mockLands();//$state.params.landCombinations; //
+		var symbols = mockSymbols();//$state.params.symbols;//
+		var mulligans = mockMulligans();
+		var startingHand = mockStartingLandsInHand();
 		vm.lands = prepareLands(lands);
-		var plotValues = buildRoundsPlot(rounds);
-		// vm.numbers = prepareNumbers(plotValues);
+		vm.mulligans = prepareNumbers(mulligans);
+		// plotting
+		buildRoundsPlot(rounds);
+		buildLandsInHandPlot(startingHand);
 		buildSymbolsPlot(symbols);
 		function buildSymbolsPlot(values) {
 			var margin = {top: 10, right: 30, bottom: 30, left: 30},
@@ -103,8 +109,8 @@
 			var formatCount = d3.format(",.1f");
 
 			var margin = {top: 10, right: 30, bottom: 30, left: 30},
-			    width = 960 - margin.left - margin.right,
-			    height = 300 - margin.top - margin.bottom;
+			    width = graphWidth*2 - margin.left - margin.right,
+			    height = graphHeight - margin.top - margin.bottom;
 
 			var x = d3.scale.linear()
 			    .domain([min, max])
@@ -206,18 +212,95 @@
 			return  data;
 			
 		}
+		function buildLandsInHandPlot(values) {
+			var dataArray = [];
+			var colors = 
+			Object.keys(values)
+				.forEach(function(key) {
+					dataArray.push({
+						key: key,
+						value: values[key],
+					})
+				}
+			);
 
-		function prepareNumbers(plotData) {
-			var numbers = {};
-			var percentSum = 0;
-			var i=0;
-			while (percentSum < 900) {
-				percentSum+= plotData[i].y;
-				i++;
+			var radius = Math.min(graphWidth, graphHeight) / 2; 
+			var formatCount = d3.format(",.1f");
+			var color = d3.scale.category20();
+			var svg = d3.select('.lands-in-hand-plot')
+				.append('svg')
+				.attr('width', graphWidth)
+				.attr('height', graphHeight)
+				.append('g')
+				.attr('transform', 'translate(' + (graphWidth / 2) +  ',' + (graphHeight / 2) + ')');  
+			var arc = d3.svg.arc()
+  				.outerRadius(radius)
+  				.innerRadius(radius/2); 
+  			var pie = d3.layout.pie()
+			  .value(function(d) { return d.value; })
+			  .sort(null);
+			var path = svg.selectAll('path')
+			  .data(pie(dataArray))
+			  .enter()
+			  	.append('path')
+				.attr('class', 'segment')
+				.attr('fill', function(d, i) { 
+				    return color(parseInt(d.data.key));
+				})
+				.attr('stroke', 'none')
+				.on('mouseover', onSectorMouseOver);
+				path.transition()
+			    .duration(1000)
+			    .attrTween('d', tweenPie);
+				// .on('mouseout', onSectorMouseOut);
+			var textGroup = svg
+				.attr("width", graphWidth/2)
+				.attr("height", graphHeight/2)
+				.attr("x", -graphWidth/2)
+				.attr("y", -graphHeight/2 - 80);
+			var textKey = textGroup
+				.append("text")
+				.attr("text-anchor", "middle")
+				.attr("y", -20)
+				.attr("class", 'lands-text')
+			    .attr("dy", ".4em");
+			var textValues = textGroup
+				.append("text")
+				.attr("text-anchor", "middle")
+				.attr("y", -5)
+				.attr("class", 'lands-count')
+			    .attr("dy", ".8em");
+
+			function tweenPie(finish) {
+			    var start = {
+			        startAngle: 0,
+			        endAngle: 0
+			    };
+			    var i = d3.interpolate(start, finish);
+			    return function(d) { return arc(i(d)); };
 			}
 
-			numbers.round = plotData[i].x;
-			return numbers;
+			function onSectorMouseOver(d) {
+				// applying active
+				path.classed('active', false);
+				d3.select(this)
+					.classed('active', true);
+				// setting text	
+				textKey.text(d.data.key + ' ' +( (parseInt(d.data.key) == 1)?'land':'lands'));
+				textValues.text(formatCount(d.data.value/10) + '%');
+			}
+			// function onSectorMouseOut(d) {
+			// 	textKey.text();
+			// 	textValues.text();
+			// }
+		}
+
+		function prepareNumbers(mulligans) {
+			
+			return {
+				to6: mulligans.from7/10,
+				to5: mulligans.from6/10
+			};
 		}
 		function prepareLands(values) {
 
@@ -257,6 +340,24 @@
 
 		function mockSymbols() {
 			return {"red":8,"black":0,"green":11,"blue":0,"white":7,"grey":0};
+		}
+		function mockMulligans() {
+			return {
+				from7: 250,
+				from6: 110
+			};
+		}
+		function mockStartingLandsInHand() {
+			return {
+				0: 35,
+				1: 212,
+				2: 346,
+				3: 246,
+				4: 127,
+				5: 30,
+				6: 4,
+				7: 0,
+			};
 		}
 		function mockRounds() {
 			return [

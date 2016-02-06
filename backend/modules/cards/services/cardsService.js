@@ -30,6 +30,7 @@ function cardsService() {
 	function play() {
 		var rounds = [];
 		var landHashes = [];
+		var startingHandLands = [];
 		var mulligans = {
 			from7: 0,
 			from6: 0
@@ -106,12 +107,28 @@ function cardsService() {
 						{}
 					),
 					mulligans: mulligans,
+					startingHandLands: startingHandLands.reduce(
+						function(result, current) {
+							result[current]++;
+							return result;
+						},
+						{
+							'0':0,
+							'1':0,
+							'2':0,
+							'3':0,
+							'4':0,
+							'5':0,
+							'6':0,
+							'7':0
+						}
+					),
 				}
 			};
 
 		function playForGenericMana() {
 
-			land = Hand.playLand('generic', (landsToPlayLeft + neededGenericMana === 1) );
+			land = Hand.playLand('generic', (GameState.getRemainingLandsCount() + GameState.getGenericManaCount() === 1) );
 			// it can happen if we have some fetches w/o lands to fetch.
 			if (land === undefined) {
 				return;
@@ -178,7 +195,7 @@ function cardsService() {
 					);
 					// console.log('intersect mana: ' + foundCombinationIntersect);
 					// console.log('needed mana: ' + neededGenericMana);
-					if (landsToPlayLeft >= foundCombination.count) {
+					if (GameState.getRemainingLandsCount() >= foundCombination.count) {
 						neededColors = tempCombination;
 						GameState.setRemainingLandsCount(foundCombination.count);
 					}
@@ -206,6 +223,7 @@ function cardsService() {
 			var cardsNumber = 7;
 			cards = Deck.draw(cardsNumber);
 			Hand.set(cards);
+			startingHandLands.push(Hand.getLength());
 			while (!Hand.isKeepable()) {
 
 				updateMulligansCount(mulligans, cardsNumber);
