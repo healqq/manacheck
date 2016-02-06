@@ -18,6 +18,12 @@ expressjs:
   ports:
     - "3000"
 
+# bower updater
+bower_updater:
+  build: bower_updater
+  volumes_from:
+    - data:rw
+
 # Nginx Web Proxy.
 nginx:
   build: nginx
