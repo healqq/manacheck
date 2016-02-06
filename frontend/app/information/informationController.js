@@ -63,7 +63,7 @@
 		function submitData() {
 			var params = {
 				lands: landsStorageFactory.getLands(),
-				colors: colorsStorageFactory.getColors().map(function(colorItem) {
+				colors: colorsStorageFactory.getColors().colors.map(function(colorItem) {
 					return {
 						color: colorItem.color,
 						value: colorItem.value,
