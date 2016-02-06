@@ -3,4 +3,4 @@ RUN apt-get update
 
 EXPOSE  3000
 
-CMD ["bin/bash","-c", "cd /var/www/manacheck/backend;npm install;node bin/www"]
+CMD ["bin/bash","-c", "cd /var/www/manacheck/backend && npm install && node bin/www"]
