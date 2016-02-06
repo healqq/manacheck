@@ -107,7 +107,7 @@ function cardsService() {
 						{}
 					),
 					mulligans: mulligans,
-					startingHandLands: startingHandLands.reduce(
+					hands: startingHandLands.reduce(
 						function(result, current) {
 							result[current]++;
 							return result;

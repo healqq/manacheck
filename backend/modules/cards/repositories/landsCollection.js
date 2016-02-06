@@ -1,3 +1,4 @@
+var extend = require('util')._extend;
 var Nonland = require(cardsModule + '/entities/Nonland.js');
 var combinationsHelper = require(cardsModule + '/helpers/combinationsHelper.js');
 /*
@@ -201,7 +202,7 @@ function landsCollection() {
 		return _lands[index];
 	}
 	function getSymbols() {
-		return _symbols;
+		return extend({}, _symbols);
 	}
 	function getSymbolsOrder() {
 		return _colorsOrder;

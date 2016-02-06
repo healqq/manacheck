@@ -21,6 +21,7 @@
 					colors: data.colors,
 					symbols: data.deckSymbols, 
 					mulligans: data.mulligans,
+					hands: data.hands,
 					id: data._id
 				};
 			});

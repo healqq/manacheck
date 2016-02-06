@@ -53,6 +53,7 @@
 		    		landCombinations: {},
 		    		symbols: {},
 		    		mulligans: {},
+		    		hands: {},
 		    		id: undefined,
 		    		isDataReady: false,
 		    	},

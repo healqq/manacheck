@@ -15,11 +15,11 @@
 		var vm = this;
 		var graphWidth = 300;
 		var graphHeight = 300;
-		var rounds =  mockRounds();//$state.params.rounds; //
-		var lands =  mockLands();//$state.params.landCombinations; //
-		var symbols = mockSymbols();//$state.params.symbols;//
-		var mulligans = mockMulligans();
-		var startingHand = mockStartingLandsInHand();
+		var rounds =  resultData.rounds; //mockRounds();//
+		var lands =  resultData.landCombinations; //mockLands();//
+		var symbols = resultData.symbols;//mockSymbols();//
+		var mulligans = resultData.mulligans;//mockMulligans();
+		var startingHand = resultData.hands;//mockStartingLandsInHand();
 		vm.lands = prepareLands(lands);
 		vm.mulligans = prepareNumbers(mulligans);
 		// plotting

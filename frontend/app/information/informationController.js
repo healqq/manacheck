@@ -80,7 +80,9 @@
 						{
 							isDataReady: true,
 							rounds: data.rounds, 
-							lands: data.hashes, 
+							landCombinations: data.hashes,
+							mulligans: data.mulligans,
+							hands: data.hands,
 							symbols: data.deckSymbols, 
 							id: data.id
 						}

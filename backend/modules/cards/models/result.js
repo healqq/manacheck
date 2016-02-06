@@ -2,9 +2,7 @@ var connection = require(appRoot +'/modules/cards/helpers/db.js');
 var resultSchema = connection.Schema({
     rounds: [],
     startingHands: {},
-    deckSymbols: [
-    	{color:String, value: Number}
-    ],
+    deckSymbols: {},
     hashes: {},
     mulligans: {
     	from7: Number,
@@ -12,6 +10,7 @@ var resultSchema = connection.Schema({
     },
     lands: [],
     colors: [],
+    hands: {},
 });
 
 var Result = connection.model('Result', resultSchema);
