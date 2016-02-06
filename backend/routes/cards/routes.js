@@ -41,8 +41,8 @@ router.post('/play', function(req, res, next) {
 	var requestData = req.body;
 
 	var lands = transformLands(requestData.lands);
-	var genericMana = getGenericMana(requestData.colors.colors);
-	var colors = requestData.colors.colors;
+	var genericMana = getGenericMana(requestData.colors);
+	var colors = requestData.colors;
 	var cardsCount = requestData.cardsCount || 60;
 
 	var cardsService = new CardsService();
