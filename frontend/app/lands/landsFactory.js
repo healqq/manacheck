@@ -9,9 +9,11 @@
 
 	function landsFactory($resource) {
 
-		var lands = {};
+		var landsHash = {};
 		function Land(options) {
-			this.type = options.type;
+			var type = options.type;
+			
+			this.type = type;
 			this.id = options.id;
 			this.colors = options.colors;
 			this.title = options.title;
@@ -22,15 +24,32 @@
 			return (new landsResource()).$get()
 			.then(function(data) {
 				angular.forEach(data.lands, 
+					function(land) {
+						var type = land.type;
+						if (type === 'basicfetch') {
+							type = 'fetch';
+						}
+						if (type === 'type') {
+							type = 'tribal';
+						}
+						if (type === 'lastround') {
+							type = 'other';
+						}
+						land.type = type;
+					});
+				return data.lands;
+			})
+			.then(function(lands) {
+				angular.forEach(lands, 
 					function(value) {
-						lands[value.id] = new Land(value);
+						landsHash[value.id] = new Land(value);
 					}
 				);
-				return data;
+				return lands;
 			});
 		}
 		function getLandById(id) {
-			return lands[id];
+			return landsHash[id];
 		}
 		return {
 			getLands: getLands,

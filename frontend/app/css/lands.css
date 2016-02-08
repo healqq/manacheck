@@ -253,7 +253,7 @@ color-hover-animation:hover .hover-block, .lands-wrapper .lands-container .land-
         outline: none;
         border: none;
         cursor: pointer;
-        padding: 10px 12px;
+        padding: 6px 8px;
         border-radius: 2px;
         background-color: transparent;
         font: 500 12pt "Roboto";
@@ -276,7 +276,7 @@ color-hover-animation:hover .hover-block, .lands-wrapper .lands-container .land-
           outline: none;
           border: none;
           cursor: pointer;
-          padding: 10px 12px;
+          padding: 6px 8px;
           border-radius: 2px;
           background-color: transparent;
           font: 500 12pt "Roboto";

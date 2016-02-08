@@ -5,12 +5,19 @@
 				Lands ({{llCtrl._lands.count}}) 
 			</h3>
 			<div class='actions'>
-				<a href='' ng-click='llCtrl.clearLands()'>
-					clear
-				</a>
-				<a ui-sref='Base.Lands'>
-					edit
-				</a>
+				<div ui-sref='Base.Lands'>
+					<!-- <i class="material-icons">&#xE150;</i> -->
+					<span class='action-text'>
+						edit
+					</span>
+				</div>
+				<div href='' ng-click='llCtrl.clearLands()'>
+					<!-- <i class="material-icons">&#xE14C;</i> -->
+					<span class='action-text'>
+						clear
+					</span>
+				</div>
+				
 			</div>
 		</div>
 		<div class='land-item' ng-repeat='land in llCtrl._lands.lands'>
@@ -28,27 +35,7 @@
 					<i class="material-icons">&#xE15B;</i>
 				</button>
 			</div>
-			<!-- <div class='plus'
-				ng-click='llCtrl.removeLand(land)'
-				ng-show='llCtrl.canRemoveLand(land)'>
-				<div class='svg-holder'>
-					<svg>
-						<use xlink:href="images/actions.svg#minus">
-						</use>
-					</svg>
-				</div>
-			</div>
-			<div class='minus'
-				ng-click='llCtrl.addLand(land)'
-				ng-show='llCtrl.canAddLand(land)'>
-				<div class='svg-holder'>
-					<svg>
-						<use xlink:href="images/actions.svg#plus">
-						</use>
-					</svg>
-				</div>
-			</div> -->
-			
+		
 		</div>
 	</div>
 
@@ -58,12 +45,19 @@
 				Colors ({{chCtrl.colors.count}}) 
 			</h3>
 			<div class='actions'>
-				<a href='' ng-click='chCtrl.clearColors()'>
-					clear
-				</a>
-				<a ui-sref='Base.Colors'>
-					edit
-				</a>
+				<div ui-sref='Base.Colors'>
+					<!-- <i class="material-icons">&#xE150;</i> -->
+					<span class='action-text'>
+						edit
+					</span>
+				</div>
+				<div href='' ng-click='chCtrl.clearColors()'>
+					<!-- <i class="material-icons">&#xE14C;</i> -->
+					<span class='action-text'>
+						clear
+					</span>
+				</div>
+
 			</div>
 		</div>
 		<div class='colors-items-wrapper'>
@@ -114,9 +108,13 @@
 	</div>
 	<div class='action-container'>
 		<button class='action-btn' 
-			ng-click='infoCtrl.submitData()'
+			ng-click='!infoCtrl.isComputing && infoCtrl.submitData()'
 			ng-disabled='infoCtrl.canCompute()'>
-		Compute
+			<i class="material-icons" ng-class='{rotate: infoCtrl.isComputing}'>
+			{{infoCtrl.isComputing?'&#xE863;':'&#xE5CA;'}}</i>
+			<span class='btn-text'>
+				Compute
+			</span>
 		</button>
 	</div>
 </div>

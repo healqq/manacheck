@@ -13,15 +13,15 @@
 		vm.typesFilter = [];
 		vm.colorsFilter = [];
 		vm.colorsList = ['red', 'green', 'blue', 'white', 'black', 'colorless'];
-		vm.typesList = ['basic', 'gain', 'battle', 'fetch', 'pain'];
+		vm.typesList = ['basic', 'gain', 'battle', 'fetch', 'pain', 'tri', 'dual', 'man', 'tribal', 'other'];
 		
 		vm.toggleFilter = toggleFilter;
 		vm.isActiveFilter = isActiveFilter;
 
 		
 		landsFactory.getLands()
-		.then(function(data) {
-			vm.landsList = data.lands;
+		.then(function(lands) {
+			vm.landsList = lands;
 		});
 
 		function toggleFilter(filter, item) {

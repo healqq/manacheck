@@ -77,11 +77,29 @@ color-hover-animation:hover .hover-block, .info-container .colors-container .col
       font-size: 14pt;
       color: #666;
       margin-left: 10px;
-      font-size: 12pt; }
+      font-size: 13pt; }
     .info-container .segment-header .actions {
       display: flex; }
-      .info-container .segment-header .actions a {
-        margin-right: 5px; }
+      .info-container .segment-header .actions div {
+        margin-right: 5px;
+        color: #3F51B5;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px 8px;
+        border-radius: 2px;
+        background-color: transparent;
+        font: 500 12pt "Roboto";
+        text-transform: uppercase;
+        transition: background-color 0.2s, color 0.2s; }
+        .info-container .segment-header .actions div:hover:not(:disabled) {
+          background-color: #d1d6ef; }
+        .info-container .segment-header .actions div:active {
+          /*@include material-button-focus-shadow;*/
+          color: #606fc7; }
+        .info-container .segment-header .actions div:disabled {
+          opacity: 0.7;
+          cursor: default; }
   .info-container .lands-container,
   .info-container .colors-container,
   .info-container .types-container,
@@ -256,7 +274,30 @@ color-hover-animation:hover .hover-block, .info-container .colors-container .col
       background-color: #3F51B5;
       font: 400 12pt "Roboto";
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
       transition: background-color 0.2s, box-shadow 0.2s; }
+      .info-container .action-container .action-btn i {
+        margin-left: -5px;
+        margin-right: 5px;
+        transition: none !important;
+        height: 24px; }
+        .info-container .action-container .action-btn i.rotate {
+          animation: spin 1.5s ease-out infinite;
+          -webkit-animation: spin 1.5s ease-out infinite; }
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+        .info-container .action-container .action-btn i.ng-hide {
+          opacity: 0;
+          display: none; }
       .info-container .action-container .action-btn:hover:not(:disabled) {
         background-color: #3849a2; }
       .info-container .action-container .action-btn:active {

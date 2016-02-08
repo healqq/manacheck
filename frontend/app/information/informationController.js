@@ -24,6 +24,7 @@
 		var vm = this;
 		
 		vm.canCompute = canCompute;
+		vm.isComputing = false;
 		vm.spellTypes = [
 			{
 				title: 'no specific type',
@@ -72,10 +73,11 @@
 				spellsType: vm.spellsType.value,
 				cardsCount: vm.cardsCount.value,
 			};
-
+			vm.isComputing = true;
 			var response = calculationFactory.calculate(params)
 			.then(
 				function(data) {
+					
 					$state.go('^.Results', 
 						{
 							isDataReady: true,
@@ -87,6 +89,7 @@
 							id: data.id
 						}
 					);
+					vm.isComputing = false;
 					return data;
 				},
 				function(error) {

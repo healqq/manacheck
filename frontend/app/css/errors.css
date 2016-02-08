@@ -31,8 +31,31 @@
       background-color: #3F51B5;
       font: 400 12pt "Roboto";
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
       transition: background-color 0.2s, box-shadow 0.2s;
       margin-right: 8px; }
+      .errors-container .navigation .nav-button i {
+        margin-left: -5px;
+        margin-right: 5px;
+        transition: none !important;
+        height: 24px; }
+        .errors-container .navigation .nav-button i.rotate {
+          animation: spin 1.5s ease-out infinite;
+          -webkit-animation: spin 1.5s ease-out infinite; }
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+        .errors-container .navigation .nav-button i.ng-hide {
+          opacity: 0;
+          display: none; }
       .errors-container .navigation .nav-button:hover:not(:disabled) {
         background-color: #3849a2; }
       .errors-container .navigation .nav-button:active {

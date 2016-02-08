@@ -15,7 +15,7 @@
             if ((types === undefined) || (types.length === 0) ) {
                 return true;
             }
-           
+            
             if (-1 !== types.indexOf(land.type)) {
                     return true;
             }

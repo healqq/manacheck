@@ -42,8 +42,39 @@
 	//font
 	font: $font-style-normal;
 	text-transform: uppercase;
+	//display
+	display: flex;
+	align-items: center;
 	//transition
 	transition: background-color 0.2s, box-shadow 0.2s;
+	i {
+		margin-left: -5px;
+		margin-right: 5px;
+		transition: none !important;
+		height: 24px;
+		&.rotate {
+			animation: spin 1.5s ease-out infinite;
+			-webkit-animation: spin 1.5s ease-out infinite;
+			@-webkit-keyframes spin { 
+		        from { 
+		            -webkit-transform: rotate(0deg); 
+		        } to { 
+		            -webkit-transform: rotate(360deg); 
+		        }
+		    }
+		    @keyframes spin { 
+		        from { 
+		            transform: rotate(0deg); 
+		        } to { 
+		            transform: rotate(360deg); 
+		        }
+		    }
+		}
+		&.ng-hide {
+			opacity: 0;
+			display: none;
+		}
+	}
 	&:hover:not(:disabled) {
 		background-color: darken($color, 5%);
 	}
@@ -65,7 +96,7 @@
 	border: none;
 	cursor: pointer;
 	//paddings
-	padding: 10px 12px;
+	padding: 6px 8px;
 	border-radius: 2px;
 	//colors
 	background-color: transparent;
@@ -249,4 +280,13 @@
 			}
 		}
 	}
+}
+
+@mixin material-action {
+	display: flex;
+    align-items: center;
+    font: $font-style-normal;
+    .action-text {
+    	text-transform: uppercase;
+    }
 }

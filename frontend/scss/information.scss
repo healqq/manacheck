@@ -13,12 +13,14 @@
 		.segment-title {
 			@include material-h3;
 			margin-left: 10px;
-			font-size: 12pt;
+			font-size: 13pt;
 		}
 		.actions {
 			display: flex;
-			a {
+			div {
 				margin-right: 5px;
+				color: $color-accent;
+				@include material-flat-button(lighten($color-accent, 10%));
 			}
 		}
 	}
