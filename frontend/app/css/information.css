@@ -1,18 +1,24 @@
 colors-mixin.red, .info-container .lands-container .land-item land-item .sub-info .red.color-item, .info-container .colors-container .colors-items-wrapper .color-items .red.color-item {
-  background-color: #ff0000; }
+  /*background-color: #ff0000;*/
+  background-image: url(../images/symbols/png/red.png); }
 colors-mixin.blue, .info-container .lands-container .land-item land-item .sub-info .blue.color-item, .info-container .colors-container .colors-items-wrapper .color-items .blue.color-item {
-  background-color: #0000ff; }
+  /*background-color: #0000ff;*/
+  background-image: url(../images/symbols/png/blue.png); }
 colors-mixin.green, .info-container .lands-container .land-item land-item .sub-info .green.color-item, .info-container .colors-container .colors-items-wrapper .color-items .green.color-item {
-  background-color: #00ff00; }
+  /*background-color: #00ff00;*/
+  background-image: url(../images/symbols/png/green.png); }
 colors-mixin.white, .info-container .lands-container .land-item land-item .sub-info .white.color-item, .info-container .colors-container .colors-items-wrapper .color-items .white.color-item {
-  background-color: #ffffff;
-  border: 1px solid #000;
-  box-sizing: border-box;
-  padding: 2px; }
+  		/*background-color: #ffffff;
+  		border: 1px solid #000;
+  		box-sizing: border-box;
+      	padding: 2px;*/
+  background-image: url(../images/symbols/png/white.png); }
 colors-mixin.black, .info-container .lands-container .land-item land-item .sub-info .black.color-item, .info-container .colors-container .colors-items-wrapper .color-items .black.color-item {
-  background-color: #000000; }
+  /*background-color: #000000;*/
+  background-image: url(../images/symbols/png/black.png); }
 colors-mixin.colorless, .info-container .lands-container .land-item land-item .sub-info .colorless.color-item, .info-container .colors-container .colors-items-wrapper .color-items .colorless.color-item {
-  background-color: #FFFDD0; }
+  /*background-color: #FFFDD0;*/
+  background-image: url(../images/symbols/png/colorless.png); }
 colors-mixin.generic, .info-container .lands-container .land-item land-item .sub-info .generic.color-item, .info-container .colors-container .colors-items-wrapper .color-items .generic.color-item {
   background-color: #999999; }
 
@@ -187,14 +193,15 @@ color-hover-animation:hover .hover-block, .info-container .colors-container .col
       flex-wrap: wrap; }
       .info-container .colors-container .colors-items-wrapper .color-items {
         display: flex;
-        flex-direction: row; }
+        flex-direction: row;
+        margin-left: 10px; }
         .info-container .colors-container .colors-items-wrapper .color-items .color-item {
           position: relative;
-          height: 20px;
+          height: 15px;
           border-radius: 50%;
-          width: 20px;
+          width: 15px;
           /*border: 1px solid #000;*/
-          margin: 5px; }
+          /*margin: 5px;*/ }
   .info-container .types-container,
   .info-container .cards-number-container {
     font: 400 12pt "Roboto";

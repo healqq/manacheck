@@ -1,24 +1,30 @@
 colors-mixin {
 	&.red {
-		background-color: #ff0000;
+		/*background-color: #ff0000;*/
+		background-image: url(../images/symbols/png/red.png);
 	}
 	&.blue {
-		background-color: #0000ff;
+		/*background-color: #0000ff;*/
+		background-image: url(../images/symbols/png/blue.png);
 	}
 	&.green {
-		background-color: #00ff00;
+		/*background-color: #00ff00;*/
+		background-image: url(../images/symbols/png/green.png);
 	}
 	&.white {
-		background-color: #ffffff;
+		/*background-color: #ffffff;
 		border: 1px solid #000;
 		box-sizing: border-box;
-    	padding: 2px;
+    	padding: 2px;*/
+    	background-image: url(../images/symbols/png/white.png);
 	}
 	&.black {
-		background-color: #000000;
+		/*background-color: #000000;*/
+		background-image: url(../images/symbols/png/black.png);
 	}
 	&.colorless {
-		background-color: #FFFDD0;
+		/*background-color: #FFFDD0;*/
+		background-image: url(../images/symbols/png/colorless.png);
 	}
 	&.generic {
 		background-color: #999999;
@@ -83,15 +89,16 @@ color-hover-animation {
 @mixin color-items {
 	display: flex;
 	flex-direction: row;
+	margin-left: 10px;
 	.color-item {
 		@extend colors-mixin;
 		@extend color-hover-animation;
 		position: relative;
-		height: 20px;
+		height: 15px;
 		border-radius: 50%;
-		width: 20px;
+		width: 15px;
 		/*border: 1px solid #000;*/
-		margin: 5px;
+		/*margin: 5px;*/
 
 	}
 }

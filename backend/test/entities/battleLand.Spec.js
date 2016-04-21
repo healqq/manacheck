@@ -6,7 +6,7 @@ var BattleLand, Field, gameStateService;
 describe("BattleLand", function(){
     before(function (){
         unitTestHelper.setGlobalVars();
-        BattleLand = require("../../modules/cards/entities/BattleLand.js");
+        BattleLand = require(cardsModule + "/entities/BattleLand.js");
         Field = require(cardsModule + '/services/fieldService.js');
         gameStateService = require(cardsModule + '/services/gameStateService.js');
     });

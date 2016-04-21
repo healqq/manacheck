@@ -24,6 +24,7 @@
 		}
 	}
 	.navigation {
+		display: flex;
 		margin-top: 30px;
 		.nav-button {
 			@include material-raised-button($color-accent);

@@ -55,6 +55,17 @@ function gameStateService(deck, hand, field) {
 		return _Field.getBasicLandsCount() < 2;
 	}
 
+	function showLandIsTapped(landColors) {
+		function colorsMatch(colors, match) {
+			return colors.some(function(color) {
+				return (match.indexOf(color) !== -1);
+			})
+		}
+		return !_Hand.getLands().some(function(land) {
+			return (land.isBasicLand() && colorsMatch(landColors, land.colors))
+		});
+	}
+
 	function setSpellsType(value) {
 		return _stats.spellsType = value;
 	}
@@ -91,6 +102,7 @@ function gameStateService(deck, hand, field) {
 		isLastLandTapped: isLastLandTapped,
 
 		battleLandIsTapped: battleLandIsTapped,
+		showLandIsTapped: showLandIsTapped,
 
 		setSpellsType: setSpellsType,
 		getSpellsType: getSpellsType,

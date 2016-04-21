@@ -6,7 +6,7 @@ var LastRoundLand, Field, gameStateService;
 describe("LastRoundLand", function(){
     before(function (){
         unitTestHelper.setGlobalVars();
-        LastRoundLand = require("../../modules/cards/entities/LastRoundLand.js");
+        LastRoundLand = require(cardsModule + "/entities/LastRoundLand.js");
         gameStateService = require(cardsModule + '/services/gameStateService.js');
     });
    	describe(".getColors()", function() {

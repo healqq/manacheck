@@ -1,18 +1,24 @@
 colors-mixin.red, .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items .red.color-item {
-  background-color: #ff0000; }
+  /*background-color: #ff0000;*/
+  background-image: url(../images/symbols/png/red.png); }
 colors-mixin.blue, .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items .blue.color-item {
-  background-color: #0000ff; }
+  /*background-color: #0000ff;*/
+  background-image: url(../images/symbols/png/blue.png); }
 colors-mixin.green, .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items .green.color-item {
-  background-color: #00ff00; }
+  /*background-color: #00ff00;*/
+  background-image: url(../images/symbols/png/green.png); }
 colors-mixin.white, .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items .white.color-item {
-  background-color: #ffffff;
-  border: 1px solid #000;
-  box-sizing: border-box;
-  padding: 2px; }
+  		/*background-color: #ffffff;
+  		border: 1px solid #000;
+  		box-sizing: border-box;
+      	padding: 2px;*/
+  background-image: url(../images/symbols/png/white.png); }
 colors-mixin.black, .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items .black.color-item {
-  background-color: #000000; }
+  /*background-color: #000000;*/
+  background-image: url(../images/symbols/png/black.png); }
 colors-mixin.colorless, .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items .colorless.color-item {
-  background-color: #FFFDD0; }
+  /*background-color: #FFFDD0;*/
+  background-image: url(../images/symbols/png/colorless.png); }
 colors-mixin.generic, .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items .generic.color-item {
   background-color: #999999; }
 
@@ -206,17 +212,19 @@ color-hover-animation:hover .hover-block, .lands-wrapper .lands-container .land-
           align-items: center;
           color: #666; }
           .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .type {
-            font-size: 10pt; }
+            font-size: 10pt;
+            padding-left: 2px; }
           .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items {
             display: flex;
-            flex-direction: row; }
+            flex-direction: row;
+            margin-left: 10px; }
             .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items .color-item {
               position: relative;
-              height: 20px;
+              height: 15px;
               border-radius: 50%;
-              width: 20px;
+              width: 15px;
               /*border: 1px solid #000;*/
-              margin: 5px; }
+              /*margin: 5px;*/ }
             .lands-wrapper .lands-container .land-item .tabs-holder .sub-info .color-items .color-item {
               margin-right: 2px;
               height: 15px;

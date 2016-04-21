@@ -29,6 +29,7 @@ function landsFileParser() {
 			// 8 - url
 			// 9 - spells type
 			// 10 - typeColors
+			// 11 - is active
 			this.title = data[0];
 			this.type = data[5];
 			this.tapped = (data[2] === 'T')? true: false;
@@ -37,7 +38,10 @@ function landsFileParser() {
 			this.url = data[8];
 			this.spellsType = data[9];
 			this.specialColors = getColorsArray(data[10]);
+			this.isActive = (data[11] !== '0')? true: false;
 			this.id = id;
+			console.log(data[11]);
+			console.log(this.isActive);
 		}
 		var parser = parse({delimiter: ','}, 
 			function(err, data){
@@ -47,7 +51,10 @@ function landsFileParser() {
 					if (index === 0) {
 						return;
 					}
-					lands.push(new Land(value, index));
+					var land = new Land(value, index);
+					if (land.isActive) {
+						lands.push(land);
+					}
 				});
 
 				fs.writeFile(__dirname+"/../data/lands.json", JSON.stringify(lands), "utf8", function() {

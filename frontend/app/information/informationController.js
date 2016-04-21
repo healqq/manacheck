@@ -93,6 +93,7 @@
 					return data;
 				},
 				function(error) {
+					vm.isComputing = false;
 					$state.go('^.Errors', {data: error.data, type: "invalid" });
 				}
 			);

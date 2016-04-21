@@ -30,6 +30,9 @@ function handRepository() {
 	function getLength() {
 		return _lands.getLength();
 	}
+	function getLands() {
+		return _lands.get();
+	}
 	function add(card) {
 		if (Array.isArray(card)) {
 			card = card[0];
@@ -81,6 +84,7 @@ function handRepository() {
 		add: add,
 		playLand: playLand,
 		getAll: getAll,
+		getLands: getLands,
 		getSymbols: getSymbols,
 		getSymbolsOrder: getSymbolsOrder,
 		getLength: getLength,

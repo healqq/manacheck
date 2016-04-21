@@ -8,6 +8,7 @@ function Land(id, colors, tapped, type) {
 	self.hasColor = hasColor;
 	self.isTapped = isTapped;
 	self.isFetchLand = isFetchLand;
+	self.isBasicLand = isBasicLand;
 
 
 	return self;
@@ -26,6 +27,10 @@ function Land(id, colors, tapped, type) {
 
 	function isFetchLand(land) {
 		return (self.type === 'fetch') || (self.type === 'basicfetch');
+	}
+
+	function isBasicLand(land) {
+		return (self.type === 'basic');
 	}
 
 }

@@ -1,35 +1,35 @@
-#data container
-data:
-  image: debian:jessie
-  volumes:
-    - /share/manacheck:/var/www/manacheck
+version: '2'
+services:
+  #data container
+  data:
+    image: debian:jessie
+    volumes:
+      - /share/manacheck:/var/www/manacheck
 
-#mongodb container
-mongodb:
-  image: mongo:3.2
+  #webserver container
+  expressjs:
+    build: expressjs
+    volumes_from:
+      - data:rw
+    ports:
+      - "3000"
 
-#webserver container
-expressjs:
-  build: expressjs
-  volumes_from:
-    - data:rw
-  links:
-    - mongodb
-  ports:
-    - "3000"
+  #mongodb container
+  mongodb:
+    image: mongo:3.2
 
-# bower updater
-bower_updater:
-  build: bower_updater
-  volumes_from:
-    - data:rw
+  # bower updater
+  bower_updater:
+    build: bower_updater
+    volumes_from:
+      - data:rw
 
-# Nginx Web Proxy.
-nginx:
-  build: nginx
-  volumes_from:
-    - data:ro
-  ports:
-    - "80:80"
-  links:
-    - expressjs
+  # Nginx Web Proxy.
+  nginx:
+    build: nginx
+    depends_on:
+      - expressjs
+    volumes_from:
+      - data:ro
+    ports:
+      - "80:80"

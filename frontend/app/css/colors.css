@@ -1,18 +1,24 @@
 colors-mixin.red, .colors-inputs-container .color-item .red.icon, .colors-display-container .color-items .red.color-item {
-  background-color: #ff0000; }
+  /*background-color: #ff0000;*/
+  background-image: url(../images/symbols/png/red.png); }
 colors-mixin.blue, .colors-inputs-container .color-item .blue.icon, .colors-display-container .color-items .blue.color-item {
-  background-color: #0000ff; }
+  /*background-color: #0000ff;*/
+  background-image: url(../images/symbols/png/blue.png); }
 colors-mixin.green, .colors-inputs-container .color-item .green.icon, .colors-display-container .color-items .green.color-item {
-  background-color: #00ff00; }
+  /*background-color: #00ff00;*/
+  background-image: url(../images/symbols/png/green.png); }
 colors-mixin.white, .colors-inputs-container .color-item .white.icon, .colors-display-container .color-items .white.color-item {
-  background-color: #ffffff;
-  border: 1px solid #000;
-  box-sizing: border-box;
-  padding: 2px; }
+  		/*background-color: #ffffff;
+  		border: 1px solid #000;
+  		box-sizing: border-box;
+      	padding: 2px;*/
+  background-image: url(../images/symbols/png/white.png); }
 colors-mixin.black, .colors-inputs-container .color-item .black.icon, .colors-display-container .color-items .black.color-item {
-  background-color: #000000; }
+  /*background-color: #000000;*/
+  background-image: url(../images/symbols/png/black.png); }
 colors-mixin.colorless, .colors-inputs-container .color-item .colorless.icon, .colors-display-container .color-items .colorless.color-item {
-  background-color: #FFFDD0; }
+  /*background-color: #FFFDD0;*/
+  background-image: url(../images/symbols/png/colorless.png); }
 colors-mixin.generic, .colors-inputs-container .color-item .generic.icon, .colors-display-container .color-items .generic.color-item {
   background-color: #999999; }
 
@@ -129,10 +135,13 @@ color-hover-animation:hover .hover-block, .colors-display-container .color-items
       align-content: center;
       margin-top: 8px; }
     .colors-inputs-container .color-item .icon {
-      height: 40px;
-      width: 40px;
+      height: 15px;
+      width: 15px;
       margin-right: 20px;
       border-radius: 50%; }
+    .colors-inputs-container .color-item .info-tab {
+      padding: 0 12px;
+      align-items: center; }
     .colors-inputs-container .color-item .text {
       margin: 0;
       font: 400 12pt "Roboto";

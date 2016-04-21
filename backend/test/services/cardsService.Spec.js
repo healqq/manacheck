@@ -39,9 +39,9 @@ describe("CardsService", function(){
             // hashes
         	expect(playResult.data.hashes).instanceof(Object);
             // starting lands in hand
-            expect(playResult.data.startingHandLands).instanceof(Object);
+            expect(playResult.data.hands).instanceof(Object);
             for (var i=0; i<=7; i++) {
-                expect(playResult.data.startingHandLands[i]).to.exist;
+                expect(playResult.data.hands[i]).to.exist;
             }
             // mulligans
             expect(playResult.data.mulligans).instanceof(Object);

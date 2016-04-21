@@ -94,6 +94,7 @@
 					color: $color-subtext;
 					.type {
 						font-size: 10pt;
+						padding-left: 2px;
 					}
 					.color-items {
 						@include color-items;

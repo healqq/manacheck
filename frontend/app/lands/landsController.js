@@ -13,7 +13,7 @@
 		vm.typesFilter = [];
 		vm.colorsFilter = [];
 		vm.colorsList = ['red', 'green', 'blue', 'white', 'black', 'colorless'];
-		vm.typesList = ['basic', 'gain', 'battle', 'fetch', 'pain', 'tri', 'dual', 'man', 'tribal', 'other'];
+		vm.typesList = ['basic', 'show', 'battle', 'pain', 'dual', 'man', 'tribal', 'other'];
 		
 		vm.toggleFilter = toggleFilter;
 		vm.isActiveFilter = isActiveFilter;

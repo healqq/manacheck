@@ -1,18 +1,24 @@
 colors-mixin.red, .lands-combinations-container .combinations-container land-item .sub-info .red.color-item {
-  background-color: #ff0000; }
+  /*background-color: #ff0000;*/
+  background-image: url(../images/symbols/png/red.png); }
 colors-mixin.blue, .lands-combinations-container .combinations-container land-item .sub-info .blue.color-item {
-  background-color: #0000ff; }
+  /*background-color: #0000ff;*/
+  background-image: url(../images/symbols/png/blue.png); }
 colors-mixin.green, .lands-combinations-container .combinations-container land-item .sub-info .green.color-item {
-  background-color: #00ff00; }
+  /*background-color: #00ff00;*/
+  background-image: url(../images/symbols/png/green.png); }
 colors-mixin.white, .lands-combinations-container .combinations-container land-item .sub-info .white.color-item {
-  background-color: #ffffff;
-  border: 1px solid #000;
-  box-sizing: border-box;
-  padding: 2px; }
+  		/*background-color: #ffffff;
+  		border: 1px solid #000;
+  		box-sizing: border-box;
+      	padding: 2px;*/
+  background-image: url(../images/symbols/png/white.png); }
 colors-mixin.black, .lands-combinations-container .combinations-container land-item .sub-info .black.color-item {
-  background-color: #000000; }
+  /*background-color: #000000;*/
+  background-image: url(../images/symbols/png/black.png); }
 colors-mixin.colorless, .lands-combinations-container .combinations-container land-item .sub-info .colorless.color-item {
-  background-color: #FFFDD0; }
+  /*background-color: #FFFDD0;*/
+  background-image: url(../images/symbols/png/colorless.png); }
 colors-mixin.generic, .lands-combinations-container .combinations-container land-item .sub-info .generic.color-item {
   background-color: #999999; }
 
@@ -236,8 +242,8 @@ color-hover-animation:hover .hover-block {
         flex-direction: row;
         align-items: center; }
         .lands-combinations-container .combinations-container land-item .sub-info .color-item {
-          height: 10px;
-          width: 10px;
+          height: 15px;
+          width: 15px;
           border-radius: 50%;
           margin: 2px;
           float: left; }
