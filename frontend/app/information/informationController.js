@@ -79,16 +79,18 @@
 				function(data) {
 					
 					$state.go('^.Results', 
-						{
-							isDataReady: true,
+					{
+						isDataReady: true,
+						resultData: {
 							rounds: data.rounds, 
 							landCombinations: data.hashes,
 							mulligans: data.mulligans,
 							hands: data.hands,
 							symbols: data.deckSymbols, 
-							id: data.id
+							id: data.id,
+							failsCount: data.failsCount,
 						}
-					);
+					});
 					vm.isComputing = false;
 					return data;
 				},

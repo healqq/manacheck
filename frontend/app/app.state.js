@@ -49,12 +49,7 @@
 		    .state('Base.Results', {
 		    	url: "result/:id",
 		    	params: {
-		    		rounds: [],
-		    		landCombinations: {},
-		    		symbols: {},
-		    		mulligans: {},
-		    		hands: {},
-		    		id: undefined,
+		    		resultData: {},
 		    		isDataReady: false,
 		    	},
 		    	views: {
@@ -74,7 +69,7 @@
 		    			'colorsStorageFactory',
 		    			function($state, $stateParams, $q, resultsFactory, landsStorageFactory, colorsStorageFactory) {
 		    				if ($stateParams.isDataReady) {
-		    					return $q.when($stateParams);
+		    					return $q.when($stateParams.resultData);
 		    				}
 		    				else {
 		    					return resultsFactory.view({id:$stateParams.id})

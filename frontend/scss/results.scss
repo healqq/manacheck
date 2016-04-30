@@ -95,7 +95,7 @@ lands-in-hand-plot {
 		display: flex;
 		flex-direction: column;
 		padding: 20px;
-		flex: 1;
+		flex: 8;
 		
 		.title {
 			padding: 20px 0;
@@ -103,7 +103,7 @@ lands-in-hand-plot {
 		}
 	}
 	.round-numbers-container {
-		flex: 200px 0 0;
+		flex: 200px 1 0;
 	}
 }
 .plots-wrap {

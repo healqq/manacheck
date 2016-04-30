@@ -25,9 +25,6 @@
 	function roundsPlotController(ColorsRange) {
 
 		var vm = this;
-		// var clRng = new colorsRange();
-		// console.log(clRng.getColorObject(0.5));
-		// console.log(clRng.getColorString(0.2));
 		vm.buildPlot = buildRoundsPlot;
 		function buildRoundsPlot(element) {
 			var colorsRange = new ColorsRange(
@@ -46,7 +43,6 @@
 
 			var successValues = values.filter(function(value) {return (value > 0);});
 			var min = d3.min(successValues) - 1;
-			console.log('min: ' + min);
 			var max = d3.max(values);
 			var ticks = max - min + 1;
 			// A formatter for counts.
@@ -71,7 +67,6 @@
 			    (values);
 			// making our gist cummulative
 
-			console.log(data);
 			data.forEach(function(item, index) {
 				for (var i=1; i<index;i++) {
 					item.y += dataCopy[i].y;

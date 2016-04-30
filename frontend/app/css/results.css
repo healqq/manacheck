@@ -153,7 +153,7 @@ lands-in-hand-plot .segment {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    flex: 1; }
+    flex: 8; }
     .results-container .lands-combinations-container .title,
     .results-container .round-numbers-container .title {
       padding: 20px 0;
@@ -162,7 +162,7 @@ lands-in-hand-plot .segment {
       font-size: 14pt;
       color: #666; }
   .results-container .round-numbers-container {
-    flex: 200px 0 0; }
+    flex: 200px 1 0; }
 
 .plots-wrap {
   display: flex;
