@@ -28,7 +28,9 @@ function cardsService() {
 	var _deckSymbols = undefined;
 
 	function play() {
+		var maxRounds = 15;
 		var rounds = [];
+		var failsCount = 0;
 		var landHashes = [];
 		var startingHandLands = [];
 		var mulligans = {
@@ -54,7 +56,7 @@ function cardsService() {
 			//sort needed colors according to the deck
 			neededColors = sortColorsByAvailableColorSymbols(neededColors, Deck.getSymbolsOrder());
 			// outer loop, rounds
-			while ( (neededColors.length > 0) && (round < 30) ) {
+			while ( (neededColors.length > 0) && (round < maxRounds) ) {
 				//inner loop colors selecting
 				//resetting inner loop values
 				land = undefined;
@@ -79,14 +81,22 @@ function cardsService() {
 			}
 			if (GameState.needGenericMana()) {
 				// get remaining generic mana
-				while (GameState.needGenericMana()) {
+				while (GameState.needGenericMana() && (round < maxRounds)) {
 					playForGenericMana();
 					Hand.add(Deck.draw());
 					round = round + 1;
 				}
 			}
-			rounds.push((GameState.isLastLandTapped()?round:round-1));
-			landHashes.push(Field.getHash());
+			// if all rounds
+			if ((round === maxRounds) && (GameState.needGenericMana() || neededColors.length) ) {
+				rounds.push(-1);
+				failsCount++;
+			}
+			else {
+				rounds.push((GameState.isLastLandTapped()?round:round-1));
+				landHashes.push(Field.getHash());
+			}
+			
 		}
 
 		return {
@@ -94,6 +104,7 @@ function cardsService() {
 				{
 					deckSymbols: _deckSymbols,
 					rounds: rounds,
+					failsCount: failsCount,
 					hashes: landHashes.reduce(
 						function(result, current) {
 							if (result[current] === undefined) {
@@ -147,7 +158,7 @@ function cardsService() {
 
 		function innerPlayLoop(neededColors) {
 			while  ((colorIndex < neededColors.length) && (land === undefined) ) {
-					
+				
 				land = Hand.playLand(neededColors[colorIndex].color, GameState.isOneLandLeft() );
 				if (land !== undefined) {
 					if (land.type === 'fetch') {
@@ -156,6 +167,7 @@ function cardsService() {
 					if (land.type === 'basicfetch') {
 						land = Deck.fetchBasicLand(neededColors[colorIndex].color);
 					}
+
 					if ( neededColors[colorIndex].value === 1) {
 						neededColors.splice(colorIndex,1);
 					}

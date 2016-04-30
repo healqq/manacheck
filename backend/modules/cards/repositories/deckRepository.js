@@ -33,6 +33,14 @@ function deckRepository(gameState) {
 		return _deck;
 	}
 	
+	function getIndexOfLand(id) {
+		for (var i=0;i<_deck.length;i++) {
+			if (_deck[i].id === id) {
+				return i;
+			}
+		}
+		throw new Error('No land with id: ' + id + " left in deck.");
+	}
 	function getSymbolsOrder() {
 		if (_lands === undefined) {
 			throw new Exception('lands are not set');
@@ -88,6 +96,7 @@ function deckRepository(gameState) {
 		landIndex = _lands.findLandWithId(currentId);
 		land = extend({}, _lands.at(landIndex));
 		_lands.splice(land);
+		_deck.splice(getIndexOfLand(currentId), 1);
 		return land;
 	}
 
@@ -96,10 +105,10 @@ function deckRepository(gameState) {
 		var currentId = undefined;
 		var land, landIndex;
 		currentId = avalibleLands[color].id;
-		// console.log(currentId);
 		landIndex = _lands.findLandWithId(currentId);
 		land = extend({}, _lands.at(landIndex));
 		_lands.splice(land);
+		_deck.splice(getIndexOfLand(currentId), 1);
 		return land;
 	}
 	function reset() {

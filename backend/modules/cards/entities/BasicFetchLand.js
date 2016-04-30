@@ -20,6 +20,7 @@ function BasicFetchLand(id, deck) {
 				result.push(colors[i]);
 			} 
 		}
+
 		return result;
 	}
 

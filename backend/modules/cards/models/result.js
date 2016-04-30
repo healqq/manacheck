@@ -8,6 +8,7 @@ var resultSchema = connection.Schema({
     	from7: Number,
     	from6: Number,
     },
+    failsCount: Number,
     lands: [],
     colors: [],
     hands: {},

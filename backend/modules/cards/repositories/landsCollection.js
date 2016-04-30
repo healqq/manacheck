@@ -32,6 +32,7 @@ function landsCollection() {
 				}
 			}
 		}
+
 		return result;
 	}
 	function sortColors() {
@@ -79,7 +80,7 @@ function landsCollection() {
 				}
 				
 			}
-			if (_isBasic(land)) {
+			if (land.isBasicLand()) {
 				if (_basicLands[landColors[0]].count === undefined) {
 					_basicLands[landColors[0]] = {
 						id: land.id,
@@ -105,7 +106,8 @@ function landsCollection() {
 				return i;
 			}
 		}
-		return -1;
+
+		throw new Error('No land with id: ' + id + " left.");
 	}
 	/*public methods */
 	function set(deck) {
@@ -165,17 +167,17 @@ function landsCollection() {
 			}
 			else {
 				landColors = card.getColors();
+
 				canBeFetched = _canBeFetched(card);
 				for (var i=0;i<landColors.length;i++) {
 					_symbols[landColors[i]]--;
 					if (canBeFetched) {
 						_canFetch[landColors[i]][card.id].count--;
-						if (_isBasic(card)) {
-							_basicLands[card.getColors()[0]].count--;
+						if (card.isBasicLand()) {
+							_basicLands[landColors[i]].count--;
 						}
 					}
 				}
-
 				_lands.splice(findLandWithId(card.id),1);
 				if (canBeFetched) {
 					updateSymbols();

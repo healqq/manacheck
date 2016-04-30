@@ -49,7 +49,8 @@ router.post('/play', function(req, res, next) {
 	cardsService.setColors(colors);
 	cardsService.setLands(lands);
 	cardsService.setGenericMana(genericMana);
-	cardsService.setSpellsType(requestData.type);
+	cardsService.setSpellsType(requestData.spellsType);
+	console.log(requestData.spellsType);
 	cardsService.setCardsCount(cardsCount);
 
 	var result = cardsService.play();

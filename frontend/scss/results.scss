@@ -4,15 +4,15 @@
 @import 'mixins/fonts-mixin.scss';
 
 
-.rounds-plot,
-.symbols-plot {
+rounds-plot,
+symbols-plot {
   	font: $font-style-normal;
 	.bar {
 		rect {
 			height: 0;
 			transform: scale(1,-1);
 			transition: height 1s;
-	  		fill: steelblue;
+	  		/*fill: steelblue;*/
 	  		shape-rendering: crispEdges;
 	  	}
 	  	text {
@@ -23,11 +23,16 @@
 	}
 	.axis path, .axis line {
 	  fill: none;
+	.x-axis {
+		.color-symbol{
+			@extend colors-mixin;
+		}
+	}
 /*	  stroke: #000;
 	  shape-rendering: crispEdges;*/
 	}
 }
-.lands-in-hand-plot {
+lands-in-hand-plot {
 	.lands-text,
 	.lands-count {
 		font: $font-style-bold;
@@ -39,10 +44,9 @@
 		font-size: 26pt;
 	}
 	.segment {
-		transition: opacity 0.3s;
-		opacity: 0.6;
+		transition: fill 0.3s;
 		&.active {
-			opacity: 1;
+			fill: #E91E63;
 		}
 	}
 }
@@ -97,6 +101,9 @@
 			padding: 20px 0;
 			@include material-h3;
 		}
+	}
+	.round-numbers-container {
+		flex: 200px 0 0;
 	}
 }
 .plots-wrap {

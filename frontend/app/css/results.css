@@ -1,25 +1,39 @@
-colors-mixin.red, .lands-combinations-container .combinations-container land-item .sub-info .red.color-item {
+colors-mixin.red, rounds-plot .axis path .x-axis .red.color-symbol, rounds-plot .axis line .x-axis .red.color-symbol,
+symbols-plot .axis path .x-axis .red.color-symbol,
+symbols-plot .axis line .x-axis .red.color-symbol, .lands-combinations-container .combinations-container land-item .sub-info .red.color-item {
   /*background-color: #ff0000;*/
   background-image: url(../images/symbols/png/red.png); }
-colors-mixin.blue, .lands-combinations-container .combinations-container land-item .sub-info .blue.color-item {
+colors-mixin.blue, rounds-plot .axis path .x-axis .blue.color-symbol, rounds-plot .axis line .x-axis .blue.color-symbol,
+symbols-plot .axis path .x-axis .blue.color-symbol,
+symbols-plot .axis line .x-axis .blue.color-symbol, .lands-combinations-container .combinations-container land-item .sub-info .blue.color-item {
   /*background-color: #0000ff;*/
   background-image: url(../images/symbols/png/blue.png); }
-colors-mixin.green, .lands-combinations-container .combinations-container land-item .sub-info .green.color-item {
+colors-mixin.green, rounds-plot .axis path .x-axis .green.color-symbol, rounds-plot .axis line .x-axis .green.color-symbol,
+symbols-plot .axis path .x-axis .green.color-symbol,
+symbols-plot .axis line .x-axis .green.color-symbol, .lands-combinations-container .combinations-container land-item .sub-info .green.color-item {
   /*background-color: #00ff00;*/
   background-image: url(../images/symbols/png/green.png); }
-colors-mixin.white, .lands-combinations-container .combinations-container land-item .sub-info .white.color-item {
+colors-mixin.white, rounds-plot .axis path .x-axis .white.color-symbol, rounds-plot .axis line .x-axis .white.color-symbol,
+symbols-plot .axis path .x-axis .white.color-symbol,
+symbols-plot .axis line .x-axis .white.color-symbol, .lands-combinations-container .combinations-container land-item .sub-info .white.color-item {
   		/*background-color: #ffffff;
   		border: 1px solid #000;
   		box-sizing: border-box;
       	padding: 2px;*/
   background-image: url(../images/symbols/png/white.png); }
-colors-mixin.black, .lands-combinations-container .combinations-container land-item .sub-info .black.color-item {
+colors-mixin.black, rounds-plot .axis path .x-axis .black.color-symbol, rounds-plot .axis line .x-axis .black.color-symbol,
+symbols-plot .axis path .x-axis .black.color-symbol,
+symbols-plot .axis line .x-axis .black.color-symbol, .lands-combinations-container .combinations-container land-item .sub-info .black.color-item {
   /*background-color: #000000;*/
   background-image: url(../images/symbols/png/black.png); }
-colors-mixin.colorless, .lands-combinations-container .combinations-container land-item .sub-info .colorless.color-item {
+colors-mixin.colorless, rounds-plot .axis path .x-axis .colorless.color-symbol, rounds-plot .axis line .x-axis .colorless.color-symbol,
+symbols-plot .axis path .x-axis .colorless.color-symbol,
+symbols-plot .axis line .x-axis .colorless.color-symbol, .lands-combinations-container .combinations-container land-item .sub-info .colorless.color-item {
   /*background-color: #FFFDD0;*/
   background-image: url(../images/symbols/png/colorless.png); }
-colors-mixin.generic, .lands-combinations-container .combinations-container land-item .sub-info .generic.color-item {
+colors-mixin.generic, rounds-plot .axis path .x-axis .generic.color-symbol, rounds-plot .axis line .x-axis .generic.color-symbol,
+symbols-plot .axis path .x-axis .generic.color-symbol,
+symbols-plot .axis line .x-axis .generic.color-symbol, .lands-combinations-container .combinations-container land-item .sub-info .generic.color-item {
   background-color: #999999; }
 
 color-hover-animation .hover-block {
@@ -66,40 +80,39 @@ color-hover-animation:hover .hover-block {
   opacity: 1;
   z-index: 5; }
 
-.rounds-plot,
-.symbols-plot {
+rounds-plot,
+symbols-plot {
   font: 400 12pt "Roboto"; }
-  .rounds-plot .bar rect,
-  .symbols-plot .bar rect {
+  rounds-plot .bar rect,
+  symbols-plot .bar rect {
     height: 0;
     transform: scale(1, -1);
     transition: height 1s;
-    fill: steelblue;
+    /*fill: steelblue;*/
     shape-rendering: crispEdges; }
-  .rounds-plot .bar text,
-  .symbols-plot .bar text {
+  rounds-plot .bar text,
+  symbols-plot .bar text {
     opacity: 0;
     transition: opacity 1s;
     fill: #000; }
-  .rounds-plot .axis path, .rounds-plot .axis line,
-  .symbols-plot .axis path,
-  .symbols-plot .axis line {
+  rounds-plot .axis path, rounds-plot .axis line,
+  symbols-plot .axis path,
+  symbols-plot .axis line {
     fill: none;
     /*	  stroke: #000;
     	  shape-rendering: crispEdges;*/ }
 
-.lands-in-hand-plot .lands-text,
-.lands-in-hand-plot .lands-count {
+lands-in-hand-plot .lands-text,
+lands-in-hand-plot .lands-count {
   font: 500 12pt "Roboto"; }
-.lands-in-hand-plot .lands-text {
+lands-in-hand-plot .lands-text {
   font-size: 12pt; }
-.lands-in-hand-plot .lands-count {
+lands-in-hand-plot .lands-count {
   font-size: 26pt; }
-.lands-in-hand-plot .segment {
-  transition: opacity 0.3s;
-  opacity: 0.6; }
-  .lands-in-hand-plot .segment.active {
-    opacity: 1; }
+lands-in-hand-plot .segment {
+  transition: fill 0.3s; }
+  lands-in-hand-plot .segment.active {
+    fill: #E91E63; }
 
 .plot-container {
   padding: 20px;
@@ -148,6 +161,8 @@ color-hover-animation:hover .hover-block {
       font: 400 12pt "Roboto";
       font-size: 14pt;
       color: #666; }
+  .results-container .round-numbers-container {
+    flex: 200px 0 0; }
 
 .plots-wrap {
   display: flex;

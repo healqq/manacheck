@@ -2,18 +2,25 @@
 	<div class='plots-wrap'>
 		<div class='plot-container rounds'>
 			<h3 class='title'>Rounds</h3>
-			<div class='rounds-plot'>
-			</div>
+			<rounds-plot 
+				rounds="resultsCtrl.rounds"
+				dimensions="resultsCtrl.dimensions">
+			</rounds-plot>
 		</div>
 		<div class='plot-container symbols'>
 			<h3 class='title'>Symbols</h3>
-			<div class='symbols-plot'>
-			</div>
+			<symbols-plot 
+				symbols="resultsCtrl.symbols"
+				dimensions="resultsCtrl.dimensions">
+			</symbols-plot>
 		</div>
+		
 		<div class='plot-container lands'>
 			<h3 class='title'>Lands in starting hand</h3>
-			<div class='lands-in-hand-plot'>
-			</div>
+			<lands-in-hand-plot 
+				hands="resultsCtrl.landsInHand"
+				dimensions="resultsCtrl.dimensions">
+			</lands-in-hand-plot>
 		</div>
 	</div>
 	
@@ -30,6 +37,14 @@
 					</div>
 					<div class='text'>
 						to 5 cards in {{resultsCtrl.mulligans.to5}} %
+					</div>
+				</div>
+				<div class='number-block'>
+					<h3 class='header'>
+						Fails 
+					</h3>
+					<div class='text'>
+						Failed to complete in {{resultsCtrl.failsCount}} ({{resultsCtrl.failsCount/100}}%)
 					</div>
 				</div>
 			</div>

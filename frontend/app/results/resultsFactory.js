@@ -22,7 +22,8 @@
 					symbols: data.deckSymbols, 
 					mulligans: data.mulligans,
 					hands: data.hands,
-					id: data._id
+					id: data._id,
+					failsCount: data.failsCount,
 				};
 			});
 		}

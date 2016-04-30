@@ -3,10 +3,14 @@ function landsRepository() {
 	var self = this;
 	
 		function getById(id) {
-		if (lands[id-1] === undefined) {
+		var land = lands.filter(function(land) {
+			return land.id === id;
+		});
+		if (!(land && land.length)) {
 			throw new Error('land with id: ' + id + ' does not exist');
 		}
-		return lands[id-1];
+
+		return land[0];
 	}
 	
 	function getAll() {
