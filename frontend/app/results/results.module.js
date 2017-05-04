@@ -1,6 +1,6 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('results',['app.core', 'lands'])
+(function () {
+    'use strict';
+
+    angular
+        .module('results', ['app.core', 'lands']);
 })();

@@ -1,0 +1,12 @@
+// mixins
+@import 'mixins/colors-mixin';
+@import 'mixins/pallete-mixin';
+@import 'mixins/material-mixin';
+@import 'mixins/fonts-mixin';
+// modules
+@import '../app/core/core';
+@import '../app/lands/lands';
+@import '../app/colors/colors';
+@import '../app/errors/errors';
+@import '../app/information/information';
+@import '../app/results/results';

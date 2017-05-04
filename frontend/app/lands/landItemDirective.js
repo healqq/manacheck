@@ -1,28 +1,29 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('lands')
-	.directive('landItem', landItem);
+(function () {
+    'use strict';
 
-	function landItem() {
-		return {
-			restrict: 'E',
-			controller: landItemController,
-			controllerAs: 'liCtrl',
-			scope: {
-				id: '=landId',
-				count: '=landCount',
-			},
-			templateUrl: 'lands/land-item.html'
-		}
-	}
+    angular
+        .module('lands')
+        .directive('landItem', landItem);
 
-	landItemController.$inject = ['$scope', 'landsFactory'];
-	function landItemController($scope, landsFactory) {
+    function landItem() {
+        return {
+            restrict: 'E',
+            controller: landItemController,
+            controllerAs: 'liCtrl',
+            scope: {
+                id: '=landId',
+                count: '=landCount',
+            },
+            templateUrl: 'lands/land-item.html'
+        };
+    }
 
-		var vm = this;
-		vm.land = landsFactory.getLandById($scope.id);
-		
-	}
+    landItemController.$inject = ['$scope', 'landsFactory'];
+
+    function landItemController($scope, landsFactory) {
+        /*jshint validthis:true */
+        var vm = this;
+        vm.land = landsFactory.getLandById($scope.id);
+
+    }
 })();

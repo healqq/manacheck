@@ -62,9 +62,9 @@
 		</div>
 		<div class='colors-items-wrapper'>
 			<div class='color-items' ng-repeat='item in chCtrl.colors.colors'>
-				<div class='color-item {{item.color}}' 
+				<div class='color-item' 
 					ng-repeat='i in chCtrl.range(item.value) track by $index'>
-		
+					<color-icon color="{{item.color}}"></color-icon>
 					<div class='hover-block'>
 						<div class='minus' 
 							ng-click='chCtrl.addColor(item.color,-1)'>

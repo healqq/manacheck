@@ -1,14 +1,11 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('colors')
-	.controller('colorsController', colorsController);
+(function () {
+    'use strict';
 
-	colorsController.$inject = ['colorsStorageFactory'];
+    angular
+        .module('colors')
+        .controller('colorsController', colorsController);
 
-	function colorsController(colorsStorageFactory) {
+    colorsController.$inject = [];
 
-		var vm = this;
-	}
+    function colorsController() {}
 })();

@@ -1,6 +1,6 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('common',['app.core'])
+(function () {
+    'use strict';
+
+    angular
+        .module('common', ['app.core']);
 })();

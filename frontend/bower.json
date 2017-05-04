@@ -19,8 +19,5 @@
     "angular-sanitize": "~1.4.8",
     "angular": "angularjs#~1.4.8",
     "normalize-css": "normalize.css#~3.0.3"
-  },
-  "devDependencies": {
-    "normalize-css": "normalize.css#~3.0.3"
   }
 }

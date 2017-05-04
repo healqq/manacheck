@@ -1,66 +1,165 @@
 module.exports = function (grunt) {
 
+	var JS_FILES_PATTERN = 'app/**/*.js';
+	var HTML_FILES = '**/*.html';
+	var DIST_PATH = 'dist/';
+	var JS_FILES = [
+		'app/app.module.js',
+        'app/app.core.js',
+        'app/app.config.js',
+        'app/app.state.js',
+        'app/**/*.module.js',
+        JS_FILES_PATTERN,
+	];
+	var JS_VENDORS_FILES = [
+		'bower_components/angular/angular.js',
+		'bower_components/angular-animate/angular-animate.js',
+		'bower_components/angular-resource/angular-resource.js',
+		'bower_components/angular-sanitize/angular-sanitize.js',
+		'bower_components/angular-ui-router/release/angular-ui-router.js'
+	];
+	var CSS_VENDORS_FILES = [
+		'bower_components/normalize-css/normalize.css'
+	];
 	// grunt tasks
 	grunt.loadNpmTasks('grunt-contrib-sass');
-	// grunt.loadNpmTasks('grunt-contrib-concat');
-	// grunt.loadNpmTasks('grunt-contrib-copy');
-	// grunt.loadNpmTasks('grunt-contrib-uglify');
-	// grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jsbeautifier');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	// grunt.loadNpmTasks('grunt-angular-templates');
+	grunt.loadNpmTasks('grunt-angular-templates');
+	grunt.loadNpmTasks('grunt-html-build');
 	grunt.loadNpmTasks('grunt-svgstore');
-	// grunt.loadNpmTasks('grunt-ngdocs');
-	// grunt.loadNpmTasks('grunt-html-build');
- //    grunt.loadNpmTasks('grunt-protractor-runner');
- //    grunt.loadNpmTasks('grunt-karma');
- //    grunt.loadNpmTasks('grunt-svg-sprite');
+
  	grunt.initConfig({
 	 	sass:{
 			dist:{
 				options:{
-	                sourcemap: 'none',
+	                sourcemap: 'file',
 				},
-				files:{
-					'app/css/core.css' : 'scss/core.scss',
-					'app/css/lands.css': 'scss/lands.scss',
-					'app/css/colors.css': 'scss/colors.scss',
-					'app/css/information.css': 'scss/information.scss',
-					'app/css/results.css': 'scss/results.scss',
-					'app/css/errors.css': 'scss/errors.scss',
-
-
+				files: {
+					'dist/css/app.css': 'scss/app.scss',
 				}
 			}
 		},
 		watch: {
 		    css: {
-		    	files: ['scss/*.scss'],
+		    	files: ['**/*.scss'],
 		    	tasks: ['sass'],
 		    	options: {
 		      		 livereload: true
-		    	}
-		  	}//,
-		
-		},
-		svgstore: {
-			options: {
-				// includedemo: true,
-				// symbol: {
-				// 	viewbox: '0 0 100 100',
-				// },
+		    	},
 			},
-			
+			js: {
+				files:[JS_FILES_PATTERN],
+				tasks: ['concat:jsSrc'],
+		  	},
+			html: {
+                files: ['app/**/**.html'],
+                tasks: ['ngtemplates', 'htmlbuild'],
+            },
+		},
+		concat: {
+			options: {
+                sourceMap: true,
+            },
+			jsSrc: {
+                options: {
+                    separator: ';\n'
+                },
+                src: [JS_FILES],
+                dest: DIST_PATH + 'js/app.js',
+                nonull: true
+            },
+			jsVendor: {
+				cwd: 'app',
+				src: [JS_VENDORS_FILES],
+                dest: DIST_PATH + 'js/vendor.js',
+                nonull: true
+			},
+			cssVendor: {
+				src: [CSS_VENDORS_FILES],
+                dest: DIST_PATH + 'css/vendor.css',
+                nonull: true
+			}
+		},
+		jshint: {
+            options: {
+                jshintrc: '.jshintrc',
+            },
+            dist: {
+                files: {
+                    src: [JS_FILES_PATTERN],
+                }
+            }
+        },
+		/**
+         * JS BEAUTIFIER
+         */
+        jsbeautifier: {
+            dist: {
+                files: {
+                    src: [JS_FILES_PATTERN],
+                }
+            },
+            options: {
+                config: '.jsbeautifyrc'
+            }
+        },
+		htmlbuild: {
+            options: {
+                beautify: true,
+                relative: true,
+                scripts: {
+                    bundle: [
+                        DIST_PATH + 'js/vendor.js',
+                        DIST_PATH + 'js/app.js',
+                        DIST_PATH + 'js/templates.js',
+                    ],
+                },
+                styles: {
+                    bundle: [
+                        DIST_PATH + 'css/vendor.css',
+                        DIST_PATH + 'css/app.css',
+                    ]
+                },
+            },
+            dist: {
+                src: ['app/index.html'],
+                dest: DIST_PATH,
+                options: {
+                }
+            },
+        },
+		ngtemplates: {
+            options: {
+                module: 'app',
+            },
+            dist: {
+				cwd: 'app',
+                src: [HTML_FILES],
+                dest: DIST_PATH + 'js/templates.js',
+            }
+        },
+		svgstore: {
 			dist:{
 				files: {
-					'app/images/symbols.svg':[
-						'app/images/symbols/*.svg',
+					'dist/images/symbols.svg':[
+						'assets/svg/symbols/*.svg',
 					],
-					'app/images/actions.svg': [
-						'app/images/actions/*.svg',
+					'dist/images/actions.svg': [
+						'assets/svg/actions/*.svg',
 					]
 				},
 				
 			},
-		}
+		},
+		clean: {
+            dist: [DIST_PATH + '**'],
+        },
 	});
+
+	grunt.registerTask('build', 'build application', 
+		['clean', 'sass', 'concat', 'ngtemplates', 'svgstore', 'htmlbuild']);
 }

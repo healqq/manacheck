@@ -1,6 +1,6 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('errors',['app.core'])
+(function () {
+    'use strict';
+
+    angular
+        .module('errors', ['app.core']);
 })();

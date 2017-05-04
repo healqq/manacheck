@@ -6,9 +6,10 @@
 		{{liCtrl.land.title || 'unknown land'}} 
 	</div>
 	<div class='sub-info'>
-		<div class='color-item {{color}}' 
-			ng-repeat='color in liCtrl.land.colors'>
-		</div>
+		<color-icon color="{{color}}" 
+			ng-repeat='color in liCtrl.land.colors'
+			class='color-item'>
+		</color-icon>
 		<div class='type'>
 			type: {{liCtrl.land.type}} 
 		</div>

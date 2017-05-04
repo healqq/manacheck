@@ -1,6 +1,6 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('colors',['app.core'])
+(function () {
+    'use strict';
+
+    angular
+        .module('colors', ['app.core']);
 })();

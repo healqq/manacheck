@@ -1,43 +1,42 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('lands')
-	.controller('landsController', landsController);
+(function () {
+    'use strict';
 
-	landsController.$inject = ['landsFactory'];
+    angular
+        .module('lands')
+        .controller('landsController', landsController);
 
-	function landsController(landsFactory, landsStorageFactory, landsHelper) {
+    landsController.$inject = ['landsFactory'];
 
-		var vm = this;
-		vm.typesFilter = [];
-		vm.colorsFilter = [];
-		vm.colorsList = ['red', 'green', 'blue', 'white', 'black', 'colorless'];
-		vm.typesList = ['basic', 'show', 'battle', 'pain', 'dual', 'man', 'tribal', 'other'];
-		
-		vm.toggleFilter = toggleFilter;
-		vm.isActiveFilter = isActiveFilter;
+    function landsController(landsFactory) {
+        /*jshint validthis:true */
+        var vm = this;
+        vm.typesFilter = [];
+        vm.colorsFilter = [];
+        vm.colorsList = ['red', 'green', 'blue', 'white', 'black', 'colorless'];
+        vm.typesList = ['basic', 'show', 'battle', 'pain', 'dual', 'man', 'tribal', 'other'];
 
-		
-		landsFactory.getLands()
-		.then(function(lands) {
-			vm.landsList = lands;
-		});
+        vm.toggleFilter = toggleFilter;
+        vm.isActiveFilter = isActiveFilter;
 
-		function toggleFilter(filter, item) {
-			var index = filter.indexOf(item);
-			if (-1 === index) {
-				filter.push(item);
-			}
-			else {
-				filter.splice(index, 1);
-			}
-		}
 
-		function isActiveFilter(filter, item) {
-			return (-1 !== filter.indexOf(item));
-		}
+        landsFactory.getLands()
+            .then(function (lands) {
+                vm.landsList = lands;
+            });
 
-		
-	}
+        function toggleFilter(filter, item) {
+            var index = filter.indexOf(item);
+            if (-1 === index) {
+                filter.push(item);
+            } else {
+                filter.splice(index, 1);
+            }
+        }
+
+        function isActiveFilter(filter, item) {
+            return (-1 !== filter.indexOf(item));
+        }
+
+
+    }
 })();

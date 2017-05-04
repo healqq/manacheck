@@ -43,9 +43,10 @@
 							{{land.type}}
 						</div>
 						<div class='color-items'>
-							<div class='color-item {{color}}' 
-								ng-repeat='color in land.colors'>
-							</div>
+							<color-icon color="{{color}}" 
+								ng-repeat='color in land.colors'
+								class='color-item'>
+							</color-icon>
 						</div>
 					</div>
 					

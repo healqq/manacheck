@@ -1,0 +1,16 @@
+{
+	"curly": true,
+	"eqnull": true,
+	"eqeqeq": true,
+	"undef": true,
+	"funcscope": false,
+	"notypeof": true,
+	"latedef": "nofunc",
+	"shadow": "inner",
+	"unused": true,
+	"globals": {
+		"jQuery": true,
+		"angular": true,
+		"$": true
+	}
+}

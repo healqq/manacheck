@@ -7,7 +7,8 @@
 			<div ng-repeat='item in chCtrl.colors.colors' class='color-item'>
 				<div class='tabs-holder'>
 					<div class='info-tab'>
-						<div class='icon {{item.color}}'>
+						<div class='icon'>
+							<color-icon color="{{item.color}}"></color-icon>
 						</div>
 						<div class='text'>
 							{{item.color}}

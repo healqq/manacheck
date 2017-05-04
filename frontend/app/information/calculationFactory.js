@@ -1,28 +1,28 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('information')
-	.factory('calculationFactory', calculationFactory);
+(function () {
+    'use strict';
 
-	calculationFactory.$inject = ['$resource'];
+    angular
+        .module('information')
+        .factory('calculationFactory', calculationFactory);
 
-	function calculationFactory($resource) {
+    calculationFactory.$inject = ['$resource'];
 
-		var serviceResource = $resource('api/cards', {},
-			{
-				calculate: {
-					method: 'POST',
-					url: 'api/cards/play',
-				}	
-			});
-		function calculate(params) {
-			return (new serviceResource(params)).$calculate();
-		}
-		
-		return {
-			calculate: calculate,
-		}
-	}
-	
+    function calculationFactory($resource) {
+
+        var serviceResource = $resource('api/cards', {}, {
+            calculate: {
+                method: 'POST',
+                url: 'api/cards/play',
+            }
+        });
+
+        function calculate(params) {
+            return (new serviceResource(params)).$calculate();
+        }
+
+        return {
+            calculate: calculate,
+        };
+    }
+
 })();

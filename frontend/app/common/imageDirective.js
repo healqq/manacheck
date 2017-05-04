@@ -1,36 +1,36 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('common')
-	.directive('mcImage', imageDirective);
+(function () {
+    'use strict';
 
-	function imageDirective() {
-		return {
-			restrict: 'A',
-			scope: {
-				url: '=mcImage',
-			},
-			link: {
-				post: linkFunction
-			},
-		}
-	}
+    angular
+        .module('common')
+        .directive('mcImage', imageDirective);
 
-	function linkFunction($scope, element, attrs, ctrls) {
+    function imageDirective() {
+        return {
+            restrict: 'A',
+            scope: {
+                url: '=mcImage',
+            },
+            link: {
+                post: linkFunction
+            },
+        };
+    }
 
-		loadImage($scope.url);
-		function loadImage(link) {
-			var img = angular.element('<img/>')[0];
-			img.src = link;
-			angular.element(img).on('load', function() {
-				var $element = angular.element(element);
-				$element
-					.css('background-image', 'url(' + link + ')')
-					.css('opacity', 1);
-			})
-		}
-		
-	}
-	
+    function linkFunction($scope, element) {
+        loadImage($scope.url);
+
+        function loadImage(link) {
+            var img = angular.element('<img/>')[0];
+            img.src = link;
+            angular.element(img).on('load', function () {
+                var $element = angular.element(element);
+                $element
+                    .css('background-image', 'url(' + link + ')')
+                    .css('opacity', 1);
+            });
+        }
+
+    }
+
 })();

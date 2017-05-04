@@ -1,59 +1,62 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('common')
-	.directive('mcSelect', selectDirective);
+(function () {
+    'use strict';
 
-	function selectDirective() {
-		return {
-			restrict: 'E',
-			controller: selectController,
-			controllerAs: 'selectCtrl',
-			bindToController: true,
-			scope: {
-				values: '=values',
-				label: '=label',
-				ngModel: '=',
-			},
-			require: ['ngModel'],
-			templateUrl: 'common/select.html'
-		}
-	}
+    angular
+        .module('common')
+        .directive('mcSelect', selectDirective);
 
-	selectController.$inject = ['$scope', '$document'];
-	function selectController($scope, $document) {
-		var vm = this;
+    function selectDirective() {
+        return {
+            restrict: 'E',
+            controller: selectController,
+            controllerAs: 'selectCtrl',
+            bindToController: true,
+            scope: {
+                values: '=values',
+                label: '=label',
+                ngModel: '=',
+            },
+            require: ['ngModel'],
+            templateUrl: 'common/select.html'
+        };
+    }
 
-		vm.dropdownIsActive = false;
-		vm.setValue = setValue;
-		vm.isSelectedValue = isSelectedValue;
-		vm.showDropdown = showDropdown;
+    selectController.$inject = ['$scope', '$document'];
 
-		function onDocumentClick(evt) {
-			if (!angular.element(evt.target).hasClass('option')) {
-				$scope.$apply(hideDropdown());
-			}
-		}
-		function showDropdown(evt) {
-			event.stopPropagation();
-			vm.dropdownIsActive = true;
-			angular.element($document).on('click', onDocumentClick);
-		}
+    function selectController($scope, $document) {
+        /*jshint validthis:true */
+        var vm = this;
 
-		function hideDropdown() {
-			angular.element($document).off('click', onDocumentClick);
-			vm.dropdownIsActive = false;
-		}
+        vm.dropdownIsActive = false;
+        vm.setValue = setValue;
+        vm.isSelectedValue = isSelectedValue;
+        vm.showDropdown = showDropdown;
 
-		function setValue(value) {
-			vm.ngModel = value;
-			hideDropdown();
-		}
+        function onDocumentClick(evt) {
+            if (!angular.element(evt.target).hasClass('option')) {
+                $scope.$apply(hideDropdown());
+            }
+        }
 
-		function isSelectedValue(value) {
-			return (vm.ngModel === value);
-		}
-		
-	}
+        function showDropdown(event) {
+            event.stopPropagation();
+            vm.dropdownIsActive = true;
+            angular.element($document).on('click', onDocumentClick);
+        }
+
+        function hideDropdown() {
+            angular.element($document).off('click', onDocumentClick);
+            vm.dropdownIsActive = false;
+        }
+
+        function setValue(value) {
+            vm.ngModel = value;
+            hideDropdown();
+        }
+
+        function isSelectedValue(value) {
+            return (vm.ngModel === value);
+        }
+
+    }
 })();

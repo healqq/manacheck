@@ -1,54 +1,56 @@
-(function(){
-	'use strict';
-	
-	angular
-	.module('lands')
-	.directive('landsHelper', landsHelper);
+(function () {
+    'use strict';
 
-	function landsHelper() {
+    angular
+        .module('lands')
+        .directive('landsHelper', landsHelper);
 
-		helper.$inject =['landsStorageFactory', 'landsFactory'];
-		function helper(landsStorageFactory, landsFactory) {
-			
+    function landsHelper() {
 
-			var vm = this;
-			vm._lands = landsStorageFactory.getLands();
-			vm.addLand = addLand;
-			vm.canAddLand = canAddLand;
-			vm.removeLand = removeLand;
-			vm.canRemoveLand = canRemoveLand;
-			vm.getLandCount = getLandCount;
-			vm.clearLands = clearLands;
+        helper.$inject = ['landsStorageFactory', 'landsFactory'];
 
-			function addLand(land) {
-				landsStorageFactory.addLand(land);
-			}
-			function removeLand(land) {
-				landsStorageFactory.removeLand(land);
-			}
+        function helper(landsStorageFactory, landsFactory) {
+            /*jshint validthis:true */
+            var vm = this;
+            vm._lands = landsStorageFactory.getLands();
+            vm.addLand = addLand;
+            vm.canAddLand = canAddLand;
+            vm.removeLand = removeLand;
+            vm.canRemoveLand = canRemoveLand;
+            vm.getLandCount = getLandCount;
+            vm.clearLands = clearLands;
 
-			function canAddLand(land) {
-				var landObj = landsFactory.getLandById(land.id);
-				return (landObj.type === 'basic') || (getLandCount(land) < 4);
-			}
+            function addLand(land) {
+                landsStorageFactory.addLand(land);
+            }
 
-			function canRemoveLand(land) {
-				return  (getLandCount(land) > 0);
-			}
-			function getLandCount(land) {
-				return landsStorageFactory.getLandCount(land);
-			}
+            function removeLand(land) {
+                landsStorageFactory.removeLand(land);
+            }
 
-			function clearLands() {
-				landsStorageFactory.removeAll();
-			}
-			
-		}
+            function canAddLand(land) {
+                var landObj = landsFactory.getLandById(land.id);
+                return (landObj.type === 'basic') || (getLandCount(land) < 4);
+            }
 
-		return {
-			restrict: 'A',
-			controller: helper,
-			controllerAs: 'llCtrl'
-		};
-	}
+            function canRemoveLand(land) {
+                return (getLandCount(land) > 0);
+            }
+
+            function getLandCount(land) {
+                return landsStorageFactory.getLandCount(land);
+            }
+
+            function clearLands() {
+                landsStorageFactory.removeAll();
+            }
+
+        }
+
+        return {
+            restrict: 'A',
+            controller: helper,
+            controllerAs: 'llCtrl'
+        };
+    }
 })();
