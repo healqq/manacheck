@@ -1,4 +1,4 @@
-FROM node:5.4.1
+FROM node:7
 RUN apt-get update && npm install -g nodemon
 
 EXPOSE  3000
