@@ -45,12 +45,21 @@ lands-in-hand-plot {
 	}
 }
 .plot-container {
-	padding: 20px;
+	padding: 10px;
 	margin-top: 20px;
 	margin-right: 20px;
 	flex: 1;
+	svg {
+		width: 100%;
+	}
 	&.rounds {
 		flex: 2;
+		@include tablet {
+			flex-basis: 100%;
+		}
+	}
+	@include desktop {
+		padding: 20px;
 	}
 
 		
@@ -67,11 +76,13 @@ lands-in-hand-plot {
 		@include material-shadow(1);
 		display: flex;
 		flex-direction: column;
-		align-items: center;
 		background-color: $color-paper;
 		.title {
-			padding: 20px 0;
+			padding: 5px 0;
 			@include material-h3;
+			@include desktop {
+				padding: 20px 0;
+			}
 		}
 	}
 	.additional-info-container {
@@ -90,10 +101,13 @@ lands-in-hand-plot {
 		flex-direction: column;
 		padding: 20px;
 		flex: 8;
-		
 		.title {
-			padding: 20px 0;
+			align-self: flex-start;
+			padding: 5px 0;
 			@include material-h3;
+			@include desktop {
+				padding: 20px 0;
+			}
 		}
 	}
 	.round-numbers-container {
@@ -114,12 +128,19 @@ lands-in-hand-plot {
 		display: flex;
 		flex-direction: row;
 		.combination {	
-			@include material-card;
+			@include flat-material-card;
 			flex-shrink: 0;
-			padding: 20px;
 			position: relative;
 			flex-direction: column;
 			flex: 1;
+			border-bottom: 1px solid $color-material-border;
+			flex-basis: 100%;
+			@include desktop {
+				flex-basis: auto;
+				@include material-card;
+				border: none;
+				padding: 20px;
+			}
 		}
 		.pairs-holder {
 			display: flex;
@@ -166,7 +187,7 @@ lands-in-hand-plot {
 			margin-top: 10px;
 			font: $font-style-normal;
 			font-size: 24pt;
-			text-align: center;
+			text-align: right;
 		}
 	}
 

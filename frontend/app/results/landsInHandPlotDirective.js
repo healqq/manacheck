@@ -55,8 +55,7 @@
             ];
             var svg = d3.select(element)
                 .append('svg')
-                .attr('width', graphWidth)
-                .attr('height', graphHeight)
+                .attr("viewBox", '0 0 ' + graphWidth + ' ' + graphHeight)
                 .append('g')
                 .attr('transform', 'translate(' + (graphWidth / 2) + ',' + (graphHeight / 2) + ')');
             var arc = d3.svg.arc()

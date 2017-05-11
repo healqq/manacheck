@@ -1,11 +1,14 @@
 .lands-wrapper {
 
-	margin: 40px;
+	margin: 10px;
 	$color-inactive-filter: #aaa;
 	$color-active-filter: #26596A;
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+	@include desktop {
+		margin: 40px;
+	}
 
 
 	.lands-container {
@@ -23,33 +26,47 @@
 		overflow: hidden;
 
 		.land-item {
-			@include material-card;
-			width: 180px;
-			height: 240px;
+			@include flat-material-card;
+			border-bottom: 1px solid $color-material-border;
+			width: 100%;
 			position: relative;
 			flex-direction: column-reverse;
 			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			// poisition
+			margin: 8px 4px 0 4px;
+			border-radius: 3px;
+			// fonts
+			font: $font-style-normal;
+			color: #000;
+			@include desktop {
+				width: 180px;
+				border: none;
+				@include material-card;
+			}
 	
 			.land-image-holder {
+				display: none;
 				flex: 125px 0 0;
-				/*flex: 135px 0 0;*/
 				overflow: hidden;
 				z-index: 1;
 				box-sizing: border-box;
 				order: 1;
+				@include desktop {
+					display: block;
+				}
 				
 			}
 			.land-image {
 				height: 135px;
 				position: relative;
-			    /*background-image: url(http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404499&type=card);*/
 			    background-position: -18px -36px;
 			    z-index: 1;
 			}
 			.tabs-holder {
 				flex: 1;
 				z-index: 3;
-				max-width: 200px;
 				.info-tab {
 				    flex-direction: column;
 				}
