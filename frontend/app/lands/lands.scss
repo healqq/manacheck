@@ -24,27 +24,19 @@
 		justify-content: center;
 		padding: 10px;
 		overflow: hidden;
-
+ 
 		.land-item {
 			@include flat-material-card;
 			border-bottom: 1px solid $color-material-border;
 			width: 100%;
-			position: relative;
-			flex-direction: column-reverse;
 			overflow: hidden;
-			display: flex;
-			flex-direction: column;
-			// poisition
-			margin: 8px 4px 0 4px;
-			border-radius: 3px;
-			// fonts
-			font: $font-style-normal;
-			color: #000;
 			@include desktop {
+				@include material-card;
 				width: 180px;
 				border: none;
-				@include material-card;
+				flex-direction: column-reverse;
 			}
+			
 	
 			.land-image-holder {
 				display: none;

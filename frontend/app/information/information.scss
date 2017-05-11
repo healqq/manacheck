@@ -103,9 +103,16 @@
 			align-items: center;
     		justify-content: center;
     		flex-wrap: wrap;
+			padding: 10px 0;
 		
 			.color-items {
 				@include color-items;
+				flex-wrap: wrap;
+				.color-item {
+					padding-bottom: 5px;
+					min-height: 35px;
+					min-width: 35px;
+				}
 			}
 		}
 	}
