@@ -1,3 +1,4 @@
+var result = {str: ''};
 (function(document, result) {
 	
 	var elements = document.getElementsByClassName('cardItem');
@@ -12,13 +13,6 @@
 		var names = splitNames(text);
 
 		result.str += [index, image, names[1], names[0] + '\n'].join(';');
-
-		// result.push({
-		// 	image: image,
-		// 	eng_name: names[1],
-		// 	rus_name: names[0]
-
-		// });
 		
 		function splitNames(str) {
 			var names = str.split('(');
@@ -29,4 +23,4 @@
 		}
 	})
 	console.log(result);
-})(document, result)
+})(document, result);

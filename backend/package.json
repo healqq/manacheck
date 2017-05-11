@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "test": "./node_modules/mocha/bin/mocha test --recursive"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -15,5 +16,9 @@
     "mongoose": "^4.4.2",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.3.0"
   }
 }

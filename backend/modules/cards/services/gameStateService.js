@@ -55,6 +55,10 @@ function gameStateService(deck, hand, field) {
 		return _Field.getBasicLandsCount() < 2;
 	}
 
+	function fastLandIsTapped() {
+		return _Field.getLandsCount() > 2;
+	}
+
 	function showLandIsTapped(landColors) {
 		function colorsMatch(colors, match) {
 			return colors.some(function(color) {
@@ -103,6 +107,7 @@ function gameStateService(deck, hand, field) {
 
 		battleLandIsTapped: battleLandIsTapped,
 		showLandIsTapped: showLandIsTapped,
+		fastLandIsTapped: fastLandIsTapped,
 
 		setSpellsType: setSpellsType,
 		getSpellsType: getSpellsType,

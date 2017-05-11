@@ -5,6 +5,7 @@ var BasicFetchLand = require(cardsModule + '/entities/BasicFetchLand.js');
 var TypeLand = require(cardsModule + '/entities/TypeLand.js');
 var LastRoundLand = require(cardsModule + '/entities/LastRoundLand.js');
 var ShowLand = require(cardsModule + '/entities/ShowLand.js');
+var FastLand = require(cardsModule + '/entities/FastLand.js');
 var LandsStorage = require(cardsModule + '/repositories/landsRepository.js');
 
 function landsFactory(gameState) {
@@ -46,6 +47,9 @@ function landsFactory(gameState) {
 					landContext.colors, 
 					_gameState);
 			break;
+			case 'fast':
+				land = new FastLand(id, landContext.colors, _gameState);
+			break;
 			default:
 				land = new Land(id, landContext.colors, landContext.tapped, landContext.type);
 			break;
@@ -56,9 +60,6 @@ function landsFactory(gameState) {
 	
 	return {
 		build: build,
-	}
+	};
 }
-
-
-
 module.exports = landsFactory;

@@ -6,7 +6,7 @@ var CardsService;
 describe("CardsService", function(){
     before(function (){
         unitTestHelper.setGlobalVars();
-        CardsService = require("../../modules/cards/services/CardsService.js");
+        CardsService = require("../../modules/cards/services/cardsService.js");
     });
 
 

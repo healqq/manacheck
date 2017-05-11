@@ -14,6 +14,10 @@ function fieldService() {
 		return basicLandsCount;
 	}
 
+	function getLandsCount() {
+		return field.length;
+	}
+
 	function addLand(land) {
 		field.push(land);
 		if (land.type === 'basic') {
@@ -129,7 +133,8 @@ function fieldService() {
 		setDeck: setDeck,
 		setHand: setHand,
 		getHash: getHash,
-		getBasicLandsCount: getBasicLandsCount
+		getBasicLandsCount: getBasicLandsCount,
+		getLandsCount: getLandsCount,
 	}
 }
 
