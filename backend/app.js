@@ -7,6 +7,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var ENV = require('./.env');
 
 /*routes settings*/
 var routesUrl = appRoot + '/routes';
@@ -19,6 +20,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.set('env', ENV.enviroment);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
