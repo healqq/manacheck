@@ -38,10 +38,6 @@
                 title: 'devoid',
                 value: 'devoid',
             },
-            {
-                title: 'dragons',
-                value: 'dragons'
-            }
         ];
         vm.cardsCountTypes = [{
                 title: '60',

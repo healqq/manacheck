@@ -57,7 +57,7 @@ module.exports = function (grunt) {
 		  	},
 			html: {
                 files: ['app/**/**.html'],
-                tasks: ['ngtemplates', 'htmlbuild'],
+                tasks: ['ngtemplates', 'htmlbuild:dev'],
             },
 		},
 		concat: {
@@ -129,6 +129,22 @@ module.exports = function (grunt) {
                 src: ['app/index.html'],
                 dest: DIST_PATH,
                 options: {
+					sections: {
+						layout: {
+							analytics: ['layouts/analytics.html'],
+						}
+					},
+                }
+            },
+			dev: {
+                src: ['app/index.html'],
+                dest: DIST_PATH,
+                options: {
+					sections: {
+						layout: {
+							analytics: ['nothing.html'],
+						}
+					},
                 }
             },
         },
@@ -161,5 +177,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask('build', 'build application', 
-		['clean', 'sass', 'concat', 'ngtemplates', 'svgstore', 'htmlbuild']);
+		['clean', 'sass', 'concat', 'ngtemplates', 'svgstore', 'htmlbuild:dev']);
+	grunt.registerTask('build-dist', 'build application', 
+		['clean', 'sass', 'concat', 'ngtemplates', 'svgstore', 'htmlbuild:dist']);
 }

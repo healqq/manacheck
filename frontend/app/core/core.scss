@@ -24,6 +24,12 @@ header {
 		flex: 300px 0;
 		background-color: $color-paper;
 		border-bottom: 1px solid $color-background;
+		text-transform: uppercase;
+		color: #000;
+		text-align: center;
+		line-height: 50px;
+		font-size: 20pt;
+		font-family: $font-family-roboto;
 	}
 	.header-block {
 		flex: 1;

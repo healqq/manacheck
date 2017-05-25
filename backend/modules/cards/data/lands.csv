@@ -31,7 +31,7 @@ Blighted Woodland,Other,,Land,C,other,Порченый Лес,Blighted Woodland,
 Crucible of the Spirit Dragon,Other,,Land,C,other,Горнило Духа Дракона,Crucible of the Spirit Dragon,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=393477&type=card,,,0,1
 Fertile Thicket,Other,T,Land,G,other,Плодородные Заросли,Fertile Thicket,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404570&type=card,,,,1
 Foundry of the Consuls,Other,,Land,C,other,Литейная Консулов,Foundry of the Consuls,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=401106&type=card,,,,1
-Haven of the Spirit Dragon,Other,,Land,C,other,Убежище Духа Дракона,Haven of the Spirit Dragon,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=396969&type=card,dragons,WURBGC,,1
+Haven of the Spirit Dragon,Other,,Land,C,other,Убежище Духа Дракона,Haven of the Spirit Dragon,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=396969&type=card,dragons,WURBGC,0,1
 Looming Spires,Other,T,Land,R,other,Нависающие Глыбы,Looming Spires,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404633&type=card,,,,1
 Mage-Ring Network,Other,,Land,C,other,Сеть Магических Колец,Mage-Ring Network,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=401026&type=card,,,,1
 Mortuary Mire,Other,T,Land,B,other,Трупная Трясина,Mortuary Mire,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404643&type=card,,,,1
@@ -81,21 +81,21 @@ Meandering River,Dual Tapland,T,Land,UW,dual,Извилистая Река,Meand
 Mountain,Basic land,,Land - Mountain,R,basic,Гора,Mountain,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404652&type=card,,,,1
 Plains,Basic land,,Land - Plains,W,basic,Равнина,Plains,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404685&type=card,,,,1
 Submerged Boneyard,Dual Tapland,T,Land,UB,dual,Затопленное Кладбище,Submerged Boneyard,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409362&type=card,,,,1
-Canyon Slough,Cycling land,T,Land,BR,dual,Топь в Каньоне,Canyon Slough,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429093&type=card,,,,1
-Fetid Pools,Cycling land,T,Land,UB,dual,Зловонные Озера,Fetid Pools,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429097&type=card,,,,1
-Irrigated Farmland,Cycling land,T,Land,UW,dual,Орошаемые Поля,Irrigated Farmland,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429099&type=card,,,,1
-Scattered Groves,Cycling land,T,Land,UG,dual,Разрозненные Рощи,Scattered Groves,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429101&type=card,,,,1
-Sheltered Thicket,Cycling land,T,Land,RG,dual,Укрытая Поросль,Sheltered Thicket,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429102&type=card,,,,1
+Canyon Slough,Cycling land,T,Land,BR,cycling,Топь в Каньоне,Canyon Slough,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429093&type=card,,,,1
+Fetid Pools,Cycling land,T,Land,UB,cycling,Зловонные Озера,Fetid Pools,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429097&type=card,,,,1
+Irrigated Farmland,Cycling land,T,Land,UW,cycling,Орошаемые Поля,Irrigated Farmland,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429099&type=card,,,,1
+Scattered Groves,Cycling land,T,Land,UG,cycling,Разрозненные Рощи,Scattered Groves,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429101&type=card,,,,1
+Sheltered Thicket,Cycling land,T,Land,RG,cycling,Укрытая Поросль,Sheltered Thicket,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429102&type=card,,,,1
 Swamp,Basic land,,Land - Swamp,B,basic,Болото,Swamp,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=404750&type=card,,,,1
 Timber Gorge,Dual Tapland,T,Land,RG,dual,Лесная Теснина,Timber Gorge,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409363&type=card,,,,1
 Stone Quarry,Dual Tapland,T,Land,RW,dual,Каменоломня,Stone Quarry,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429828&type=card,,,,1
 Tranquil Expanse,Dual Tapland,T,Land,WG,dual,Безмятежная Долина,Tranquil Expanse,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409364&type=card,,,,1
 Woodland Stream,Dual Tapland,T,Land,UG,dual,Лесной Ручей,Woodland Stream,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=413021&type=card,,,,1
-Blooming Marsh,Fast land,,Land,BG,dual,Цветущая Трясина,Blooming Marsh,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420192&type=card,,,,1
-Botanical Sanctum,Fast land,,Land,UG,dual,Растительное Святилище,Botanical Sanctum,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420193&type=card,,,,1
-Concealed Courtyard,Fast land,,Land,WB,dual,Закрытый Дворик,Concealed Courtyard,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420194&type=card,,,,1
-Inspiring Vantage,Fast land,,Land,WR,dual,Вдохновляющая Высота,Inspiring Vantage,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420195&type=card,,,,1
-Spirebluff Canal,Fast land,,Land,UR,dual,Путь Крутошпилья,Spirebluff Canal,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420198&type=card,,,,1
+Blooming Marsh,Fast land,,Land,BG,fast,Цветущая Трясина,Blooming Marsh,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420192&type=card,,,,1
+Botanical Sanctum,Fast land,,Land,UG,fast,Растительное Святилище,Botanical Sanctum,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420193&type=card,,,,1
+Concealed Courtyard,Fast land,,Land,WB,fast,Закрытый Дворик,Concealed Courtyard,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420194&type=card,,,,1
+Inspiring Vantage,Fast land,,Land,WR,fast,Вдохновляющая Высота,Inspiring Vantage,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420195&type=card,,,,1
+Spirebluff Canal,Fast land,,Land,UR,fast,Путь Крутошпилья,Spirebluff Canal,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420198&type=card,,,,1
 Aether Hub,Other,,Land,WURBGC,other,Эфирный Узел,Aether Hub,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420191&type=card,,,,1
 Cascading Cataracts,Other,,Land,C,other,Каскад Водопадов,Cascading Cataracts,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429094&type=card,,,0,1
 Cradle of the Accursed,Other,,Land,C,other,Колыбель Проклятых,Cradle of the Accursed,http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=429095&type=card,,,,1

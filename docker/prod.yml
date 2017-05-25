@@ -1,0 +1,11 @@
+version: '2'
+services:
+  # bower updater
+  bower_updater:
+    command: ["bin/bash","-c", "cd /var/www/manacheck/frontend \
+    && npm install \
+    && node_modules/bower/bin/bower install --allow-root \
+    && grunt build-dist"]
+  nginx:
+    ports:
+      - "80:80"

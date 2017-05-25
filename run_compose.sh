@@ -1,3 +1,3 @@
-docker-compose -f docker/dev.yml stop
-docker-compose -f docker/dev.yml build
-docker-compose -f docker/dev.yml up
+docker-compose -f docker/base.yml stop
+docker-compose -f docker/base.yml build
+docker-compose -f docker/base.yml up
