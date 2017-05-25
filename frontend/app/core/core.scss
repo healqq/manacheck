@@ -55,8 +55,10 @@ footer {
 		@include material-shadow(1);
 		background-color: $color-paper;
 		order: 1;
-		flex: 300px 0 0;
 		z-index: 2;
+		@include desktop {
+			flex: 300px 0 0;
+		}
 		
 	}
 	.content {
