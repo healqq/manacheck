@@ -61,13 +61,6 @@ lands-in-hand-plot {
 	@include desktop {
 		padding: 20px;
 	}
-
-		
-
-	&.symbols,
-	&.lands {
-		/**/
-	}
 }
 .results-container {
 	display: flex;
@@ -89,8 +82,11 @@ lands-in-hand-plot {
 		margin: 20px 20px 40px 40px;
 		display: flex;
 		align-items: stretch;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: space-between;
+		@include desktop {
+			flex-direction: row;
+		}
 	}
 	.lands-combinations-container,
 	.round-numbers-container {
