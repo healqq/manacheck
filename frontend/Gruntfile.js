@@ -36,7 +36,7 @@ module.exports = function (grunt) {
 	 	sass:{
 			dist:{
 				options:{
-	                sourcemap: 'file',
+	                sourcemap: 'none',
 				},
 				files: {
 					'dist/css/app.css': 'scss/app.scss',
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
 		},
 		concat: {
 			options: {
-                sourceMap: true,
+                sourceMap: false,
             },
 			jsSrc: {
                 options: {
