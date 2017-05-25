@@ -27,8 +27,6 @@
 		border-bottom: 1px solid $color-material-border;
 	}
 	.lands-container {
-		display: flex;
-		flex-direction: column;
 		.land-item {
 			/*border-bottom: 1px solid #ddd;*/
 			display: flex;
@@ -95,8 +93,6 @@
 		}
 	}
 	.colors-container {
-		display: flex;
-		flex-direction: column;
 		.colors-items-wrapper{
 			display: flex;
 			flex-direction: row;
@@ -119,7 +115,6 @@
 	.types-container,
 	.cards-number-container {
 		@include material-select;
-		
 	}
 	.action-container {
 		display: flex;

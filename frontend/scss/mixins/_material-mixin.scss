@@ -220,9 +220,8 @@
 @mixin material-select {
 	font: $font-style-normal;
 	color: $color-subtext;
-	display: flex;
-	flex-direction: column;
 	.select-block {
+		display: block;
 		margin-top: 10px;
 		position: relative;
 		align-self: flex-start;
