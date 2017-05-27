@@ -1,0 +1,37 @@
+.promo-section__wrap {
+    padding: 10px;
+}
+.promo-section {
+    @include material-shadow(1);
+    background-color: $color-paper;
+    margin: 10px;
+    padding: 30px;
+}
+.promo-section__header {
+    @include material-h3;
+}
+
+.steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+}
+.steps__step { 
+    @include material-shadow(1);
+    background-color: $color-paper;
+    margin: 10px;
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.steps__step-header {
+    @include material-h3;
+}
+.steps__step-action {
+    @include material-raised-button($color-accent);
+    text-decoration: none;
+    text-align: center;
+    align-self: flex-end;
+}

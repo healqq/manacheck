@@ -4,7 +4,7 @@ services:
   data:
     image: debian:jessie
     volumes:
-      - ../:/var/www/manacheck
+      - /share/manacheck:/var/www/manacheck
 
   #webserver container
   expressjs:

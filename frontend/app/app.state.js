@@ -23,7 +23,7 @@
                         controller: 'informationController'
                     },
                     main: {
-                        templateUrl: "core/core.html",
+                        templateUrl: "promo/promo.html",
                     }
                 }
             })
