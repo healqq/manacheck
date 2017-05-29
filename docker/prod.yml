@@ -1,13 +1,18 @@
 version: '2'
 services:
+  #data container
+  data:
+    image: debian:jessie
+    volumes:
+      - ../:/var/www/manacheck
   # bower updater
   bower_updater:
     command: ["bin/bash","-c", "cd /var/www/manacheck/frontend \
     && npm install \
     && node_modules/bower/bin/bower install --allow-root \
     && grunt build-dist"]
-  nginx:
-    ports:
-      - "80:80"
+  #nginx:
+    #ports:
+      # - "8080:80"
   expressjs:
     command: ["bin/bash","-c", "cd /var/www/manacheck/backend && npm install && node bin/www"]
