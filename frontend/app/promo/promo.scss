@@ -13,9 +13,12 @@
 
 .steps {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-content: space-between;
+    @include desktop {
+        flex-direction: row;
+    }
 }
 .steps__step { 
     @include material-shadow(1);
@@ -26,6 +29,9 @@
     display: flex;
     flex-direction: column;
 }
+.steps__step-content {
+    flex: 1;
+}
 .steps__step-header {
     @include material-h3;
 }
@@ -34,4 +40,9 @@
     text-decoration: none;
     text-align: center;
     align-self: flex-end;
+}
+.steps__step-list,
+.promo-section__list
+ {
+     @include material-list;
 }

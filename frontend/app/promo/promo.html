@@ -1,31 +1,45 @@
 <div ui-view="container">
     <div class='promo-section__wrap'>
         <section class='promo-section'>
-            <header class='promo-section__header'>What is manacheck</header> 
-            <p class='promo-section__contents'>
+            <div class='promo-section__contents'>
+                <header class='promo-section__header'>What is manacheck</header>
+                <p>
                 Manacheck is a service for Magic:the Gathering, that helps you to create a perfect manabase for your deck.
                 It emulates first rounds of the game 1000 times trying to obdain given combination of colors. It tries to figure best order
                 of lands that will achieve goal as fast as possible. It doesn't cheat, all information it has based on given hand and given manabase,
                 each turn he gets one card, like in a real game.
-            </p>
+                </p>
+            </div>
+            <div class='promo-section__contents'>
+                <header class='promo-section__header'>Simulation rules</header>
+                <ul class='promo-section__list'>
+                    <li>Mulligan, if hand has more than 5 cards and lands count is more than 5 or less than 2</li>
+                    <li>Deck size is 60 or 40, may be changed in left tab</li>
+                    <li>You may select "type", so lands giving some types of mana for 
+                        spells of the choosen type will provide it correctly</li>
+                    <li>If a land needs some kind of recource(life, artifact in play, etc) assume, 
+                        that condition is satisfied</li>
+                </ul>
+            </div>
         </section>
         <section class='steps'>
             <div class='steps__step'>
                 <header class='steps__step-header'>Fill your manabase</header> 
                 <div class='steps__step-content'>
-                    <p>
-                        Fill your manabase 
-                    </p>
+                    <ul class='steps__step-list'>
+                        <li>Select at least 15 lands on lands tab</li>
+                        <li>Similar lands count restricted to a maximum of 4, with exeption for basic lands</li>
+                    </ul>
                 </div>
                 <a ui-sref="Base.Lands" class='steps__step-action'>fill</a>
             </div>
             <div class='steps__step'>
                 <header class='steps__step-header'>Select mana combination</header> 
                 <div class='steps__step-content'>
-                    <p>
-                    Select mana combination
-                    </p> 
-                    
+                    <ul class='steps__step-list'>
+                        <li>Select any mana combination (at least one mana symbol)</li>
+                        <li>You'll get an error if your manabase can't provide given mana combination</li>
+                    </ul> 
                 </div>
                 <a ui-sref="Base.Colors" class='steps__step-action'>select</a>
             </div>
@@ -33,10 +47,12 @@
                 <header class='steps__step-header'>Get a result</header> 
                 <div class='steps__step-content'>
                     <p>
-                    Get a result
+                    Get some stats about your manabase/combination pair, 
+                    including number of mulligans and most common hands.
+                    Click example to see how it looks.
                     </p>
-                    <a ui-sref="Base.Colors" class='steps__step-action'>example</a>
                 </div>
+                <a ui-sref="Base.Colors" class='steps__step-action'>example</a>
             </div>
         </div>
     </div>

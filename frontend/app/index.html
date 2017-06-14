@@ -15,17 +15,25 @@
   <!-- /build -->
 </head>
 
-<body>
+<body ng-controller="bodyController as bodyCtrl" ng-style="bodyCtrl.bodyStyle">
   <header class='main-header'>
     <a class='logo-block' ng-href='/'>
         manacheck
     </a>
     <div class='header-block'>
+      <button class='header-block__menu' 
+        ng-click='bodyCtrl.toggleMenu()'
+        ng-class='{"header-block__menu--open": bodyCtrl.isMenuOpen}'>
+        <i class="material-icons">{{bodyCtrl.isMenuOpen ? 'close' : 'menu'}}</i>
+      </button>
     </div>
   </header>
 
   <div class='container'>
-    <div ui-view="side" class='side-panel'>
+    <div class="side-panel-wrapper" ng-show='bodyCtrl.isMenuOpen'
+        ng-click='bodyCtrl.toggleMenu()'>
+          <div ui-view="side" class='side-panel' ng-click='$event.stopPropagation()'>
+          </div>
     </div>
     <div ui-view="main" class='content'>
     </div>

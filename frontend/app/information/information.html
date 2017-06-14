@@ -5,14 +5,12 @@
 				Lands ({{llCtrl._lands.count}}) 
 			</h3>
 			<div class='actions'>
-				<div ui-sref='Base.Lands'>
-					<!-- <i class="material-icons">&#xE150;</i> -->
+				<div ui-sref='Base.Lands' ng-click='bodyCtrl.toggleMenu()'>
 					<span class='action-text'>
 						edit
 					</span>
 				</div>
 				<div href='' ng-click='llCtrl.clearLands()'>
-					<!-- <i class="material-icons">&#xE14C;</i> -->
 					<span class='action-text'>
 						clear
 					</span>
@@ -45,7 +43,7 @@
 				Colors ({{chCtrl.colors.count}}) 
 			</h3>
 			<div class='actions'>
-				<div ui-sref='Base.Colors'>
+				<div ui-sref='Base.Colors' ng-click='bodyCtrl.toggleMenu()'>
 					<!-- <i class="material-icons">&#xE150;</i> -->
 					<span class='action-text'>
 						edit
@@ -108,7 +106,7 @@
 	</div>
 	<div class='action-container'>
 		<button class='action-btn' 
-			ng-click='!infoCtrl.isComputing && infoCtrl.submitData()'
+			ng-click='!infoCtrl.isComputing && (infoCtrl.submitData() || bodyCtrl.toggleMenu())'
 			ng-disabled='infoCtrl.canCompute()'>
 			<i class="material-icons" ng-class='{rotate: infoCtrl.isComputing}'>
 			{{infoCtrl.isComputing?'&#xE863;':'&#xE5CA;'}}</i>

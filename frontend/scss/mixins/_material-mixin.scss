@@ -291,3 +291,12 @@
     	text-transform: uppercase;
     }
 }
+
+@mixin material-list {
+	list-style: none;
+	padding-left: 0;
+	color: $color-text;
+	li {
+		padding: 8px;
+	}
+}
