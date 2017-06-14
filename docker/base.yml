@@ -3,8 +3,6 @@ services:
   #data container
   data:
     image: debian:jessie
-    volumes:
-      - /share/manacheck:/var/www/manacheck
 
   #webserver container
   expressjs:
@@ -31,5 +29,3 @@ services:
       - expressjs
     volumes_from:
       - data:ro
-    ports:
-      - "8080:80"
