@@ -13,7 +13,7 @@ describe("CardsService", function(){
     describe(".play()", function() {
         it("should return state 422", function(){
         	var colors = [{color: 'red', value:2},{color: 'green', value: 2}];
-        	var lands  = [59,59,59,59,59,59,59,59,59,59,59,59];
+        	var lands  = [74,74,74,74,74,74,74,74,74,74,74,74,];
 
         	var cs = new CardsService();
         	cs.setLands(lands);
@@ -89,33 +89,35 @@ describe("CardsService", function(){
             expect(playResult.data.mulligans.from6).to.exist;
 
         })
+        /**
+         * This test runs with fetch lands, and those are disabled currently
+         */
+        // it("should correctly work with fetchlands", function() {
+        //     var colors = [
+        //         {"color":"red","value":1},
+        //         {"color":"green","value":1},
+        //         {"color":"blue","value":1},
+        //         {"color":"white","value":1},
+        //         {"color":"black","value":1},
+        //         {"color":"colorless","value":1} 
+        //     ];
+        //     var lands  = [7,7,7,7,55,56,57,58,59,54,75,77,79,81,
+        //         83,24,25,26,27,28,29,32,33,35,37];
 
-        it("should correctly work with fetchlands", function() {
-            var colors = [
-                {"color":"red","value":1},
-                {"color":"green","value":1},
-                {"color":"blue","value":1},
-                {"color":"white","value":1},
-                {"color":"black","value":1},
-                {"color":"colorless","value":1} 
-            ];
-            var lands  = [7,7,7,7,55,56,57,58,59,54,75,77,79,81,
-                83,24,25,26,27,28,29,32,33,35,37];
-
-            var cs = new CardsService();
-            cs.setLands(lands);
-            cs.setColors(colors);
-            cs.setGenericMana(0);
-            cs.setCardsCount(60);
-            var playResult = cs.play();
-            //console.log(playResult);
-            expect(playResult.status).equal(undefined);
-            expect(playResult.data.rounds.length).equal(1000);
-            expect(playResult.data.hashes).instanceof(Object);
-            expect(playResult.data.mulligans).instanceof(Object);
-            expect(playResult.data.mulligans.from7).to.exist;
-            expect(playResult.data.mulligans.from6).to.exist;
-        })
+        //     var cs = new CardsService();
+        //     cs.setLands(lands);
+        //     cs.setColors(colors);
+        //     cs.setGenericMana(0);
+        //     cs.setCardsCount(60);
+        //     var playResult = cs.play();
+        //     //console.log(playResult);
+        //     expect(playResult.status).equal(undefined);
+        //     expect(playResult.data.rounds.length).equal(1000);
+        //     expect(playResult.data.hashes).instanceof(Object);
+        //     expect(playResult.data.mulligans).instanceof(Object);
+        //     expect(playResult.data.mulligans.from7).to.exist;
+        //     expect(playResult.data.mulligans.from6).to.exist;
+        // })
 
 
     });
