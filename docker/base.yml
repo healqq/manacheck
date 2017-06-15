@@ -9,6 +9,8 @@ services:
     build: expressjs
     volumes_from:
       - data:rw
+    depends_on:
+      - mongodb
     ports:
       - "3000"
 

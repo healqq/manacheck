@@ -17,7 +17,14 @@ services:
   nginx:
     ports:
       - "80:80"
-      
+  
+  #mongodb container
+  # on production should use host system folder
+  mongodb:
+    image: mongo:3.4
+    volumes:
+      - ../mnt:/data/db
+
   # express js
   expressjs:
     command: ["bin/bash","-c", "cd /var/www/manacheck/backend && npm install && node bin/www"]
