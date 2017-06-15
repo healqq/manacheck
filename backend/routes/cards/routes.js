@@ -72,7 +72,7 @@ router.post('/play', function(req, res, next) {
 
 router.get('/result/:id', function(req, response, next) {
 	Result.find({"_id": req.params.id}, function(err, result) {
-		if (err) {
+		if (err || (Array.isArray(result) && result.length === 0)) {
 			sendResponse(response, {}, 404);
 		}
 		else {
