@@ -220,6 +220,10 @@
 @mixin material-select {
 	font: $font-style-normal;
 	color: $color-subtext;
+	.select-container {
+		display: inline-flex;
+    	position: relative;
+	}
 	.select-block {
 		display: block;
 		margin-top: 10px;

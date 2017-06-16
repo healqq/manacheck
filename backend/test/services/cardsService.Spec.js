@@ -1,3 +1,7 @@
+/**
+ * it's more like an integration test
+ * land ids should be correct for it to work
+ */
 var unitTestHelper = require("../util/unitTestHelper.js");
 
 var expect = require("chai").expect;

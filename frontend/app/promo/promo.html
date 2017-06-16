@@ -5,19 +5,18 @@
                 <header class='promo-section__header'>What is manacheck</header>
                 <p>
                 Manacheck is a service for Magic:the Gathering, that helps you to create a perfect manabase for your deck.
-                It emulates first rounds of the game 1000 times trying to obdain given combination of colors. It tries to figure best order
-                of lands that will achieve goal as fast as possible. It doesn't cheat, all information it has based on given hand and given manabase,
-                each turn he gets one card, like in a real game.
+                It emulates first rounds of the game 1000 times trying to obtain given combination of colors. It tries to figure best order
+                of lands that will achieve goal as fast as possible. You can share result simply providing the link.
                 </p>
             </div>
             <div class='promo-section__contents'>
                 <header class='promo-section__header'>Simulation rules</header>
                 <ul class='promo-section__list'>
-                    <li>Mulligan, if hand has more than 5 cards and lands count is more than 5 or less than 2</li>
+                    <li>Mulligan, if hand has only one land or more than five lands and hand size is more than 5</li>
                     <li>Deck size is 60 or 40, may be changed in left tab</li>
-                    <li>You may select "type", so lands giving some types of mana for 
-                        spells of the choosen type will provide it correctly</li>
-                    <li>If a land needs some kind of recource(life, artifact in play, etc) assume, 
+                    <li>You may select "type" of spells, so lands giving some types of mana for 
+                        spells of the chosen type will provide it correctly</li>
+                    <li>If a land needs some kind of resource (life, artifact in play, etc) assume, 
                         that condition is satisfied</li>
                 </ul>
             </div>
@@ -28,7 +27,7 @@
                 <div class='steps__step-content'>
                     <ul class='steps__step-list'>
                         <li>Select at least 15 lands on lands tab</li>
-                        <li>Similar lands count restricted to a maximum of 4, with exeption for basic lands</li>
+                        <li>Similar lands count restricted to a maximum of 4, with exception for basic lands</li>
                     </ul>
                 </div>
                 <a ui-sref="Base.Lands" class='steps__step-action'>fill</a>
@@ -50,11 +49,12 @@
                     Get some stats about your manabase/combination pair, 
                     including number of mulligans and most common hands.
                     Click example to see how it looks.
+                    Share result with anyone providing the link.
                     </p>
                 </div>
                 <a ui-sref="Base.Results({id: '5942ac3c454d81000f79f5ca'})" class='steps__step-action'>example</a>
             </div>
-        </div>
+        </section>
     </div>
     
 </div>
