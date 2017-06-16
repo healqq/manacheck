@@ -75,7 +75,7 @@
                 .then(
                     function (data) {
 
-                        $state.go('^.Results', {
+                        $state.go('Base.Results', {
                             isDataReady: true,
                             resultData: {
                                 rounds: data.rounds,
@@ -92,7 +92,7 @@
                     },
                     function (error) {
                         vm.isComputing = false;
-                        $state.go('^.Errors', {
+                        $state.go('Base.Errors', {
                             data: error.data,
                             type: "invalid"
                         });
