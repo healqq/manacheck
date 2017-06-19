@@ -21,7 +21,7 @@
         $rootScope.$on('$stateChangeSuccess', onSuccess);
         function onSuccess() {
             if ($window.ga) {
-                $window.ga('send', 'pageview');
+                $window.ga('send', 'pageview', $window.location.pathname);
             }
         }
     }
