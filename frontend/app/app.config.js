@@ -18,7 +18,7 @@
 
     gaConfig.$inject = ['$window', '$rootScope'];
     function gaConfig($window, $rootScope) {
-        $rootScope.$on('$stateChangeSuccess', onSuccess);
+        $rootScope.$on('$locationChangeSuccess', onSuccess);
         function onSuccess() {
             if ($window.ga) {
                 $window.ga('send', 'pageview', $window.location.pathname);
