@@ -16,7 +16,7 @@
             }
         });
 
-        function calculate(params) {
+        function calculate(params){
             return (new serviceResource(params)).$calculate();
         }
 
