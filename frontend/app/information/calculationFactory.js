@@ -17,7 +17,6 @@
         });
 
         function calculate(params) {
-            var foo;
             return (new serviceResource(params)).$calculate();
         }
 
